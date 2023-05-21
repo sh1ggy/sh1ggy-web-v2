@@ -1,0 +1,12 @@
+main {
+    background-color: theme("colors.page");
+}
+h1 {
+  font-family: Signika;
+}
+h2,h3 {
+  font-family: Comic Mono;
+}
+p {
+  font-family: Ubuntu
+}
