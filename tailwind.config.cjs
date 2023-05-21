@@ -7,6 +7,7 @@ module.exports = {
 			'accent': '#fbb874',
 			'body': '#FDF6E3',
 			'link': '#72B5CB',
+			'container': '#484D59',
 			'page': '#55607b',
 			'card': '#353A47'
 		},

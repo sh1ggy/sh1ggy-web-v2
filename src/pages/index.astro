@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import About from "../components/About.jsx"
+import About from "../components/About.jsx";
+import Experience from "../components/Experience.jsx";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -9,20 +10,24 @@ import About from "../components/About.jsx"
 			<img class="object-contain w-24" src="../wlogo.svg" />
 		</div>
 		<main class="flex flex-col justify-center items-center h-full">
-			<About client:load/>
+			<About client:load />
+			<Experience client:visible />
 		</main>
 	</div>
 </Layout>
 
 <style>
-  main {
-    background-color: theme("colors.page");
+	main {
+		background-color: theme("colors.page");
 	}
-  h1 {
-    font-family: Signika;
+	h1 {
+		font-family: Signika;
 	}
-  h2,h3 {
-    font-family: Comic Mono;
+	h2,
+	h3 {
+		font-family: Comic Mono;
+	}
+	p {
+		background-color: theme("colors.body");
 	}
 </style>
-
