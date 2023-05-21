@@ -2,7 +2,21 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		colors: {
+			'primary': '#a0c99e',
+			'accent': '#fbb874',
+			'body': '#FDF6E3',
+			'link': '#72B5CB',
+			'page': '#55607b',
+			'card': '#353A47'
+		},
+		extend: {
+			backgroundColor: '#55607b',
+			fontFamily: {
+				signika: ['Signika'],
+			}
+		},
 	},
+
 	plugins: [],
 }
