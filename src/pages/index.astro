@@ -5,13 +5,19 @@ import Experience from "../components/Experience.jsx";
 ---
 
 <Layout title="Welcome to Astro.">
-	<div class="flex flex-col h-screen">
-		<div class="flex w-full items-center rounded-b-2xl p-6 bg-card">
+	<div class="flex flex-col h-screen lg:w-screen">
+		<div class="flex lg:w-screen w-[100%] items-center rounded-b-2xl p-6 bg-card">
 			<img class="object-contain w-24" src="../wlogo.svg" />
 		</div>
-		<main class="flex flex-col justify-center items-center h-full">
-			<About client:load />
-			<Experience client:visible />
+		<main class="flex flex-col justify-center items-center">
+			<div class="snap-proximity snap-y">
+				<div class="snap-center shrink-0">
+					<About client:load />
+				</div>
+				<div class="snap-center shrink-0">
+					<Experience client:visible />
+				</div>
+			</div>
 		</main>
 	</div>
 </Layout>

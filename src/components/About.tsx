@@ -8,11 +8,11 @@ export default function About() {
 
       {/* TITLE */}
       {!showBio &&
-        <div className="flex flex-col space-y-6 rounded-2xl p-10 h-4/6 justify-center mx-36">
+        <div className="flex flex-col space-y-6 rounded-2xl p-10 h-screen min-h-full justify-center">
           <div className="flex flex-row space-x-6">
-            <h1 className="text-primary text-9xl">sh</h1>
-            <img className="h-32" src="../placeholder.svg" />
-            <h1 className="text-primary text-9xl">ggy</h1>
+            <h1 className="text-primary text-3xl lg:text-8xl">sh</h1>
+            <img className="lg:h-24 h-12" src="../placeholder.svg" />
+            <h1 className="text-primary text-3xl lg:text-8xl">ggy</h1>
           </div>
           <h2 className="text-[#AAC6BA] text-2xl">Tyrone Nolasco</h2>
           <h3 className="text-[#D9EAD8] text-sm">programming / documentation / design</h3>
@@ -28,7 +28,7 @@ export default function About() {
 
       {/* BIO */}
       {showBio &&
-        <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 h-full justify-center mx-36">
+        <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 min-h-full justify-center">
           <div className="flex-0 justify-start items-start">
             <p className="text-sm text-primary">Hi! My name is...</p>
           </div>
