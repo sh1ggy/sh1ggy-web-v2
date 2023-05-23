@@ -4,6 +4,7 @@ export default function Contact() {
   return (
     <div className="flex flex-col space-y-12 flex-wrap rounded-2xl p-10 h-screen justify-center items-center select-none">
       <h1 className="text-primary text-md lg:text-6xl mr-3">Contact Me</h1>
+      <p className="text-body">Feel free to reach out to me directly if you're interested in connecting, collaborating, or discussing potential opportunities</p>
       <div className="flex flex-col space-y-6 w-full">
         <div className="flex flex-row bg-card rounded-lg">
           <div className="rounded-l-lg p-6 w-32 bg-card text-primary">

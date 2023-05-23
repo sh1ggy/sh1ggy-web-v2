@@ -9,6 +9,12 @@ export default function Experience() {
           [
             "Responsible for engaging with internal Sonic IT teams & external vendors via thorough communication to assist with incident resolution and management of critical incidents.",
             "Maintenance of case-by-case incident documentation and team-wide knowledge articles as a part of a collaborative effort to document the support process for 30+ different pieces of software.",
+          ],
+        tags:
+          [
+            "Incident management",
+            "Troubleshooting skills",
+            "MySQL"
           ]
       },
       {
@@ -17,6 +23,12 @@ export default function Experience() {
           [
             "Managed and developed PHP-based Learning Management System website using Moodle & SQL that aimed to increase staff and student productivity.",
             "Mentored cohorts of 2 - 3 IT interns every 4 months in basic IT troubleshooting, social media design and LMS maintenance skills in addition to teaching essential communication skills.",
+          ],
+        tags:
+          [
+            "SMM",
+            "Adaptability",
+            "MySQL"
           ]
       },
     ]
@@ -31,9 +43,9 @@ export default function Experience() {
         </div>
 
         <div className="flex flex-col">
-          <div className="bg-primary text-right p-2 pr-6 rounded-t-lg">{selectedJob}</div>
-          <div className="flex flex-row bg-[#838383] rounded-b-lg">
-            <div className="flex flex-col rounded-br-lg text-body">
+          <div className="bg-[#919bb3] text-right p-2 pr-6 rounded-t-lg">{selectedJob}</div>
+          <div className="flex flex-row bg-[#484D59] rounded-b-lg">
+            <div className="flex flex-col text-body">
               {JOBS
                 .map((b, i) => ({ b, i }))
                 .filter(({ b, i }) => b.jobName != selectedJob)
@@ -42,7 +54,7 @@ export default function Experience() {
                     <button
                       key={i}
                       onClick={() => setSelectedJob(b.jobName)}
-                      className="bg-page pr-24 pl-6 py-3 whitespace-nowrap text-left w-30">{b.jobName}</button>
+                      className="bg-page pr-24 pl-6 py-3 whitespace-nowrap rounded-r-lg shadow-sm text-left lg:w-56">{b.jobName}</button>
                   )
                 })
               }
@@ -52,10 +64,17 @@ export default function Experience() {
                 {JOBS
                   .map((b) => (b))
                   .filter((b) => b.jobName == selectedJob)
-                  .map((b) => b.bio)
-                  .map((d) => d)[0]
+                  .map((b) => (b.bio))[0]
                   .map((d, i) => (<li key={i} className="text-body">{d}</li>))
                 }
+                <div className="flex flex-row flex-0 justify-center m-3 space-x-3">
+                  {JOBS
+                    .map((b) => (b))
+                    .filter((b) => b.jobName == selectedJob)
+                    .map((b) => (b.tags))[0]
+                    .map((d, i) => (<div key={i} className="text-body cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-lg p-2">{d}</div>))
+                  }
+                </div>
               </ul>
             </div>
           </div>
