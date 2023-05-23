@@ -2,23 +2,27 @@
 import Layout from "../layouts/Layout.astro";
 import About from "../components/About.jsx";
 import Experience from "../components/Experience.jsx";
+import Skills from "../components/Skills";
 ---
 
 <Layout title="Welcome to Astro.">
-	<div class="flex flex-col h-screen lg:w-screen">
-		<div class="flex lg:w-screen w-[100%] items-center rounded-b-2xl p-6 bg-card">
+	<div class="flex flex-col lg:h-screen lg:w-auto overflow-none">
+		<div class="flex items-center rounded-b-2xl p-6 bg-card">
 			<img class="object-contain w-24" src="../wlogo.svg" />
 		</div>
 		<main class="flex flex-col justify-center items-center">
-			<div class="snap-proximity snap-y">
-				<div class="snap-center shrink-0">
+			<section class="container space-y-12 snap-mandatory snap-y">
+				<div class="snap-start">
 					<About client:load />
 				</div>
-				<div class="snap-center shrink-0">
+				<div class="snap-start">
 					<Experience client:visible />
 				</div>
+				<div class="snap-start">
+					<Skills client:visible />
+				</div>
 			</div>
-		</main>
+		</section>
 	</div>
 </Layout>
 
