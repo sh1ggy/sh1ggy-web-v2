@@ -1,5 +1,6 @@
 import { useState } from "react"
 import '../styles.css'
+// import * from "three";
 
 export default function About() {
   const [showBio, setShowBio] = useState(false);
@@ -8,27 +9,30 @@ export default function About() {
 
       {/* TITLE */}
       {!showBio &&
-        <div className="flex flex-col space-y-6 rounded-2xl p-10 h-4/6 justify-center mx-36">
+        <div className="flex flex-col space-y-6 rounded-2xl p-10 h-screen min-h-full justify-center select-none">
           <div className="flex flex-row space-x-6">
-            <h1 className="text-primary text-9xl">sh</h1>
-            <img className="h-32" src="../placeholder.svg" />
-            <h1 className="text-primary text-9xl">ggy</h1>
+            <h1 className="text-primary text-3xl lg:text-8xl">sh</h1>
+            <img className="lg:h-24 h-12" src="../placeholder.svg" />
+            <h1 className="text-primary text-3xl lg:text-8xl">ggy</h1>
           </div>
           <h2 className="text-[#AAC6BA] text-2xl">Tyrone Nolasco</h2>
           <h3 className="text-[#D9EAD8] text-sm">programming / documentation / design</h3>
-          <div className="flex flex-row space-x-3">
+          <div className="flex flex-row space-x-5">
             <button
               onClick={() => setShowBio(!showBio)}
-              className="w-2/3 bg-accent text-card text-xs rounded-3xl px-3 py-2"
+              className="w-2/3 bg-accent text-card text-xs rounded-3xl px-3 py-2 hover:scale-110 transition-transform"
             >about me</button>
-            <button className="w-1/3 bg-card text-link text-xs rounded-3xl px-3 py-2">resume.pdf</button>
+            <button
+              className="w-1/3 bg-card text-link text-xs rounded-3xl px-3 py-2 hover:scale-110 transition-transform"
+              onClick={() => window.open('../resume.pdf')}
+            >resume.pdf</button>
           </div>
         </div>
       }
 
       {/* BIO */}
       {showBio &&
-        <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 h-full justify-center mx-36">
+        <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 h-screen justify-center">
           <div className="flex-0 justify-start items-start">
             <p className="text-sm text-primary">Hi! My name is...</p>
           </div>
@@ -40,7 +44,7 @@ export default function About() {
             </p><br />
             <p className="text-accent text-center">I am open to new opportunities at the moment.</p>
           </div>
-          <button 
+          <button
             onClick={() => setShowBio(!showBio)}
             className="bg-page text-body text-xs rounded-3xl px-3 py-2">back
           </button>
