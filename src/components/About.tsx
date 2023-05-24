@@ -5,11 +5,11 @@ import '../styles.css'
 export default function About() {
   const [showBio, setShowBio] = useState(false);
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center lg:h-screen h-[calc(100dvh)] flex-grow justify-center">
 
       {/* TITLE */}
       {!showBio &&
-        <div className="flex flex-col space-y-6 rounded-2xl p-10 h-screen min-h-full justify-center select-none">
+        <div className="flex flex-col space-y-6 rounded-2xl p-10  justify-center select-none">
           <div className="flex flex-row space-x-6">
             <h1 className="text-primary text-3xl lg:text-8xl">sh</h1>
             <img className="lg:h-24 h-12" src="../placeholder.svg" />

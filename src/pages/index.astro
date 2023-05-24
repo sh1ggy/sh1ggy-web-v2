@@ -12,6 +12,7 @@ import Contact from "../components/Contact";
 		<div class="flex items-center rounded-b-2xl p-6 bg-card sticky top-0 w-full shadow-lg">
 			<img class="object-contain w-24" src="../wlogo.svg" />
 		</div>
+		<!-- SOCIALS -->
 		<div class="flex flex-col bottom-0 fixed mb-6 space-y-3 rounded-lg p-6">
 			<a href="https://www.github.com/sh1ggy" class="hover:scale-90 transition-transform">
 				<img class="object-contain w-12" src="../github.svg" />
@@ -21,12 +22,12 @@ import Contact from "../components/Contact";
 			</a>
 		</div>
 		<main class="flex flex-col justify-center items-center">
-			<section class="container space-y-96 snap-mandatory snap-y">
+			<section class="container space-y-96 sm:space-y-[100vh] snap-mandatory snap-y">
 				<div class="snap-center">
 					<About client:load />
 				</div>
 				<div class="snap-center">
-					<Experience client:visible />
+					<Experience client:only />
 				</div>
 				<div class="snap-center">
 					<Skills client:visible />
