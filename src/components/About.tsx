@@ -6,10 +6,9 @@ export default function About() {
   const [showBio, setShowBio] = useState(false);
   return (
     <div className="flex flex-col items-center lg:h-screen h-[calc(100dvh)] flex-grow justify-center">
-
       {/* TITLE */}
       {!showBio &&
-        <div className="flex flex-col space-y-6 rounded-2xl p-10  justify-center select-none">
+        <div className="flex flex-col space-y-6 rounded-2xl p-10 justify-center select-none">
           <div className="flex flex-row space-x-6">
             <h1 className="text-primary text-3xl lg:text-8xl">sh</h1>
             <img className="lg:h-24 h-12" src="../placeholder.svg" />
@@ -32,7 +31,7 @@ export default function About() {
 
       {/* BIO */}
       {showBio &&
-        <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 h-screen justify-center">
+        <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 transition-all justify-center">
           <div className="flex-0 justify-start items-start">
             <p className="text-sm text-primary">Hi! My name is...</p>
           </div>
