@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Experience() {
   const JOBS =
@@ -37,6 +37,19 @@ export default function Experience() {
       },
     ]
   const [selectedJob, setSelectedJob] = useState<string>(JOBS[0].jobName);
+  // const [width, setWidth] = useState<number>(window.innerWidth);
+  // function handleWindowSizeChange() {
+  //   setWidth(window.innerWidth);
+  // }
+  // useEffect(() => {
+  //   window.addEventListener('resize', handleWindowSizeChange);
+  //   return () => {
+  //     window.removeEventListener('resize', handleWindowSizeChange);
+  //   }
+  // }, []);
+  // const isMobile = width <= 768;
+
+
   return (
     <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 justify-center items-center">
       <div className="flex flex-col justify-center items-center">
@@ -56,7 +69,6 @@ export default function Experience() {
                 .filter(({ b, i }) => b.jobName == selectedJob).map(({ b, i }) => (b.date))
               }
             </p>
-
           </div>
 
           <div className="flex flex-row bg-[#484D59] rounded-b-lg">
