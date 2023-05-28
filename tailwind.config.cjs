@@ -18,6 +18,11 @@ module.exports = {
 			}
 		},
 	},
+	variants: {
+		extend: {
+			display: ["group-hover"],
+		},
+	},
 	plugins: [require("daisyui")],
 	daisyui: {
 		themes: [
