@@ -4,6 +4,58 @@ export default function Hackathons() {
   const HACKATHONS =
     [
       {
+        hack: "keyDOTboard",
+        date: "22-04-2023",
+        event: "Arduino 2023 Hackathon",
+        desc: "RFID card password manager with auto-login",
+        eventLink: "https://events.humanitix.com/arduino-hackathon-2023",
+        repo: "https://github.com/sh1ggy/keyDOTboard",
+        tags:
+          [
+            "Tauri",
+            "NextJS",
+            "ESP32",
+          ],
+      },
+      {
+        hack: "NAKL",
+        date: "26-08-2022",
+        event: "UQCS 2022 Hackathon",
+        desc: "P2P chat & file transfer app & website",
+        eventLink: "https://uqcs.org/competitions/hackathon-2022/",
+        repo: "https://github.com/ProPablo/naklw",
+        tags:
+          [
+            "React",
+            "React Native",
+          ],
+      },
+      {
+        hack: "simIO",
+        date: "15-07-2022",
+        event: "CN 2022 Hackathon",
+        desc: "Wildlife management sim and card game hybrid",
+        eventLink: "https://www.eventbrite.com.au/e/winter-hackathon-2022-tickets-373983062407",
+        repo: "https://github.com/ProPablo/simio",
+        tags:
+          [
+            "Unity",
+          ],
+      },
+      {
+        hack: "Forget me BOT",
+        date: "08-04-2022",
+        event: "Arduino 2022 Hackathon",
+        desc: "Reminder Arduino bot with companion app",
+        eventLink: "https://www.eventbrite.com.au/e/arduino-hackathon-tickets-41459224657#",
+        repo: "https://github.com/sh1ggy/reminder-app",
+        tags:
+          [
+            "React Native",
+            "Arduino",
+          ],
+      },
+      {
         hack: "Bingo Butler",
         date: "12-09-2021",
         event: "UQCS 2021 Hackathon",
@@ -69,7 +121,7 @@ export default function Hackathons() {
       },
     ]
   return (
-    <div className="flex flex-col space-y-6 items-center justify-center p-10">
+    <div className="flex flex-col space-y-6 items-center justify-center p-10 pb-96">
       <div className="flex flex-col items-center justify-center space-y-6">
         <div className="flex space-x-3">
           <h1 className="text-primary text-3xl lg:text-6xl">Other Pr</h1>
@@ -79,7 +131,7 @@ export default function Hackathons() {
         <div className="text-accent cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-lg p-2">Count: {HACKATHONS.length}</div>
         <p className="text-body text-center">Whenever I get the chance to, I love participating in hackathons and it's definitely contributed a lot to my passion for programming and built my desire to continue working on projects I am passionate about.</p>
       </div>
-      <div className="lg:grid lg:grid-cols-3 gap-3 sm:flex sm:flex-col rounded-2xl relative">
+      <div className="lg:grid lg:grid-cols-3 gap-3 sm:flex sm:flex-col rounded-2xl relative sm:mb-96">
         {HACKATHONS
           .map((h) => (
             <div className="bg-card shadow-md p-6 rounded-md justify-center items-end hover:scale-95 transition-transform">
