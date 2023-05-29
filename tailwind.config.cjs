@@ -18,6 +18,24 @@ module.exports = {
 			}
 		},
 	},
+	variants: {
+		extend: {
+			display: ["group-hover"],
+		},
+	},
+	plugins: [require("daisyui")],
+	daisyui: {
+		themes: [
+			{
+				'dark':
+				{
+					"primary": "#a0c99e",
+					"accent": "#fbb874",
+					"backgroundColor": '#55607b',
 
-	plugins: [],
+				}
+			},
+			'light',
+		]
+	}
 }

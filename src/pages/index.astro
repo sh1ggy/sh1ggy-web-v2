@@ -3,32 +3,45 @@ import Layout from "../layouts/Layout.astro";
 import About from "../components/About.jsx";
 import Experience from "../components/Experience.jsx";
 import Skills from "../components/Skills";
+import Contact from "../components/Contact";
+import Projects from "../components/Projects";
+import Hackathons from "../components/Hackathons";
 ---
 
-<Layout title="Welcome to Astro.">
-	<div class="flex flex-col lg:h-screen lg:w-auto overflow-none">
+<Layout title="sh1ggy-web">
+	<div class="flex flex-col lg:h-screen lg:w-auto overflow-y">
 		<!-- NAVBAR -->
 		<div class="flex items-center rounded-b-2xl p-6 bg-card sticky top-0 w-full shadow-lg">
 			<img class="object-contain w-24" src="../wlogo.svg" />
 		</div>
-		<div class="flex flex-col bottom-0 fixed mb-6 space-y-3 rounded-lg p-6">
-			<a href="http://www.github.com/sh1ggy" class="hover:scale-90 transition-transform">
+		<!-- SOCIALS -->
+		<div class="flex flex-col bottom-0 fixed mb-6 space-y-3 rounded-lg p-6 z-10">
+			<a href="https://www.github.com/sh1ggy" class="hover:scale-90 transition-transform focus:outline-none">
 				<img class="object-contain w-12" src="../github.svg" />
 			</a>
-			<a href="https://www.linkedin.com/in/tyrone-nolasco/" class="hover:scale-90 transition-transform">
+			<a href="https://www.linkedin.com/in/tyrone-nolasco/" class="hover:scale-90 transition-transform focus:outline-none">
 				<img class="object-contain w-12" src="../linkedin.svg" />
 			</a>
 		</div>
 		<main class="flex flex-col justify-center items-center">
-			<section class="container space-y-12 snap-mandatory snap-y">
-				<div class="snap-center">
+			<section class="container space-y-96 sm:space-y-[100vh] snap-mandatory snap-y">
+				<div class="snap-start">
 					<About client:load />
 				</div>
-				<div class="snap-start">
-					<Experience client:visible />
+				<div class="snap-center">
+					<Experience client:only />
+				</div>
+				<div class="snap-center">
+					<Projects client:only />
 				</div>
 				<div class="snap-start">
+					<Hackathons client:only />
+				</div>
+				<div class="snap-center">
 					<Skills client:visible />
+				</div>
+				<div class="snap-end">
+					<Contact client:visible />
 				</div>
 			</div>
 		</section>
@@ -37,7 +50,8 @@ import Skills from "../components/Skills";
 
 <style>
 	html {
-		scroll-snap-type: y mandatory
+		scroll-snap-type: y mandatory;
+		scroll-behavior: smooth;
 	}
 	main {
 		background-color: theme("colors.page");
@@ -51,5 +65,6 @@ import Skills from "../components/Skills";
 	}
 	p {
 		background-color: theme("colors.body");
+		font-family: Ubuntu;
 	}
 </style>
