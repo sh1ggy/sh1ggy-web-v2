@@ -37,21 +37,10 @@ export default function Experience() {
       },
     ]
   const [selectedJob, setSelectedJob] = useState<string>(JOBS[0].jobName);
-  // const [width, setWidth] = useState<number>(window.innerWidth);
-  // function handleWindowSizeChange() {
-  //   setWidth(window.innerWidth);
-  // }
-  // useEffect(() => {
-  //   window.addEventListener('resize', handleWindowSizeChange);
-  //   return () => {
-  //     window.removeEventListener('resize', handleWindowSizeChange);
-  //   }
-  // }, []);
-  // const isMobile = width <= 768;
-
 
   return (
     <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 justify-center items-center">
+
       <div className="flex flex-col justify-center items-center">
         <div className="flex flex-row items-center space-x-3 mb-12">
           <h1 className="text-primary text-3xl lg:text-6xl">Exper</h1>
@@ -59,8 +48,32 @@ export default function Experience() {
           <h1 className="text-primary text-3xl lg:text-6xl">ence</h1>
           <p className="text-body text-right">Most of my most recent job experience has been in the IT Support space, with a focus on documentation, communication and adaptability.</p>
         </div>
-
-        <div className="flex flex-col mb-12">
+        <div>
+          {JOBS
+            .map((j, i) => (
+              <div className="collapse bg-[#484D59] rounded-xl transition-transform">
+                <input type="checkbox" />
+                <div className="collapse-title font-medium bg-page rounded-xl">
+                  {j.jobName}
+                  <p className="italic">{j.date}</p>
+                </div>
+                <div className="collapse-content">
+                  <div className="flex flex-col lg:flex-row justify-center lg:bottom-0 lg:inset-x-0 space-x-3">
+                    <div className="flex flex-col rounded-br-lg justify-center">
+                      <ul className="lg:relative list-disc pl-12 p-8">
+                        {j.bio.map((b, i) => (<li key={i} className="text-body break-inside-auto">{b}</li>))}
+                      </ul>
+                      <div className="flex flex-row items-center justify-center">
+                        {j.tags.map((t, i) => (<div key={i} className="text-body cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-lg p-2">{t}</div>))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        {/* <div className="flex flex-col mb-12">
           <div className="lg:flex lg:flex-col bg-[#919bb3] text-card text-right p-2 pr-6 rounded-t-lg">
             <strong>{selectedJob}</strong>
             <p className="italic">
@@ -105,7 +118,7 @@ export default function Experience() {
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )
