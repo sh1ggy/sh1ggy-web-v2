@@ -12,7 +12,7 @@ export default function Projects() {
             "React Admin",
             "React Native"
           ],
-        imagePath: "../public/rm.png",
+        imagePath: "../rm.png",
         repo: "https://github.com/ProPablo/rm_dashboard"
       },
       {
@@ -23,7 +23,7 @@ export default function Projects() {
             "TypeScript",
             "NextJS",
           ],
-        imagePath: "../public/nakl.png",
+        imagePath: "../nakl.png",
         repo: "https://github.com/ProPablo/nakl"
       },
       {
@@ -35,7 +35,7 @@ export default function Projects() {
             "TypeScript",
             "Arduino"
           ],
-        imagePath: "../public/nakl.png",
+        imagePath: "../nakl.png",
         repo: "https://github.com/sh1ggy/keyDOTboard",
       },
     ]
