@@ -28,7 +28,6 @@ export default function Skills() {
         }
       </div>
       <div className="flex flex-col justify-center items-center">
-        <h1 className="text-primary text-md lg:text-4xl mb-6">Soft Skills</h1>
         <div className="lg:flex lg:flex-row lg:flex-wrap grid grid-cols-2 justify-center items-center">
           {SOFT_SKILLS
             .map((s) => (
