@@ -35,24 +35,24 @@ import Hackathons from "../components/Hackathons";
 		</div>
 		<main class="flex flex-col justify-center items-center flex-grow">
 			<section
-				class="container space-y-96 sm:space-y-[100vh] snap-mandatory snap-y"
+				class="container space-y-96  snap-mandatory snap-y"
 			>
-				<div class="snap-start">
+				<div class="lg:snap-start">
 					<About client:load />
 				</div>
-				<div class="snap-center">
+				<div class="lg:snap-center">
 					<Experience client:only />
 				</div>
-				<div class="snap-center">
+				<div class="lg:snap-center">
 					<Projects client:only />
 				</div>
-				<div class="snap-start">
+				<div class="lg:snap-start">
 					<Hackathons client:only />
 				</div>
-				<div class="snap-center">
+				<div class="lg:snap-center">
 					<Skills client:visible />
 				</div>
-				<div class="snap-end">
+				<div class="lg:snap-end">
 					<Contact client:visible />
 				</div>
 			</section>

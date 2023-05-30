@@ -7,34 +7,29 @@ export default function Experience() {
       {
         jobName: "Systems Support @ Sonic IT",
         date: "May 2022 - Current",
-        bio:
-          [
-            "Engagement with internal teams & external vendors for critical incident management and resolution.",
-            "Maintenance of team-wide knowledge articles as a part of a collaborative effort to document the support process for 30+ different pieces of software.",
-            "Responsible for troubleshooting medical software supported by Sonic IT to resolve tickets raised by medical sites across Australia, achieving an average of 6+ ticket resolutions per day.",
-          ],
+        bio: "Responsible for incident management that involves troubleshooting medical software supported by Sonic IT to resolve tickets raised by medical sites across Australia.",
         tags:
           [
+            "MySQL",
             "Incident management",
-            "Troubleshooting skills",
-            "MySQL"
+            "Troubleshooting",
+            "Documentation",
+            "Multitasking",
           ],
         imagePath: "../sonic.svg"
       },
       {
         jobName: "IT Supervisor & SM Designer @ Wings Education",
         date: "August 2021 - May 2022",
-        bio:
-          [
-            "Managed and developed PHP-based Learning Management System website using Moodle & SQL that aimed to increase staff and student productivity.",
-            "Mentored cohorts of 2 - 3 IT interns every 4 months in basic IT troubleshooting, social media design and LMS maintenance skills in addition to teaching essential communication skills.",
-            "Composed major pieces of internal company documentation that the company still uses today.",
-          ],
+        bio: "Led development on an LMS using Moodle (PHP) & SQL, managed company social media platforms and posts as well as composed major pieces of internal documentation.",
         tags:
           [
-            "SMM",
+            "MySQL",
+            "PHP",
+            "Design",
+            "Training",
+            "Project management",
             "Adaptability",
-            "MySQL"
           ],
         imagePath: "../wings.svg"
       },
@@ -42,22 +37,23 @@ export default function Experience() {
   const [selectedJob, setSelectedJob] = useState<string>(JOBS[0].jobName);
 
   return (
-    <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 justify-center items-center">
-
+    <div className=" flex flex-col space-y-6 rounded-2xl p-10 justify-center items-center">
       <div className="flex flex-col justify-center items-center">
-        <div className="flex flex-row items-center space-x-3 mb-12">
-          <h1 className="text-primary text-3xl lg:text-6xl">Exper</h1>
-          <img className="lg:h-16 h-12" src="../placeholder.svg" />
-          <h1 className="text-primary text-3xl lg:text-6xl">ence</h1>
-          <p className="text-body text-right">Most of my most recent job experience has been in the IT Support space, with a focus on documentation, communication and adaptability.</p>
+        <div className="flex flex-col lg:flex-row mb-12 items-center lg:space-x-10">
+          <div className="flex space-x-3">
+            <h1 className="text-primary text-3xl lg:text-6xl">Exper</h1>
+            <img className="lg:h-16 h-12" src="../placeholder.svg" />
+            <h1 className="text-primary text-3xl lg:text-6xl">ence</h1>
+          </div>
+          <p className="text-body lg:text-right text-center">Most of my most recent job experience has been in the IT Support space, with a focus on documentation, communication and adaptability.</p>
         </div>
         {/* Expandable Jobs */}
         <div className="space-y-3">
           {JOBS
             .map((j, i) => (
-              <div key={i} className='collapse collapse-arrow bg-[#484D59] rounded-xl w-full items-center justify-center transition-transform'>
+              <div key={i} className='collapse collapse-arrow bg-[#484D59] shadow-xl rounded-xl lg:w-full items-center justify-center transition-transform'>
                 <input type="checkbox" />
-                <div className="collapse-title font-medium flex flex-row bg-page rounded-xl">
+                <div className="collapse-title font-medium flex flex-row bg-card shadow-sm rounded-xl">
                   <p>{j.jobName}</p>
                   <p className="ml-auto">{j.date}</p>
                 </div>
@@ -66,7 +62,7 @@ export default function Experience() {
                     <div className="flex flex-col rounded-br-lg justify-center">
                       <div className="flex">
                         <ul className="lg:relative list-disc pl-12 p-8">
-                          {j.bio.map((b, i) => (<li key={i} className="text-body break-inside-auto">{b}</li>))}
+                          {j.bio}
                         </ul>
                         <img src={j.imagePath} />
                       </div>
