@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
+import sonic from "../sonic.svg"
 
 export default function Experience() {
   const JOBS =
     [
       {
-        jobName: "Sonic IT",
+        jobName: "Systems Support @ Sonic IT",
         date: "May 2022 - Current",
         bio:
           [
@@ -17,10 +18,11 @@ export default function Experience() {
             "Incident management",
             "Troubleshooting skills",
             "MySQL"
-          ]
+          ],
+        imagePath: "../sonic.svg"
       },
       {
-        jobName: "Wings Education",
+        jobName: "IT Supervisor & SM Designer @ Wings Education",
         date: "August 2021 - May 2022",
         bio:
           [
@@ -33,7 +35,8 @@ export default function Experience() {
             "SMM",
             "Adaptability",
             "MySQL"
-          ]
+          ],
+        imagePath: "../wings.svg"
       },
     ]
   const [selectedJob, setSelectedJob] = useState<string>(JOBS[0].jobName);
@@ -48,23 +51,27 @@ export default function Experience() {
           <h1 className="text-primary text-3xl lg:text-6xl">ence</h1>
           <p className="text-body text-right">Most of my most recent job experience has been in the IT Support space, with a focus on documentation, communication and adaptability.</p>
         </div>
-        <div>
+        {/* Expandable Jobs */}
+        <div className="space-y-3">
           {JOBS
             .map((j, i) => (
-              <div className="collapse bg-[#484D59] rounded-xl transition-transform">
+              <div key={i} className='collapse collapse-arrow bg-[#484D59] rounded-xl w-full items-center justify-center transition-transform'>
                 <input type="checkbox" />
-                <div className="collapse-title font-medium bg-page rounded-xl">
-                  {j.jobName}
-                  <p className="italic">{j.date}</p>
+                <div className="collapse-title font-medium flex flex-row bg-page rounded-xl">
+                  <p>{j.jobName}</p>
+                  <p className="ml-auto">{j.date}</p>
                 </div>
                 <div className="collapse-content">
-                  <div className="flex flex-col lg:flex-row justify-center lg:bottom-0 lg:inset-x-0 space-x-3">
+                  <div className="flex flex-col lg:flex-row justify-center items-center h-full lg:bottom-0 lg:inset-x-0 space-x-3">
                     <div className="flex flex-col rounded-br-lg justify-center">
-                      <ul className="lg:relative list-disc pl-12 p-8">
-                        {j.bio.map((b, i) => (<li key={i} className="text-body break-inside-auto">{b}</li>))}
-                      </ul>
-                      <div className="flex flex-row items-center justify-center">
-                        {j.tags.map((t, i) => (<div key={i} className="text-body cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-lg p-2">{t}</div>))}
+                      <div className="flex">
+                        <ul className="lg:relative list-disc pl-12 p-8">
+                          {j.bio.map((b, i) => (<li key={i} className="text-body break-inside-auto">{b}</li>))}
+                        </ul>
+                        <img src={j.imagePath} />
+                      </div>
+                      <div className="flex flex-row items-center space-x-3 justify-center">
+                        {j.tags.map((t, i) => (<div key={i} className="text-body cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-xl p-2">{t}</div>))}
                       </div>
                     </div>
                   </div>
@@ -73,6 +80,7 @@ export default function Experience() {
             ))
           }
         </div>
+
         {/* <div className="flex flex-col mb-12">
           <div className="lg:flex lg:flex-col bg-[#919bb3] text-card text-right p-2 pr-6 rounded-t-lg">
             <strong>{selectedJob}</strong>
