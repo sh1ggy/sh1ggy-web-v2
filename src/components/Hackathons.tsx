@@ -137,17 +137,17 @@ export default function Hackathons() {
             <div className="bg-card shadow-md p-6 rounded-md justify-center items-end hover:scale-95 transition-transform">
               <div className="flex flex-row">
                 <div className="flex flex-col w-full">
-                  <a href={h.eventLink} className="flex hover:text-link transition-colors items-center">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{h.event}</h3>
-                    {/* <img src="../link.svg" className="h-10 w-10"/> */}
-                  </a>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><strong>{h.hack}</strong></h3>
                   <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{h.date}</time>
                 </div>
                 <a href={h.repo} className="hover:text-link hover:scale-110 transition-transform">
-                  <img src="../github.svg" className="h-10 w-10 ml-auto"/>
+                  <img src="../github.svg" className="h-10 w-10 ml-auto" />
                 </a>
               </div>
-              <p className="text-md font-semibold text-gray-900 dark:text-white"><strong>{h.hack}</strong></p>
+              <a href={h.eventLink} className="flex hover:text-link space-x-1 transition-colors items-center">
+                <img src="../bluelink.svg" className="h-5 w-5"/>
+                <p className="text-md font-semibold text-gray-900 dark:text-white">{h.event}</p>
+              </a>
               <p className="text-body mb-2 font-normal text-gray-500 dark:text-gray-400 break-words">{h.desc}</p>
               <div className="flex flex-row flex-0 space-x-3 justify-end">
                 {h.tags.map((t) => (
