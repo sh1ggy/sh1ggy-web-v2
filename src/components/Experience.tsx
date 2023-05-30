@@ -80,53 +80,6 @@ export default function Experience() {
             ))
           }
         </div>
-
-        {/* <div className="flex flex-col mb-12">
-          <div className="lg:flex lg:flex-col bg-[#919bb3] text-card text-right p-2 pr-6 rounded-t-lg">
-            <strong>{selectedJob}</strong>
-            <p className="italic">
-              {JOBS
-                .map((b, i) => ({ b, i }))
-                .filter(({ b, i }) => b.jobName == selectedJob).map(({ b, i }) => (b.date))
-              }
-            </p>
-          </div>
-
-          <div className="flex flex-row bg-[#484D59] rounded-b-lg">
-            <div className="flex flex-col text-body lg:w-auto">
-              {JOBS
-                .map((b, i) => ({ b, i }))
-                .filter(({ b, i }) => b.jobName != selectedJob)
-                .map(({ b, i }) => {
-                  return (
-                    <button
-                      key={i}
-                      onClick={() => setSelectedJob(b.jobName)}
-                      className="bg-page pr-24 pl-6 py-3 whitespace-nowrap rounded-r-lg shadow-sm text-left lg:w-56">{b.jobName}</button>
-                  )
-                })
-              }
-            </div>
-            <div className="flex rounded-br-lg justify-center">
-              <ul className="lg:relative list-disc pl-12 p-8">
-                {JOBS
-                  .map((b) => (b))
-                  .filter((b) => b.jobName == selectedJob)
-                  .map((b) => (b.bio))[0]
-                  .map((d, i) => (<li key={i} className="text-body break-inside-auto">{d}</li>))
-                }
-                <div className="flex flex-col lg:flex-row justify-center lg:bottom-0 lg:inset-x-0 space-x-3 mt-6">
-                  {JOBS
-                    .map((b) => (b))
-                    .filter((b) => b.jobName == selectedJob)
-                    .map((b) => (b.tags))[0]
-                    .map((d, i) => (<div key={i} className="text-body cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-lg p-2">{d}</div>))
-                  }
-                </div>
-              </ul>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   )
