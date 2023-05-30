@@ -11,40 +11,58 @@ import Hackathons from "../components/Hackathons";
 <Layout title="sh1ggy-web">
 	<div class="flex flex-col lg:h-screen lg:w-auto overflow-y">
 		<!-- NAVBAR -->
-		<div class="flex items-center rounded-b-2xl p-6 bg-card sticky top-0 w-full shadow-lg z-10">
+		<header
+			class="flex items-center rounded-b-2xl p-6 bg-card sticky top-0 w-full z-50"
+		>
 			<img class="object-contain w-24" src="../wlogo.svg" />
-		</div>
+		</header>
 		<!-- SOCIALS -->
-		<div class="flex flex-col bottom-0 fixed mb-6 space-y-3 rounded-lg p-6 z-10">
-			<a href="https://www.github.com/sh1ggy" class="hover:scale-90 transition-transform focus:outline-none">
+		<div
+			class="flex flex-col bottom-0 fixed mb-6 space-y-3 rounded-lg p-6 z-10"
+		>
+			<a
+				href="https://www.github.com/sh1ggy"
+				class="hover:scale-90 transition-transform focus:outline-none"
+			>
 				<img class="object-contain w-12" src="../github.svg" />
 			</a>
-			<a href="https://www.linkedin.com/in/tyrone-nolasco/" class="hover:scale-90 transition-transform focus:outline-none">
+			<a
+				href="https://www.linkedin.com/in/tyrone-nolasco/"
+				class="hover:scale-90 transition-transform focus:outline-none"
+			>
 				<img class="object-contain w-12" src="../linkedin.svg" />
 			</a>
 		</div>
-		<main class="flex flex-col justify-center items-center">
-			<section class="container space-y-96 sm:space-y-[100vh] snap-mandatory snap-y">
-				<div class="snap-start">
+		<main class="flex flex-col justify-center items-center flex-grow">
+			<section
+				class="container space-y-96  snap-mandatory snap-y"
+			>
+				<div class="lg:snap-start">
 					<About client:load />
 				</div>
-				<div class="snap-center">
+				<div class="lg:snap-center">
 					<Experience client:only />
 				</div>
-				<div class="snap-center">
+				<div class="lg:snap-center">
 					<Projects client:only />
 				</div>
-				<div class="snap-start">
+				<div class="lg:snap-start">
 					<Hackathons client:only />
 				</div>
-				<div class="snap-center">
+				<div class="lg:snap-center">
 					<Skills client:visible />
 				</div>
-				<div class="snap-end">
+				<div class="lg:snap-end">
 					<Contact client:visible />
 				</div>
-			</div>
-		</section>
+			</section>
+		</main>
+		<!-- FOOTER -->
+		<footer
+			class="flex items-center rounded-t-xl p-6 bg-card w-full shadow-lg justify-center"
+		>
+		<p class="text-body bg-card">{"Designed & Built with <3 by Tyrone Nolasco"}</p>
+		</footer>
 	</div>
 </Layout>
 
@@ -52,6 +70,26 @@ import Hackathons from "../components/Hackathons";
 	html {
 		scroll-snap-type: y mandatory;
 		scroll-behavior: smooth;
+	}
+	header::before {
+		content: "";
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: -100vh;
+		background-color: theme("colors.card");
+		z-index: 101;
+	}
+	footer::after {
+		content: "";
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: theme("colors.card");
+		z-index: -1;
 	}
 	main {
 		background-color: theme("colors.page");

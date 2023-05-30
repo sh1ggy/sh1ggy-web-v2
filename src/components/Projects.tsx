@@ -28,7 +28,7 @@ export default function Projects() {
       },
       {
         jobName: "keyDOTboard",
-        desc: "An RFID card password manager",
+        desc: "An RFID card password manager using an ESP32 with auto-login made as a part of the 2023 Arduino Hackathon",
         tags:
           [
             "Tauri",
@@ -55,12 +55,12 @@ export default function Projects() {
             <div id={`item${i}`} className="carousel-item w-full">
               <div className="bg-card flex flex-col space-y-6 p-10 justify-center items-center">
                 <h1 className="text-body text-3xl lg:text-4xl">{p.jobName}</h1>
+                <p className="text-body text-center">{p.desc}</p>
                 <div className="flex flex-row space-x-3">
                   {p.tags.map((t) => (
                     <div className="text-body cursor-default hover:bg-[#565b68] transition-colors bg-[#55607B] rounded-lg p-2">{t}</div>
                   ))}
                 </div>
-                <p className="text-body text-center">{p.desc}</p>
                 <a href={p.repo} className="opacity-70 hover:opacity-90 transition-opacity relative z-0 group">
                   <div className="group absolute inset-0 flex justify-center items-center z-10 opacity-50 rounded-3xl">
                     <img className="h-10 w-10 hover:visible" src="../link.svg" />
