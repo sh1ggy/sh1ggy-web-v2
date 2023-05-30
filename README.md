@@ -1,55 +1,30 @@
-# Astro Starter Kit: Basics
+# Porfolio Website Revamp
 
-```
-npm create astro@latest -- --template basics
-```
+![sh1ggy](https://img.shields.io/badge/sh1ggy-darkblue?style=plastic) ![Year](https://img.shields.io/badge/Year-2023-red?style=plastic) ![Language](https://img.shields.io/badge/TypeScript-grey?style=plastic&logo=typescript) ![Framework](https://img.shields.io/badge/Astro-grey?style=plastic&logo=astro)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+This website was designed by me and acts as a programming portfolio, showcasing my professional experience, projects as well as showcasing any other noteworthy projects. This is a revamp of my original website & blog [sh1ggy-web](https://github.com/sh1ggy/sh1ggy-web) as my front-end skills have improved.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The website itself is still currently a work in progress. 
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+## Getting Started
+
+This is a [Astro](https://astro.build/) project bootstrapped with [`npm create astro@latest`](https://docs.astro.build/en/getting-started/).
 
 
-## 🚀 Project Structure
+- Run the development server:
 
-Inside of your Astro project, you'll see the following folders and files:
+	```bash
+	pnpm dev
+	```
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- Open [http://localhost:3000](http://localhost:3000)
+- Before pushing to master and deploying to Vercel run the following command:
+	```bash
+	npm run build 
+	```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Libraries
+- [TailwindCSS](https://tailwindcss.com/), utility-based CSS framework
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- [GitHub Calendar](https://github.com/Bloggify/github-calendar), a library to display my GitHub activity as a web component. 
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
