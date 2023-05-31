@@ -131,7 +131,7 @@ export default function Hackathons() {
         <div className="text-accent cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-lg p-2">Count: {HACKATHONS.length}</div>
         <p className="text-body text-center">Whenever I get the chance to, I love participating in hackathons and it's definitely contributed a lot to my passion for programming and built my desire to continue working on projects I am passionate about.</p>
       </div>
-      <div className="lg:grid lg:grid-cols-3 gap-3 sm:flex sm:flex-col rounded-2xl relative sm:mb-96">
+      <div className="lg:grid lg:grid-cols-3 gap-3 lg:space-y-0 space-y-3 flex flex-col rounded-2xl relative sm:mb-96">
         {HACKATHONS
           .map((h) => (
             <div className="bg-card shadow-md p-6 rounded-md justify-center items-end hover:scale-95 transition-transform">

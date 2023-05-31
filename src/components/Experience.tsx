@@ -5,7 +5,9 @@ export default function Experience() {
   const JOBS =
     [
       {
-        jobName: "Systems Support @ Sonic IT",
+        roleName: "Systems Support",
+        company: "Sonic IT",
+        location: "Brisbane CBD",
         date: "May 2022 - Current",
         bio: "Responsible for incident management that involves troubleshooting medical software supported by Sonic IT to resolve tickets raised by medical sites across Australia.",
         tags:
@@ -19,7 +21,9 @@ export default function Experience() {
         imagePath: "../sonic.svg"
       },
       {
-        jobName: "IT Supervisor & SM Designer @ Wings Education",
+        roleName: "IT Supervisor & SM Designer",
+        company: "Wings Education",
+        location: "Fortitude Valley",
         date: "August 2021 - May 2022",
         bio: "Led development on an LMS using Moodle (PHP) & SQL, managed company social media platforms and posts as well as composed major pieces of internal documentation.",
         tags:
@@ -28,17 +32,15 @@ export default function Experience() {
             "PHP",
             "Design",
             "Training",
-            "Project management",
-            "Adaptability",
           ],
         imagePath: "../wings.svg"
       },
     ]
-  const [selectedJob, setSelectedJob] = useState<string>(JOBS[0].jobName);
+  // const [selectedJob, setSelectedJob] = useState<string>(JOBS[0].jobName);
 
   return (
-    <div className=" flex flex-col space-y-6 rounded-2xl p-10 justify-center items-center">
-      <div className="flex flex-col justify-center items-center">
+    <div className=" flex flex-col space-y-6 rounded-2xl p-10">
+      <div className="flex flex-col w-full">
         <div className="flex flex-col lg:flex-row mb-12 items-center lg:space-x-10">
           <div className="flex space-x-3">
             <h1 className="text-primary text-3xl lg:text-6xl">Exper</h1>
@@ -51,10 +53,10 @@ export default function Experience() {
         <div className="space-y-3">
           {JOBS
             .map((j, i) => (
-              <div key={i} className='collapse collapse-arrow bg-[#484D59] shadow-xl rounded-xl lg:w-full items-center justify-center transition-transform'>
+              <div key={i} className='collapse collapse-arrow bg-[#484D59] shadow-xl rounded-xl transition-transform'>
                 <input type="checkbox" />
                 <div className="collapse-title font-medium flex flex-row bg-card shadow-sm rounded-xl">
-                  <p>{j.jobName}</p>
+                  <p>{j.roleName} <strong>@ {j.company}</strong></p>
                   <p className="ml-auto">{j.date}</p>
                 </div>
                 <div className="collapse-content">
@@ -66,8 +68,8 @@ export default function Experience() {
                         </ul>
                         <img src={j.imagePath} />
                       </div>
-                      <div className="flex flex-row items-center space-x-3 justify-center">
-                        {j.tags.map((t, i) => (<div key={i} className="text-body cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-xl p-2">{t}</div>))}
+                      <div className="lg:flex lg:flex-row grid grid-cols-2 gap-3 items-center lg:space-x-3 justify-center">
+                        {j.tags.map((t, i) => (<div key={i} className="text-body cursor-default hover:bg-[#565b68] flex items-center justify-center text-center transition-colors bg-card h-full rounded-xl p-2">{t}</div>))}
                       </div>
                     </div>
                   </div>

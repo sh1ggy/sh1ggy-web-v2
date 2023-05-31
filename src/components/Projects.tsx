@@ -41,7 +41,7 @@ export default function Projects() {
     ]
   return (
     <div className="flex flex-col items-center lg:h-full h-[calc(100dvh)] justify-center">
-      <div className="flex flex-col justify-center items-center p-3 rounded-t-xl space-y-6 bg-[#353840]">
+      <div className="flex flex-col justify-center items-center p-3 rounded-t-xl space-y-6 w-full bg-[#353840]">
         <div className="flex flex-row items-center space-x-3">
           <h1 className="text-primary text-3xl lg:text-6xl">Featured Pr</h1>
           <img className="lg:h-16 h-12" src="../placeholder.svg" />
@@ -49,7 +49,7 @@ export default function Projects() {
         </div>
         <p className="text-body text-center">With 3 years of web development experience my skill level is currently junior to intermediate level as I balance my personal up-skilling with full-time work in IT support.</p>
       </div>
-      <div className="carousel rounded-b-lg shadow-inner w-[100%]">
+      <div className="carousel rounded-b-lg shadow-inner w-full">
         {PROJECTS
           .map((p, i) => (
             <div id={`item${i}`} className="carousel-item w-full">
@@ -58,7 +58,7 @@ export default function Projects() {
                 <p className="text-body text-center">{p.desc}</p>
                 <div className="flex flex-row space-x-3">
                   {p.tags.map((t) => (
-                    <div className="text-body cursor-default hover:bg-[#565b68] transition-colors bg-[#55607B] rounded-lg p-2">{t}</div>
+                    <div className="text-body flex items-center justify-center text-center cursor-default hover:bg-[#565b68] transition-colors bg-[#55607B] rounded-lg p-2">{t}</div>
                   ))}
                 </div>
                 <a href={p.repo} className="opacity-70 hover:opacity-90 transition-opacity relative z-0 group">

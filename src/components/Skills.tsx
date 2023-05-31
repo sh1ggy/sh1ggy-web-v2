@@ -19,8 +19,8 @@ export default function Skills() {
       <h1 className="text-primary text-3xl lg:text-6xl">Skills</h1>
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-12">
         {HARD_SKILLS
-          .map((s) => (
-            <div className="bg-page rounded-xl shadow-lg lg:p-6 lg:mx-6 lg:w-52 p-3 hover:bg-[#7280a3] transition-colors cursor-pointer">
+          .map((s, i) => (
+            <div key={i} className="bg-page rounded-xl shadow-lg lg:p-6 lg:mx-6 lg:w-52 p-3 hover:bg-[#7280a3] transition-colors cursor-pointer">
               <p className="text-accent text-center text-xl"><strong>{s.skill}</strong></p>
               <p className="text-body text-center">{s.time} years</p>
             </div>
