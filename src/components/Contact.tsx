@@ -34,13 +34,11 @@ export default function Contact() {
     setMsg('');
   }
   return (
-    <div className="flex flex-col relative lg:flex-col space-y-12 flex-wrap rounded-2xl p-10 h-full justify-center items-center select-none">
+    <div className="flex flex-col relative lg:flex-col space-y-12 flex-wrap rounded-2xl p-10 lg:h-[calc(screen-24px)] justify-center items-center select-none">
       {/* TOAST */}
-      <div className={`absolute mb-6 bg-[#EB4C63] shadow-md rounded-lg p-6 lg:bottom-0 lg:right-0 select-none toast transition-opacity duration-300 
+      <div className={`absolute mb-6 shadow-md rounded-lg p-6 lg:bottom-0 lg:right-0 bg-[#EB4C63] select-none toast transition-opacity duration-300 
       ${err ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="alert text-white">
           <span className="text-body">Please fill out all fields</span>
-        </div>
       </div>
 
       <h1 className="text-primary text-3xl lg:text-6xl mr-3">Contact Me</h1>

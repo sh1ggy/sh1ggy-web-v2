@@ -42,17 +42,13 @@ export default function Projects() {
   return (
     <div className="flex flex-col items-center lg:h-full h-[calc(100dvh)] justify-center">
       <div className="flex flex-col justify-center items-center p-3 rounded-t-xl space-y-6 w-full bg-[#353840]">
-        <div className="flex flex-row items-center space-x-3">
-          <h1 className="text-primary text-3xl lg:text-6xl">Featured Pr</h1>
-          <img className="lg:h-16 h-12" src="../placeholder.svg" />
-          <h1 className="text-primary text-3xl lg:text-6xl">jects</h1>
-        </div>
-        <p className="text-body text-center">With 3 years of web development experience my skill level is currently junior to intermediate level as I balance my personal up-skilling with full-time work in IT support.</p>
+        <h1 className="text-primary text-3xl lg:text-6xl">Featured Projects</h1>
+        <p className="text-body text-center">With 3 years of web development experience my skill level is currently junior level as I balance my personal up-skilling in web development and project work with full-time work in IT support.</p>
       </div>
       <div className="carousel rounded-b-lg shadow-inner w-full">
         {PROJECTS
           .map((p, i) => (
-            <div id={`item${i}`} className="carousel-item w-full">
+            <div id={`item${i}`} className="carousel-item relative w-full">
               <div className="bg-card flex flex-col space-y-6 p-10 justify-center items-center">
                 <h1 className="text-body text-3xl lg:text-4xl">{p.jobName}</h1>
                 <p className="text-body text-center">{p.desc}</p>

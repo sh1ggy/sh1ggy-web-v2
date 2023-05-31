@@ -1,11 +1,14 @@
+import { useState } from "react"
+
 export default function Skills() {
   const HARD_SKILLS = [
-    { skill: "TypeScript", time: 2 },
-    { skill: "React", time: 2 },
-    { skill: "CSS", time: 1 },
-    { skill: "Tailwind", time: 1 },
-    { skill: "MySQL", time: 3 },
-    { skill: "Figma", time: 1 },
+    { skill: "TypeScript", time: 2, percent: 10, },
+    { skill: "React", time: 3, percent: 20, },
+    { skill: "React Native", time: 3, percent: 30, },
+    { skill: "CSS", time: 3, percent: 40, },
+    { skill: "Tailwind", time: 1, percent: 50, },
+    { skill: "MySQL", time: 3, percent: 60, },
+    { skill: "Figma", time: 1, percent: 90, },
   ]
   const SOFT_SKILLS = [
     "Documentation",
@@ -14,15 +17,20 @@ export default function Skills() {
     "Systems Diagramming",
     "Incident Management",
   ]
+  const [hover, setHover] = useState(false);
+  const fill = {
+    transition: 'width 1s ease-in-out',
+  }
   return (
     <div className="bg-card flex flex-col space-y-12 flex-wrap rounded-2xl p-10 lg:h-[calc(screen-24px)] flex-grow justify-center items-center select-none">
       <h1 className="text-primary text-3xl lg:text-6xl">Skills</h1>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {HARD_SKILLS
           .map((s, i) => (
-            <div key={i} className="bg-page rounded-xl shadow-lg lg:p-6 lg:mx-6 lg:w-52 p-3 hover:bg-[#7280a3] transition-colors cursor-pointer">
-              <p className="text-accent text-center text-xl"><strong>{s.skill}</strong></p>
-              <p className="text-body text-center">{s.time} years</p>
+            <div key={i} className="bg-[#444c62] group relative rounded-xl shadow-lg lg:p-6 p-3 transition-colors cursor-pointer">
+              <div className={fill + `w-[${s.percent + "%"}] transition-all ease-in-out duration-1000 absolute group-hover:opacity-30 opacity-0 p-10 inset-0 rounded-xl bg-[#e6a37e] -z-1`}></div>
+              <p className="text-body text-center text-xl z-10"><strong>{s.skill}</strong></p>
+              <p className="text-body text-center z-10">{s.time} years</p>
             </div>
           ))
         }
@@ -31,8 +39,8 @@ export default function Skills() {
         <div className="lg:flex lg:flex-row lg:flex-wrap grid grid-cols-2 justify-center items-center">
           {SOFT_SKILLS
             .map((s) => (
-              <div className="bg-page rounded-xl mb-3 shadow-lg p-3 mx-3 w-42 hover:bg-[#7280a3] transition-colors cursor-pointer">
-                <p className="text-body text-center text-sm"><strong>{s}</strong></p>
+              <div className="bg-page rounded-xl mb-3 shadow-lg p-3 mx-3 w-42 hover:bg-[#7280a3] transition-colors cursor-pointer duration-500">
+                <p className="text-body text-center text-sm">{s}</p>
               </div>
             ))
           }

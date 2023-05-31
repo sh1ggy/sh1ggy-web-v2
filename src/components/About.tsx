@@ -1,5 +1,4 @@
 import { useState } from "react"
-import '../styles.css'
 // import * from "three";
 
 export default function About() {
