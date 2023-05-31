@@ -41,7 +41,7 @@ export default function Experience() {
       <div className="flex flex-col w-full">
         <div className="flex flex-col lg:flex-row mb-12 items-center lg:space-x-10">
           <h1 className="text-primary text-3xl lg:text-6xl">Experience</h1>
-          <p className="text-body lg:text-right text-center">All of my current professional job experience has been in the IT Support space, with a focus on documentation, communication and adaptability. I also have a Bachelor's in IT, majoring in Computer Science @ QUT, currently still gaining programming experience in my spare time.</p>
+          <p className="text-body lg:text-right text-center">All of my current professional job experience has been in the IT Support space, with a focus on documentation, communication and adaptability. I also have a Bachelor's in IT, majoring in Computer Science @ QUT</p>
         </div>
         {/* Expandable Jobs */}
         <div className="space-y-3">
@@ -56,8 +56,8 @@ export default function Experience() {
                 <div className="collapse-content">
                   <div className="flex flex-col lg:flex-row justify-center h-full lg:bottom-0 lg:inset-x-0 space-x-3">
                     <div className="flex flex-col rounded-br-lg justify-center">
-                      <div className="flex">
-                        <ul className="lg:relative list-disc pl-12 p-8">
+                      <div className="flex p-8">
+                        <ul className="lg:relative list-disc">
                           {j.bio}
                         </ul>
                         <img src={j.imagePath} />
