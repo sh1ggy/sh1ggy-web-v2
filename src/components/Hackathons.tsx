@@ -16,6 +16,7 @@ export default function Hackathons() {
             "NextJS",
             "ESP32",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "NAKL",
@@ -29,6 +30,7 @@ export default function Hackathons() {
             "React",
             "React Native",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "simIO",
@@ -41,6 +43,7 @@ export default function Hackathons() {
           [
             "Unity",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "Forget me BOT",
@@ -54,6 +57,7 @@ export default function Hackathons() {
             "React Native",
             "Arduino",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "Bingo Butler",
@@ -67,6 +71,7 @@ export default function Hackathons() {
             "DiscordJS",
             "NextJS",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "Parity",
@@ -80,6 +85,7 @@ export default function Hackathons() {
             "Godot",
             "Asesprite",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "H34RT 4TT4CK",
@@ -93,6 +99,7 @@ export default function Hackathons() {
             "React",
             "Firebase",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "COVID Toolkit",
@@ -105,6 +112,7 @@ export default function Hackathons() {
           [
             "Android Studio",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "Casual Earnings",
@@ -118,6 +126,7 @@ export default function Hackathons() {
             "Android Studio",
             "Adobe XD",
           ],
+        imagePath: "../key.png",
       },
     ]
   return (
@@ -129,8 +138,8 @@ export default function Hackathons() {
       </div>
       <div className="lg:grid lg:grid-cols-3 gap-3 lg:space-y-0 space-y-3 flex flex-col rounded-2xl relative sm:mb-96">
         {HACKATHONS
-          .map((h) => (
-            <div className="bg-card shadow-md p-6 rounded-md justify-center items-end hover:scale-95 transition-transform space-y-3 h-full">
+          .map((h, i) => (
+            <div key={i} className="bg-card shadow-md p-6 rounded-md justify-center items-end hover:scale-95 transition-transform space-y-3 h-full">
               <div className="flex flex-row">
                 <div className="flex flex-col w-full">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><strong>{h.hack}</strong></h3>
@@ -145,7 +154,7 @@ export default function Hackathons() {
                 <p className="text-md font-semibold text-gray-900 dark:text-white">{h.event}</p>
               </a>
               <p className="text-body mb-2 font-normal text-gray-500 dark:text-gray-400 break-words">{h.desc}</p>
-              <img src={"../rm.png"} className="w-full" />
+              {/* <img src={h.imagePath} className="w-full" /> */}
               <div className="flex flex-row flex-0 space-x-3 justify-end">
                 {h.tags.map((t) => (
                   <div className="text-body cursor-default items-center justify-center flex bg-[#565b68] transition-colors hover:bg-[#777d8e] rounded-lg p-2">{t}</div>
