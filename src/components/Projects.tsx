@@ -30,7 +30,7 @@ export default function Projects() {
       },
       {
         name: "keyDOTboard",
-        desc: "An RFID card password manager with auto-login functionality that flashes different binaries onto an ESP32 using Rust.",
+        desc: "An RFID card password manager with auto-login functionality using an ESP32 and a RFID card reader to detect and input the cards that you set up in the program.",
         tags:
           [
             "Tauri",
