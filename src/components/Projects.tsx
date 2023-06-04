@@ -43,15 +43,15 @@ export default function Projects() {
       },
     ]
   return (
-    <div className="flex flex-col items-center lg:h-full h-[calc(100dvh)] justify-center">
-      <div className="flex flex-col justify-center items-center p-3 rounded-t-xl space-y-6 w-full bg-[#353840] shadow-lg">
+    <div className="flex flex-col items-center lg:h-full h-[calc(100dvh)] justify-center shadow-lg rounded-xl">
+      <div className="flex flex-col justify-center items-center p-3 rounded-t-xl space-y-6 w-full bg-[#353840]">
         <h1 className="text-primary text-3xl lg:text-6xl px-3">Featured Projects</h1>
         <p className="text-body text-center px-3">With 3 years of web development experience my skill level is currently junior level as I balance my personal up-skilling in web development and project work with full-time work in IT support.</p>
       </div>
       <div className="carousel rounded-b-lg shadow-inner w-full">
         {PROJECTS
           .map((p, i) => (
-            <div id={`item${i}`} className="carousel-item relative w-full">
+            <div key={i} id={`item${i}`} className="carousel-item relative w-full">
               <div className="bg-card flex flex-col space-y-6 p-10 justify-center items-center">
                 <h1 className={`text-3xl ${"text-[" + p.color + "]"} lg:text-4xl`}>{p.name}</h1>
                 <p className="text-body text-center">{p.desc}</p>

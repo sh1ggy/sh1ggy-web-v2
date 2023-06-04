@@ -39,8 +39,8 @@ export default function Skills() {
       <div className="flex flex-col justify-center items-center">
         <div className="lg:flex lg:flex-row lg:flex-wrap grid grid-cols-2 justify-center items-center">
           {SOFT_SKILLS
-            .map((s) => (
-              <div className="bg-page rounded-xl mb-3 shadow-lg p-3 mx-3 w-42 hover:bg-[#7280a3] transition-colors cursor-pointer duration-500">
+            .map((s, i) => (
+              <div key={i} className="bg-page rounded-xl mb-3 shadow-lg p-3 mx-3 w-42 hover:bg-[#7280a3] transition-colors cursor-pointer duration-500">
                 <p className="text-body text-center text-sm">{s}</p>
               </div>
             ))

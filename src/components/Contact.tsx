@@ -34,7 +34,7 @@ export default function Contact() {
     setMsg('');
   }
   return (
-    <div className="flex flex-col relative lg:flex-col space-y-12 flex-wrap rounded-2xl p-10 lg:h-[calc(screen-24px)] justify-center items-center select-none">
+    <div className="flex flex-col relative lg:flex-col space-y-8 flex-wrap rounded-2xl p-10 lg:h-[calc(screen-24px)] justify-center items-center select-none">
       {/* TOAST */}
       <div className={`absolute mb-6 shadow-md rounded-lg p-6 lg:bottom-0 lg:right-0 bg-[#EB4C63] select-none toast transition-opacity duration-300 
       ${err ? 'opacity-100' : 'opacity-0'}`}>
@@ -70,7 +70,7 @@ export default function Contact() {
             className="w-2/3 rounded-lg p-6 text-card focus:ring-4 focus:outline-none focus:ring-primary" />
         </div>
         <div className="flex flex-row bg-card rounded-lg">
-          <div className="w-1/3 flex flex-1 rounded-l-lg p-6 h-30 lg:h-52 bg-card text-primary">
+          <div className="w-1/3 flex flex-1 rounded-l-lg p-6 h-20 lg:h-52 bg-card text-primary">
             <strong>Message</strong>
           </div>
           <textarea

@@ -1,5 +1,5 @@
 main {
-  background-color: theme("colors.page");
+  background-color: theme("colors.card");
 }
 h1 {
   font-family: theme("fontFamily.signika");

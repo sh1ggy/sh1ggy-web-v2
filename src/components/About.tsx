@@ -30,21 +30,24 @@ export default function About() {
 
       {/* BIO */}
       {showBio &&
-        <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 transition-all justify-center">
-          <div className="flex-0 justify-start items-start">
-            <p className="text-sm text-primary">Hi! My name is...</p>
+        <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 transition-all justify-center shadow-xl">
+          <div className="flex flex-row w-full">
+            <div className="flex-0 justify-start items-start">
+              <p className="text-sm text-primary">Hi! My name is...</p>
+              <h1 className="text-primary text-5xl">Tyrone Nolasco</h1><br />
+            </div>
+            <img className="ml-auto h-20" src="../gato.png" />
           </div>
           <div className="flex flex-col justify-center items-center">
-            <h1 className="text-primary text-5xl">Tyrone Nolasco</h1><br />
             <p className="text-body">I started my journey in high school, having graduated recently last January with a Bachelors in Computer Science from QUT. Currently, I am an aspiring web developer working in <strong>IT Support @ Sonic IT</strong> trying to balance my upskilling in programming with full time work. I have a particular keenness for documentation, front-end design and diagramming.
             </p><br />
-            <p className="text-body text-right">The best way I've found to fast-track my improvement as a programmer is participating in hackathons when I can and challenging myself to learn a new skill or technology with every event that I am a part of. Apart from hackathons, I like to spend my spare time playing rhythm games. 
+            <p className="text-body text-right">The best way I've found to fast-track my improvement as a programmer is participating in hackathons when I can and challenging myself to learn a new skill or technology with every event that I am a part of. Apart from hackathons, I like to spend my spare time playing rhythm games.
             </p><br />
             <p className="text-accent text-center">I am open to new opportunities at the moment.</p>
           </div>
           <button
             onClick={() => setShowBio(!showBio)}
-            className="bg-page text-body text-xs rounded-3xl px-3 py-2">back
+            className="bg-page text-body text-xs rounded-3xl px-3 py-2 hover:bg-[#565b68] duration-500 ease-in-out transition-colors">back
           </button>
         </div>
       }
