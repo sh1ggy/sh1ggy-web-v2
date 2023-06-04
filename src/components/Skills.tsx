@@ -29,7 +29,6 @@ export default function Skills() {
                 <p className="text-body text-center text-xl z-10"><strong>{s.skill}</strong></p>
                 <p className="text-body text-center z-10">{s.time} years</p>
                 <div className={`absolute bg-accent inset-0 inset-y-auto bottom-0 rounded-xl h-2 w-${s.percent + "/12"} float-left p-0 border-0 m-0`}></div>
-
               </div>
             </>
 

@@ -7,45 +7,12 @@ import Contact from "../components/Contact";
 import Projects from "../components/Projects";
 import Hackathons from "../components/Hackathons";
 import "../styles.css";
-
+import { Header } from "../components/Header";
 ---
 
 <Layout title="sh1ggy-web">
 	<div class="flex flex-col lg:h-screen lg:w-auto overflow-y">
-		<!-- NAVBAR -->
-		<header
-			id="header"
-			class="flex items-center rounded-b-2xl px-6 bg-card sticky top-0 w-full z-50"
-		>
-			<a
-				href="#"
-				class="text-body rounded-lg hover:bg-[#4c515e] p-5 transition-all duration-1000 focus:outline-none"
-			>
-				<img class="object-contain w-24" src="../wlogo.svg" />
-			</a>
-			<div class="ml-auto p-6 font-mukta">
-				<a
-					href="#exp"
-					class="text-body rounded-lg hover:bg-[#4c515e] p-5 transition-all duration-1000 focus:outline-none"
-					>Experience</a
-				>
-				<a
-					href="#proj"
-					class="text-body rounded-lg hover:bg-[#4c515e] p-5 transition-all duration-1000 focus:outline-none"
-					>Projects</a
-				>
-				<a
-					href="#skills"
-					class="text-body rounded-lg hover:bg-[#4c515e] p-5 transition-all duration-1000 focus:outline-none"
-					>Skills</a
-				>
-				<a
-					href="#contact"
-					class="text-body rounded-lg hover:bg-[#4c515e] p-5 transition-all duration-1000 focus:outline-none"
-					>Contact</a
-				>
-			</div>
-		</header>
+		<Header client:load />
 		<!-- SOCIALS -->
 		<div
 			class="flex flex-col bottom-0 fixed mb-6 space-y-3 rounded-lg p-6 z-10"
@@ -67,7 +34,7 @@ import "../styles.css";
 			<section
 				class="container space-y-96 snap-proximity lg:snap-mandatory snap-y"
 			>
-				<div tabindex="-1" class="lg:snap-start">
+				<div tabindex="-1" class="opacity-0 animate-fade-in lg:snap-start">
 					<About client:visible />
 				</div>
 				<div tabindex="-1" id="exp" class="lg:snap-center">
@@ -98,8 +65,42 @@ import "../styles.css";
 	</div>
 </Layout>
 
+<script>
+	// Get all elements with the animate-fade-in class
+	const fadeElements = document.querySelectorAll(".animate-fade-in");
+
+	// Create a new Intersection Observer
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				// Add the "opacity-100" class to fade in the element
+				entry.target.classList.add("opacity-100");
+				// Stop observing the element once it's faded in
+				observer.unobserve(entry.target);
+			}
+		});
+	});
+
+	// Start observing each fade element
+	fadeElements.forEach((element) => {
+		observer.observe(element);
+	});
+</script>
 
 <style>
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	.animate-fade-in {
+		animation: fade-in 1s ease-in-out;
+	}
+
 	html {
 		scroll-snap-type: y mandatory;
 		scroll-behavior: smooth;

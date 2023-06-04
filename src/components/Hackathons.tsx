@@ -156,8 +156,9 @@ export default function Hackathons() {
               <p className="text-body mb-2 font-normal text-gray-500 dark:text-gray-400 break-words">{h.desc}</p>
               {/* <img src={h.imagePath} className="w-full" /> */}
               <div className="flex flex-row flex-0 space-x-3 justify-end">
-                {h.tags.map((t) => (
-                  <div className="text-body cursor-default items-center justify-center flex bg-[#565b68] transition-colors hover:bg-[#777d8e] rounded-lg p-2">{t}</div>
+                {h.tags.map((t, i) => (
+                  <div key={i}
+                    className="text-body cursor-default items-center justify-center flex bg-[#565b68] transition-colors hover:bg-[#777d8e] rounded-lg p-2">{t}</div>
                 ))}
               </div>
             </div>
