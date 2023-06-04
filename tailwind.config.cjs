@@ -15,7 +15,9 @@ module.exports = {
 			backgroundColor: '#55607b',
 			fontFamily: {
 				signika: ['Signika'],
-			}
+				ubuntu: ['Ubuntu'],
+				mukta: ['Mukta']
+			},
 		},
 	},
 	variants: {
@@ -32,7 +34,6 @@ module.exports = {
 					"primary": "#a0c99e",
 					"accent": "#fbb874",
 					"backgroundColor": '#55607b',
-
 				}
 			},
 			'light',

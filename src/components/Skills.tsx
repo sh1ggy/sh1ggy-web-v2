@@ -17,12 +17,8 @@ export default function Skills() {
     "Systems Diagramming",
     "Incident Management",
   ]
-  const [hover, setHover] = useState(false);
-  const fill = {
-    transition: 'width 1s ease-in-out',
-  }
   return (
-    <div className="bg-card flex flex-col space-y-12 flex-wrap rounded-2xl p-10 lg:h-[calc(screen-24px)] flex-grow justify-center items-center select-none">
+    <div className="bg-card shadow-lg flex flex-col space-y-12 flex-wrap rounded-2xl p-10 lg:h-[calc(screen-24px)] flex-grow justify-center items-center select-none">
       <h1 className="text-primary text-3xl lg:text-6xl">Skills</h1>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {HARD_SKILLS

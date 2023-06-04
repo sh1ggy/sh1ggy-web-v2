@@ -2,11 +2,11 @@ main {
   background-color: theme("colors.page");
 }
 h1 {
-  font-family: Signika;
+  font-family: theme("fontFamily.signika");
 }
 h2,h3 {
-  font-family: Comic Mono;
+  font-family: theme("fontFamily.mukta");
 }
 p {
-  font-family: Ubuntu
+  font-family: theme("fontFamily.ubuntu");
 }

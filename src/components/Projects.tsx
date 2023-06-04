@@ -5,7 +5,7 @@ export default function Projects() {
     [
       {
         name: "RM DIGS",
-        desc: "My first and most important web and app development project that was responsible for inspiring me to further my skills and pursue it as a potential career path.",
+        desc: "A fully deployed museum navigation system with a staff-facing admin portal to populate & structure data for the user-facing navigation app made for Redland Museum.",
         tags:
           [
             "TypeScript",
@@ -18,7 +18,7 @@ export default function Projects() {
       },
       {
         name: "NAKL",
-        desc: "Ongoing web development project with the goal of creating a serverless peer to peer transfer platform to quickly transfer text and files between two parties.",
+        desc: "A serverless peer to peer transfer platform to quickly transfer text and files between two parties seamlessly. This project is ongoing and is currently a work in progress.",
         tags:
           [
             "TypeScript",
@@ -30,7 +30,7 @@ export default function Projects() {
       },
       {
         name: "keyDOTboard",
-        desc: "An RFID card password manager using an ESP32 with auto-login made as a part of the 2023 Arduino Hackathon",
+        desc: "An RFID card password manager with auto-login functionality that flashes different binaries onto an ESP32 using Rust.",
         tags:
           [
             "Tauri",
@@ -44,7 +44,7 @@ export default function Projects() {
     ]
   return (
     <div className="flex flex-col items-center lg:h-full h-[calc(100dvh)] justify-center">
-      <div className="flex flex-col justify-center items-center p-3 rounded-t-xl space-y-6 w-full bg-[#353840]">
+      <div className="flex flex-col justify-center items-center p-3 rounded-t-xl space-y-6 w-full bg-[#353840] shadow-lg">
         <h1 className="text-primary text-3xl lg:text-6xl px-3">Featured Projects</h1>
         <p className="text-body text-center px-3">With 3 years of web development experience my skill level is currently junior level as I balance my personal up-skilling in web development and project work with full-time work in IT support.</p>
       </div>

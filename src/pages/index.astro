@@ -65,7 +65,7 @@ import "../styles.css";
 					<Experience client:only />
 				</div>
 				<div tabindex="-1" id="proj" class="lg:snap-center">
-					<Projects client:load />
+					<Projects client:only />
 				</div>
 				<div tabindex="-1" id="hack" class="lg:snap-start">
 					<Hackathons client:only />
@@ -118,17 +118,17 @@ import "../styles.css";
 		background-color: theme("colors.page");
 	}
 	h1 {
-		font-family: Signika;
+		font-family: theme("fontFamily.signika");
 	}
 	h2,
 	h3 {
-		font-family: Comic Mono;
+		font-family: theme("fontFamily.mukta");
 	}
 	p {
 		background-color: theme("colors.body");
-		font-family: Ubuntu;
+		font-family: theme("fontFamily.ubuntu");
 	}
 	strong {
-		font-family: Signika;
+		font-family: theme("fontFamily.signika");
 	}
 </style>
