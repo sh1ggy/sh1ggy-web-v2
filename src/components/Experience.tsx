@@ -47,9 +47,9 @@ export default function Experience() {
         <div className="space-y-3">
           {JOBS
             .map((j, i) => (
-              <div key={i} className='collapse collapse-arrow bg-[#484D59] shadow-xl rounded-xl transition-transform'>
+              <div key={i} className='collapse collapse-arrow bg-[#484D59] group shadow-xl rounded-xl transition-transform'>
                 <input type="checkbox" />
-                <div className="collapse-title font-medium flex flex-row bg-card shadow-sm rounded-xl">
+                <div className="collapse-title font-medium flex flex-row bg-card group-hover:bg-[#2d2e36]  ease-in-out shadow-sm rounded-xl transition-colors duration-200">
                   <p>{j.roleName} <strong>@ {j.company}</strong></p>
                   <p className="ml-auto">{j.date}</p>
                 </div>

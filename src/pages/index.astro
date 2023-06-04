@@ -6,17 +6,38 @@ import Skills from "../components/Skills";
 import Contact from "../components/Contact";
 import Projects from "../components/Projects";
 import Hackathons from "../components/Hackathons";
-import '../styles.css'
-
+import "../styles.css";
 ---
 
 <Layout title="sh1ggy-web">
 	<div class="flex flex-col lg:h-screen lg:w-auto overflow-y">
 		<!-- NAVBAR -->
 		<header
-			class="flex items-center rounded-b-2xl p-6 bg-card sticky top-0 w-full z-50"
+			class="flex items-center rounded-b-2xl px-6 bg-card sticky top-0 w-full z-50"
 		>
 			<img class="object-contain w-24" src="../wlogo.svg" />
+			<div class="ml-auto p-6">
+				<a
+					href="#exp"
+					class="text-body rounded-lg hover:bg-[#4c515e] p-5 transition-all duration-1000 focus:outline-none"
+					>Experience</a
+				>
+				<a
+					href="#proj"
+					class="text-body rounded-lg hover:bg-[#4c515e] p-5 transition-all duration-1000 focus:outline-none"
+					>Projects</a
+				>
+				<a
+					href="#skills"
+					class="text-body rounded-lg hover:bg-[#4c515e] p-5 transition-all duration-1000 focus:outline-none"
+					>Skills</a
+				>
+				<a
+					href="#contact"
+					class="text-body rounded-lg hover:bg-[#4c515e] p-5 transition-all duration-1000 focus:outline-none"
+					>Contact</a
+				>
+			</div>
 		</header>
 		<!-- SOCIALS -->
 		<div
@@ -36,25 +57,23 @@ import '../styles.css'
 			</a>
 		</div>
 		<main class="flex flex-col justify-center items-center flex-grow">
-			<section
-				class="container space-y-96 snap-proximity snap-y"
-			>
-				<div class="lg:snap-start">
+			<section class="container space-y-96 snap-proximity snap-y">
+				<div tabindex="-1" class="lg:snap-start">
 					<About client:load />
 				</div>
-				<div class="lg:snap-center">
+				<div tabindex="-1" id="exp" class="lg:snap-center">
 					<Experience client:only />
 				</div>
-				<div class="lg:snap-center">
-					<Projects client:only />
+				<div tabindex="-1" id="proj" class="lg:snap-center">
+					<Projects client:load />
 				</div>
-				<div class="lg:snap-start">
+				<div tabindex="-1" id="hack" class="lg:snap-start">
 					<Hackathons client:only />
 				</div>
-				<div class="lg:snap-center">
+				<div tabindex="-1" id="skills" class="lg:snap-center">
 					<Skills client:load />
 				</div>
-				<div class="lg:snap-end">
+				<div tabindex="-1" id="contact" class="lg:snap-end">
 					<Contact client:visible />
 				</div>
 			</section>
@@ -63,7 +82,9 @@ import '../styles.css'
 		<footer
 			class="flex items-center rounded-t-xl p-6 bg-card w-full shadow-lg justify-center"
 		>
-		<p class="text-body bg-card">{"Designed & Built with <3 by Tyrone Nolasco"}</p>
+			<p class="text-body bg-card">
+				{"Designed & Built with <3 by Tyrone Nolasco"}
+			</p>
 		</footer>
 	</div>
 </Layout>

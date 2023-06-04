@@ -28,7 +28,7 @@ export default function Skills() {
         {HARD_SKILLS
           .map((s, i) => (
             <>
-              <div key={i} className="bg-[#444c62] group relative rounded-xl shadow-lg lg:p-6 p-3 transition-colors cursor-pointer w-full">
+              <div key={i} className="bg-[#444c62] group relative rounded-xl shadow-lg lg:p-6 p-3 transition-colors ease-in-out duration-1000 hover:bg-[#5e6578] cursor-pointer w-full">
                 {/* <div className={fill + `w-[${s.percent + "%"}] transition-all ease-in-out duration-1000 absolute group-hover:opacity-30 opacity-0 p-10 inset-0 rounded-xl bg-[#e6a37e] -z-1`}></div> */}
                 <p className="text-body text-center text-xl z-10"><strong>{s.skill}</strong></p>
                 <p className="text-body text-center z-10">{s.time} years</p>
