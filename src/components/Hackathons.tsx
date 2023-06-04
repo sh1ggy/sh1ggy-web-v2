@@ -16,6 +16,7 @@ export default function Hackathons() {
             "NextJS",
             "ESP32",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "NAKL",
@@ -29,6 +30,7 @@ export default function Hackathons() {
             "React",
             "React Native",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "simIO",
@@ -41,6 +43,7 @@ export default function Hackathons() {
           [
             "Unity",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "Forget me BOT",
@@ -54,6 +57,7 @@ export default function Hackathons() {
             "React Native",
             "Arduino",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "Bingo Butler",
@@ -67,6 +71,7 @@ export default function Hackathons() {
             "DiscordJS",
             "NextJS",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "Parity",
@@ -80,12 +85,13 @@ export default function Hackathons() {
             "Godot",
             "Asesprite",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "H34RT 4TT4CK",
         date: "11-04-2020",
         event: "UCQS 2020 Hackathon",
-        desc: "Cookie Clicker inspired idle game and rhythm game hybrid",
+        desc: "Cookie Clicker inspired idle game and rhythm game hybrid game built in the web browser",
         eventLink: "https://www.youtube.com/watch?v=g_abZ3xN0z0&t=2s&ab_channel=UQComputingSociety",
         repo: "https://github.com/KieranMDolan/UQCS-Hackathon-2020",
         tags:
@@ -93,6 +99,7 @@ export default function Hackathons() {
             "React",
             "Firebase",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "COVID Toolkit",
@@ -105,12 +112,13 @@ export default function Hackathons() {
           [
             "Android Studio",
           ],
+        imagePath: "../key.png",
       },
       {
         hack: "Casual Earnings",
         date: "17-11-2019",
         event: "Mobile App Hackathon",
-        desc: "Wage calculator & rostering application concept",
+        desc: "Wage calculator & rostering application concept made in accordance to specifications made by a start-up",
         eventLink: "https://www.eventbrite.com.au/e/brisbanes-mobile-app-hackathon-tickets-72067400535#",
         repo: "https://github.com/sh1ggy/hackathon19-TDRJKM-android",
         tags:
@@ -118,23 +126,20 @@ export default function Hackathons() {
             "Android Studio",
             "Adobe XD",
           ],
+        imagePath: "../key.png",
       },
     ]
   return (
     <div className="flex flex-col space-y-6 items-center justify-center p-10 pb-96">
       <div className="flex flex-col items-center justify-center space-y-6">
-        <div className="flex space-x-3">
-          <h1 className="text-primary text-3xl lg:text-6xl">Other Pr</h1>
-          <img className="lg:h-16 h-12" src="../placeholder.svg" />
-          <h1 className="text-primary text-3xl lg:text-6xl">jects</h1>
-        </div>
-        <div className="text-accent cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-lg p-2">Count: {HACKATHONS.length}</div>
+        <h1 className="text-primary text-3xl lg:text-6xl">Other Projects</h1>
         <p className="text-body text-center">Whenever I get the chance to, I love participating in hackathons and it's definitely contributed a lot to my passion for programming and built my desire to continue working on projects I am passionate about.</p>
+        <div className="text-accent cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-lg p-2">Count: {HACKATHONS.length}</div>
       </div>
       <div className="lg:grid lg:grid-cols-3 gap-3 lg:space-y-0 space-y-3 flex flex-col rounded-2xl relative sm:mb-96">
         {HACKATHONS
-          .map((h) => (
-            <div className="bg-card shadow-md p-6 rounded-md justify-center items-end hover:scale-95 transition-transform">
+          .map((h, i) => (
+            <div key={i} className="bg-card shadow-md p-6 rounded-md justify-center items-end hover:scale-95 transition-transform space-y-3 h-full">
               <div className="flex flex-row">
                 <div className="flex flex-col w-full">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><strong>{h.hack}</strong></h3>
@@ -145,10 +150,11 @@ export default function Hackathons() {
                 </a>
               </div>
               <a href={h.eventLink} className="flex hover:text-link space-x-1 transition-colors items-center">
-                <img src="../bluelink.svg" className="h-5 w-5"/>
+                <img src="../bluelink.svg" className="h-5 w-5" />
                 <p className="text-md font-semibold text-gray-900 dark:text-white">{h.event}</p>
               </a>
               <p className="text-body mb-2 font-normal text-gray-500 dark:text-gray-400 break-words">{h.desc}</p>
+              {/* <img src={h.imagePath} className="w-full" /> */}
               <div className="flex flex-row flex-0 space-x-3 justify-end">
                 {h.tags.map((t) => (
                   <div className="text-body cursor-default items-center justify-center flex bg-[#565b68] transition-colors hover:bg-[#777d8e] rounded-lg p-2">{t}</div>

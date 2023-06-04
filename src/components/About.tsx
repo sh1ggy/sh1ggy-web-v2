@@ -1,5 +1,4 @@
 import { useState } from "react"
-import '../styles.css'
 // import * from "three";
 
 export default function About() {
@@ -15,7 +14,7 @@ export default function About() {
             <h1 className="text-primary text-3xl lg:text-8xl">ggy</h1>
           </div>
           <h2 className="text-[#AAC6BA] text-2xl">Tyrone Nolasco</h2>
-          <h3 className="text-[#D9EAD8] text-sm">programming / documentation / design</h3>
+          <h3 className="text-[#D9EAD8] text-sm tracking-wider">programming / documentation / design</h3>
           <div className="flex flex-row space-x-5">
             <button
               onClick={() => setShowBio(!showBio)}
@@ -37,9 +36,9 @@ export default function About() {
           </div>
           <div className="flex flex-col justify-center items-center">
             <h1 className="text-primary text-5xl">Tyrone Nolasco</h1><br />
-            <p className="text-body">I am an aspiring web developer currently working in <strong>IT Support @ Sonic IT</strong>. I started my journey in high school learning HTML & CSS and now I have a Bachelors in Computer Science from QUT.
+            <p className="text-body">I started my journey in high school, having graduated recently last January with a Bachelors in Computer Science from QUT. Currently, I am an aspiring web developer working in <strong>IT Support @ Sonic IT</strong> trying to balance my upskilling in programming with full time work. I have a particular keenness for documentation, front-end design and diagramming.
             </p><br />
-            <p className="text-body text-right">I've had the pleasure of participating in several hackathons and being a part of a handful of long-term projects with a particular interest in <strong>React</strong> using <strong>TypeScript</strong> as my language of choice.
+            <p className="text-body text-right">The best way I've found to fast-track my improvement as a programmer is participating in hackathons when I can and challenging myself to learn a new skill or technology with every event that I am a part of. Apart from hackathons, I like to spend my spare time playing rhythm games. 
             </p><br />
             <p className="text-accent text-center">I am open to new opportunities at the moment.</p>
           </div>
