@@ -31,28 +31,52 @@ import { Header } from "../components/Header";
 			</a>
 		</div>
 		<main class="flex flex-col justify-center items-center flex-grow">
-			<div
-				class="container snap-proximity lg:snap-mandatory space-y-96 scroll-py-96 snap-y"
-			>
-				<div tabindex="-1" class="opacity-0 animate-fade-in lg:snap-start scroll-my-96">
+			<div class="container snap-proximity lg:snap-proximity space-y-96 snap-y">
+				<div
+					tabindex="-1"
+					class="opacity-0 animate-fade-in"
+				>
 					<About client:visible />
 				</div>
-				<div tabindex="-1" id="exp" class="lg:snap-center scroll-my-96">
+				<div tabindex="-1" id="exp" class="">
 					<Experience client:visible />
 				</div>
-				<div tabindex="-1" id="proj" class="lg:snap-center scroll-my-96">
+				<div tabindex="-1" id="proj" class="">
 					<Projects client:visible />
 				</div>
-				<div tabindex="-1" id="hack" class="lg:snap-start scroll-my-96">
+				<div tabindex="-1" id="hack" class="">
 					<Hackathons client:visible />
 				</div>
-				<div tabindex="-1" id="skills" class="lg:snap-center scroll-my-96">
+				<div tabindex="-1" id="skills" class="">
 					<Skills client:visible />
 				</div>
-				<div tabindex="-1" id="contact" class="lg:snap-end scroll-my-96">
+				<div tabindex="-1" id="contact" class="">
 					<Contact client:visible />
 				</div>
 			</div>
+			<!-- <div class="container snap-proximity lg:snap-proximity space-y-96 snap-y">
+				<div
+					tabindex="-1"
+					class="opacity-0 animate-fade-in lg:snap-center snap-always"
+				>
+					<About client:visible />
+				</div>
+				<div tabindex="-1" id="exp" class="lg:snap-center snap-always">
+					<Experience client:visible />
+				</div>
+				<div tabindex="-1" id="proj" class="lg:snap-center snap-always">
+					<Projects client:visible />
+				</div>
+				<div tabindex="-1" id="hack" class="">
+					<Hackathons client:visible />
+				</div>
+				<div tabindex="-1" id="skills" class="lg:snap-center snap-always">
+					<Skills client:visible />
+				</div>
+				<div tabindex="-1" id="contact" class="lg:snap-start snap-always">
+					<Contact client:visible />
+				</div>
+			</div> -->
 		</main>
 		<!-- FOOTER -->
 		<footer
@@ -63,6 +87,23 @@ import { Header } from "../components/Header";
 			</p>
 		</footer>
 	</div>
+	<script>
+		const element = document.getElementById("exp");
+
+		const { bind, unbind } = createScrollSnap(
+			element,
+			{
+				snapDestinationX: "0%",
+				snapDestinationY: "90%",
+				timeout: 100,
+				duration: 300,
+				threshold: 0.2,
+				snapStop: false,
+				easing: easeInOutQuad,
+			},
+			() => console.log("element snapped")
+		);
+	</script>
 </Layout>
 
 <script>

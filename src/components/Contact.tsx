@@ -34,7 +34,7 @@ export default function Contact() {
     setMsg('');
   }
   return (
-    <div className="flex flex-col relative lg:flex-col space-y-8 flex-wrap rounded-2xl p-10 lg:h-[calc(screen-24px)] justify-center items-center select-none">
+    <div className="flex flex-col relative lg:flex-col space-y-8 flex-wrap rounded-2xl p-10 lg:h-[calc(screen-24px)] justify-center items-center select-none mb-52">
       {/* TOAST */}
       <div className={`absolute mb-6 shadow-md rounded-lg p-6 lg:bottom-0 lg:right-0 bg-[#EB4C63] select-none toast transition-opacity duration-300 
       ${err ? 'opacity-100' : 'opacity-0'}`}>
