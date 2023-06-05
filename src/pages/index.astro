@@ -31,26 +31,27 @@ import { Header } from "../components/Header";
 			</a>
 		</div>
 		<main class="flex flex-col justify-center items-center flex-grow">
-			<div class="container snap-proximity lg:snap-proximity space-y-96 snap-y">
-				<div
-					tabindex="-1"
-					class="opacity-0 animate-fade-in"
-				>
+			<div
+				id="fullpage"
+				class="container snap-proximity lg:snap-proximity space-y-96 snap-y"
+			>
+
+				<div tabindex="-1" class="section opacity-0 animate-fade-in">
 					<About client:visible />
 				</div>
-				<div tabindex="-1" id="exp" class="">
+				<div tabindex="-1" id="exp" class="section">
 					<Experience client:visible />
 				</div>
-				<div tabindex="-1" id="proj" class="">
+				<div tabindex="-1" id="proj" class="section">
 					<Projects client:visible />
 				</div>
-				<div tabindex="-1" id="hack" class="">
+				<div tabindex="-1" id="hack" class="section">
 					<Hackathons client:visible />
 				</div>
-				<div tabindex="-1" id="skills" class="">
+				<div tabindex="-1" id="skills" class="section">
 					<Skills client:visible />
 				</div>
-				<div tabindex="-1" id="contact" class="">
+				<div tabindex="-1" id="contact" class="section">
 					<Contact client:visible />
 				</div>
 			</div>
@@ -88,21 +89,12 @@ import { Header } from "../components/Header";
 		</footer>
 	</div>
 	<script>
-		const element = document.getElementById("exp");
-
-		const { bind, unbind } = createScrollSnap(
-			element,
-			{
-				snapDestinationX: "0%",
-				snapDestinationY: "90%",
-				timeout: 100,
-				duration: 300,
-				threshold: 0.2,
-				snapStop: false,
-				easing: easeInOutQuad,
-			},
-			() => console.log("element snapped")
-		);
+		const element = document.getElementById("fullpage");
+		new fullpage(element, {
+			//options here
+			autoScrolling: true,
+			scrollHorizontally: true,
+		});
 	</script>
 </Layout>
 

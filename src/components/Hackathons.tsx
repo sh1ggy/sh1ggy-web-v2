@@ -132,8 +132,8 @@ export default function Hackathons() {
   return (
     <div className="flex flex-col space-y-6 items-center justify-center p-10 pb-96">
       <div className="flex flex-col items-center justify-center space-y-6">
-        <h1 className="text-primary text-3xl lg:text-6xl">Other Projects</h1>
-        <p className="text-body text-center">Whenever I get the chance to, I love participating in hackathons and it's definitely contributed a lot to my passion for programming and built my desire to continue working on projects I am passionate about.</p>
+        <h1 className="text-primary drop-shadow-lg text-3xl lg:text-6xl">Other Projects</h1>
+        <p className="text-body drop-shadow-md text-center">Whenever I get the chance to, I love participating in hackathons and it's definitely contributed a lot to my passion for programming and built my desire to continue working on projects I am passionate about.</p>
         <div className="text-accent cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-lg p-2">Count: {HACKATHONS.length}</div>
       </div>
       <div className="lg:grid lg:grid-cols-3 gap-3 lg:space-y-0 space-y-3 flex flex-col rounded-2xl relative sm:mb-96">

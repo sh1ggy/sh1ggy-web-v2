@@ -25,15 +25,15 @@ dependencies:
   daisyui:
     specifier: ^2.51.6
     version: 2.51.6(autoprefixer@10.4.14)(postcss@8.4.23)
+  fullpage.js:
+    specifier: ^4.0.20
+    version: 4.0.20
   react:
     specifier: ^18.0.0
     version: 18.2.0
   react-dom:
     specifier: ^18.0.0
     version: 18.2.0(react@18.2.0)
-  scroll-snap:
-    specifier: ^4.0.3
-    version: 4.0.3
   tailwindcss:
     specifier: ^3.0.24
     version: 3.3.2
@@ -1563,6 +1563,10 @@ packages:
     dev: false
     optional: true
 
+  /fullpage.js@4.0.20:
+    resolution: {integrity: sha512-y72V3oV/pFccPYaxnUosEltQP9tXH340x479oQSS9Yab0L0YpIPNE0PFA68l6XEq5Lhw7IRqyCgVwL+WdjtQdA==}
+    dev: false
+
   /function-bind@1.1.1:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
     dev: false
@@ -2968,10 +2972,6 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
-
-  /scroll-snap@4.0.3:
-    resolution: {integrity: sha512-7am2JXqY/0jHN9+3b2zhZtm55NmzEQhZTXZBIdC/fVb6aVN5nonjbRpf+OghU9LhguJB+rq5ty9SmQcYzMvMxw==}
     dev: false
 
   /section-matter@1.0.0:

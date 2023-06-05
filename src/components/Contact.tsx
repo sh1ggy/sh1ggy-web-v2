@@ -41,8 +41,8 @@ export default function Contact() {
           <span className="text-body">Please fill out all fields</span>
       </div>
 
-      <h1 className="text-primary text-3xl lg:text-6xl mr-3">Contact Me</h1>
-      <p className="text-body text-center">Feel free to reach out to me directly if you're interested in connecting, collaborating, or discussing potential opportunities</p>
+      <h1 className="text-primary drop-shadow-lg text-3xl lg:text-6xl mr-3">Contact Me</h1>
+      <p className="text-body drop-shadow-md text-center">Feel free to reach out to me directly if you're interested in connecting, collaborating, or discussing potential opportunities</p>
 
       <form className="flex flex-col space-y-5 w-full">
         <div className="flex flex-row bg-card rounded-lg">
