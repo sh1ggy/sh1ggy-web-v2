@@ -11,7 +11,7 @@ import { Header } from "../components/Header";
 ---
 
 <Layout title="sh1ggy-web">
-	<div class="flex flex-col lg:h-screen lg:w-auto overflow-y">
+	<div class="flex flex-col lg:h-screen lg:w-auto">
 		<Header client:load />
 		<!-- SOCIALS -->
 		<div
@@ -31,28 +31,28 @@ import { Header } from "../components/Header";
 			</a>
 		</div>
 		<main class="flex flex-col justify-center items-center flex-grow">
-			<section
-				class="container space-y-96 snap-proximity lg:snap-mandatory snap-y"
+			<div
+				class="container snap-proximity lg:snap-mandatory space-y-96 scroll-py-96 snap-y"
 			>
-				<div tabindex="-1" class="opacity-0 animate-fade-in lg:snap-start">
+				<div tabindex="-1" class="opacity-0 animate-fade-in lg:snap-start scroll-my-96">
 					<About client:visible />
 				</div>
-				<div tabindex="-1" id="exp" class="lg:snap-center">
+				<div tabindex="-1" id="exp" class="lg:snap-center scroll-my-96">
 					<Experience client:visible />
 				</div>
-				<div tabindex="-1" id="proj" class="lg:snap-center">
+				<div tabindex="-1" id="proj" class="lg:snap-center scroll-my-96">
 					<Projects client:visible />
 				</div>
-				<div tabindex="-1" id="hack" class="lg:snap-start">
+				<div tabindex="-1" id="hack" class="lg:snap-start scroll-my-96">
 					<Hackathons client:visible />
 				</div>
-				<div tabindex="-1" id="skills" class="lg:snap-center">
+				<div tabindex="-1" id="skills" class="lg:snap-center scroll-my-96">
 					<Skills client:visible />
 				</div>
-				<div tabindex="-1" id="contact" class="lg:snap-end">
+				<div tabindex="-1" id="contact" class="lg:snap-end scroll-my-96">
 					<Contact client:visible />
 				</div>
-			</section>
+			</div>
 		</main>
 		<!-- FOOTER -->
 		<footer
