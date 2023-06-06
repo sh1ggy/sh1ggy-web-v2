@@ -12,7 +12,7 @@ module.exports = {
 			'card': '#353A47'
 		},
 		extend: {
-			backgroundColor: '#55607b',
+			backgroundColor: '#353A47',
 			fontFamily: {
 				signika: ['Signika'],
 				ubuntu: ['Ubuntu'],
@@ -33,7 +33,7 @@ module.exports = {
 				{
 					"primary": "#a0c99e",
 					"accent": "#fbb874",
-					"backgroundColor": '#55607b',
+					"backgroundColor": '#353A47',
 				}
 			},
 			'light',
