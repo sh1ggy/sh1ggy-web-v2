@@ -11,10 +11,8 @@ export default function Experience() {
         tags:
           [
             "MySQL",
-            "Incident management",
             "Troubleshooting",
             "Documentation",
-            "Multitasking",
           ],
         imagePath: "../sonic.svg"
       },

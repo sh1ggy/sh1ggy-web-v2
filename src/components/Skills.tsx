@@ -20,17 +20,13 @@ export default function Skills() {
       <h1 className="text-primary text-3xl lg:text-6xl">Skills</h1>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {HARD_SKILLS
-          .map((s, i) => {
-            const x = `w-[${s.percent}%]`
-            console.group(x)
-            return (
-              <div key={i} className="bg-[#444c62] group relative rounded-xl shadow-lg lg:p-6 p-3 transition-colors ease-in-out duration-1000 hover:bg-[#5e6578] cursor-pointer w-full">
-                <p className="text-body text-center text-xl z-10"><strong>{s.skill}</strong></p>
-                <p className="text-body text-center z-10">{s.time} years</p>
-                <div style={{width: `${s.percent}%`}} className="absolute bg-accent inset-0 inset-y-auto bottom-0 rounded-xl h-2 float-left p-0 border-0 m-0"></div>
-              </div>
-            )
-          })
+          .map((s, i) => (
+            <div key={i} className="bg-[#444c62] group relative rounded-xl shadow-lg lg:p-6 p-3 transition-colors ease-in-out duration-1000 hover:bg-[#5e6578] cursor-pointer w-full">
+              <p className="text-body text-center text-xl z-10"><strong>{s.skill}</strong></p>
+              <p className="text-body text-center z-10">{s.time} years</p>
+              <div style={{ width: `${s.percent}%` }} className="absolute bg-accent inset-0 inset-y-auto bottom-0 rounded-xl h-2 float-left p-0 border-0 m-0"></div>
+            </div>
+          ))
         }
       </div>
       <div className="flex flex-col justify-center items-center">
