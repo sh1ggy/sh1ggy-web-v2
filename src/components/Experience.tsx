@@ -37,7 +37,7 @@ export default function Experience() {
   // const [selectedJob, setSelectedJob] = useState<string>(JOBS[0].jobName);
 
   return (
-    <div className=" flex flex-col space-y-6 rounded-2xl p-10">
+    <div className=" flex flex-col space-y-6 rounded-2xl p-10 mx-10">
       <div className="flex flex-col w-full">
         <div className="flex flex-col lg:flex-row mb-12 items-center lg:space-x-10">
           <h1 className="text-primary drop-shadow-lg text-3xl lg:text-6xl">Experience</h1>

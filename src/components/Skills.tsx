@@ -1,14 +1,12 @@
-import { useState } from "react"
-
 export default function Skills() {
   const HARD_SKILLS = [
-    { skill: "TypeScript", time: 2, percent: 8, },
-    { skill: "React", time: 3, percent: 8, },
-    { skill: "React Native", time: 3, percent: 8, },
-    { skill: "CSS", time: 3, percent: 8, },
-    { skill: "Tailwind", time: 1, percent: 8, },
-    { skill: "MySQL", time: 3, percent: 8, },
-    { skill: "Figma", time: 1, percent: 5, },
+    { skill: "TypeScript", time: 2, percent: 60, },
+    { skill: "React", time: 3, percent: 60, },
+    { skill: "React Native", time: 3, percent: 70, },
+    { skill: "CSS", time: 3, percent: 80, },
+    { skill: "Tailwind", time: 1, percent: 70, },
+    { skill: "MySQL", time: 3, percent: 70, },
+    { skill: "Figma", time: 1, percent: 60, },
   ]
   const SOFT_SKILLS = [
     "Documentation",
@@ -22,17 +20,17 @@ export default function Skills() {
       <h1 className="text-primary text-3xl lg:text-6xl">Skills</h1>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {HARD_SKILLS
-          .map((s, i) => (
-            <>
+          .map((s, i) => {
+            const x = `w-[${s.percent}%]`
+            console.group(x)
+            return (
               <div key={i} className="bg-[#444c62] group relative rounded-xl shadow-lg lg:p-6 p-3 transition-colors ease-in-out duration-1000 hover:bg-[#5e6578] cursor-pointer w-full">
-                {/* <div className={fill + `w-[${s.percent + "%"}] transition-all ease-in-out duration-1000 absolute group-hover:opacity-30 opacity-0 p-10 inset-0 rounded-xl bg-[#e6a37e] -z-1`}></div> */}
                 <p className="text-body text-center text-xl z-10"><strong>{s.skill}</strong></p>
                 <p className="text-body text-center z-10">{s.time} years</p>
-                <div className={`absolute bg-accent inset-0 inset-y-auto bottom-0 rounded-xl h-2 w-${s.percent + "/12"} float-left p-0 border-0 m-0`}></div>
+                <div style={{width: `${s.percent}%`}} className="absolute bg-accent inset-0 inset-y-auto bottom-0 rounded-xl h-2 float-left p-0 border-0 m-0"></div>
               </div>
-            </>
-
-          ))
+            )
+          })
         }
       </div>
       <div className="flex flex-col justify-center items-center">

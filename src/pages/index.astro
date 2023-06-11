@@ -11,6 +11,23 @@ import "../styles.css";
 
 <Layout title="sh1ggy-web">
 	<div class="flex flex-col lg:h-screen lg:w-auto overflow-y">
+		<!-- SOCIALS -->
+		<div
+			class="flex flex-col bottom-0 fixed mb-6 space-y-3 rounded-lg p-6 z-10"
+		>
+			<a
+				href="https://www.github.com/sh1ggy"
+				class="hover:scale-90 transition-transform focus:outline-none drop-shadow-xl"
+			>
+				<img class="object-contain w-12" src="../github.svg" />
+			</a>
+			<a
+				href="https://www.linkedin.com/in/tyrone-nolasco/"
+				class="hover:scale-90 transition-transform focus:outline-none drop-shadow-xl"
+			>
+				<img class="object-contain w-12" src="../linkedin.svg" />
+			</a>
+		</div>
 		<!-- NAVBAR -->
 		<header
 			id="header"
@@ -45,23 +62,6 @@ import "../styles.css";
 				>
 			</div>
 		</header>
-		<!-- SOCIALS -->
-		<div
-			class="flex flex-col bottom-0 fixed mb-6 space-y-3 rounded-lg p-6 z-10"
-		>
-			<a
-				href="https://www.github.com/sh1ggy"
-				class="hover:scale-90 transition-transform focus:outline-none"
-			>
-				<img class="object-contain w-12" src="../github.svg" />
-			</a>
-			<a
-				href="https://www.linkedin.com/in/tyrone-nolasco/"
-				class="hover:scale-90 transition-transform focus:outline-none"
-			>
-				<img class="object-contain w-12" src="../linkedin.svg" />
-			</a>
-		</div>
 		<main class="flex flex-col justify-center items-center flex-grow">
 			<section
 				class="container space-y-96 snap-proximity lg:snap-mandatory snap-y"
@@ -75,17 +75,13 @@ import "../styles.css";
 				<div tabindex="-1" id="proj" class="fade fadeOut lg:snap-center">
 					<Projects client:visible />
 				</div>
-				<div tabindex="-1" id="hack" class="fade lg:snap-start">
+				<div tabindex="-1" id="hack" class="fade fadeOut lg:snap-start">
 					<Hackathons client:visible />
 				</div>
-				<div
-					tabindex="-1"
-					id="skills"
-					class="fade fadeOut lg:snap-center"
-				>
+				<div tabindex="-1" id="skills" class="fade fadeOut lg:snap-center">
 					<Skills client:visible />
 				</div>
-				<div tabindex="-1" id="contact" class="fade fadeOut lg:snap-end">
+				<div tabindex="-1" id="contact" class="fade fadeOut lg:snap-center">
 					<Contact client:visible />
 				</div>
 			</section>
@@ -120,7 +116,7 @@ import "../styles.css";
 		const observerOptions = {
 			root: null,
 			rootMargin: "0px",
-			threshold: 0.7,
+			threshold: 0.2,
 		};
 
 		function observerCallback(entries, observer) {

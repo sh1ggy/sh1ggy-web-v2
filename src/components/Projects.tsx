@@ -53,7 +53,7 @@ export default function Projects() {
           .map((p, i) => (
             <div key={i} id={`item${i}`} className="carousel-item relative w-full">
               <div className="bg-card flex flex-col space-y-6 p-10 justify-center items-center">
-                <h1 className={`text-3xl ${"text-[" + p.color + "]"} lg:text-4xl`}>{p.name}</h1>
+                <h1 style={{color: `${p.color}`}} className="text-3xl lg:text-4xl">{p.name}</h1>
                 <p className="text-body text-center">{p.desc}</p>
                 <div className="flex flex-row space-x-3">
                   {p.tags.map((t, i) => (
