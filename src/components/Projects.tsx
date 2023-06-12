@@ -53,6 +53,7 @@ export default function Projects() {
         {PROJECTS
           .map((p, i) => {
             return (
+              // Slide tracks currently viewed project 
               <div key={i} id={`slide${i + 1}`} className="carousel-item relative w-full">
                 <div className="bg-card flex flex-col space-y-6 py-10 px-20 justify-center items-center">
                   <h1 style={{ color: `${p.color}` }} className="text-3xl lg:text-4xl">{p.name}</h1>
@@ -69,9 +70,10 @@ export default function Projects() {
                     </div>
                     <img src={p.imagePath} />
                   </a>
+                  {/* Conditionally render the buttons based on if the index is a valid slide */}
                   <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href={`#slide${i}`} className={`${(i - 1 < 0) && "opacity-0"} btn btn-ghost`}>❮</a>
-                    <a href={`#slide${i + 2}`} className={`${(i + 1 == PROJECTS.length) && "opacity-0"} btn btn-ghost`}>❯</a>
+                    <a href={`#slide${i}`} className={`${(i - 1 < 0) && "opacity-0 pointer-events-none"} btn btn-ghost`}>❮</a>
+                    <a href={`#slide${i + 2}`} className={`${(i + 1 == PROJECTS.length) && "opacity-0 pointer-events-none"} btn btn-ghost`}>❯</a>
                   </div>
                 </div>
               </div>

@@ -11,7 +11,6 @@ export default function Skills() {
   const SOFT_SKILLS = [
     "Documentation",
     "Wireframing",
-    "Written Communication",
     "Systems Diagramming",
     "Incident Management",
   ]
