@@ -1,22 +1,24 @@
 export default function Skills() {
   const HARD_SKILLS = [
-    { skill: "TypeScript", time: 2, percent: 60, },
+    { skill: "TypeScript", time: 3, percent: 60, },
     { skill: "React", time: 3, percent: 60, },
     { skill: "React Native", time: 3, percent: 70, },
-    { skill: "CSS", time: 3, percent: 80, },
-    { skill: "Tailwind", time: 1, percent: 70, },
-    { skill: "MySQL", time: 3, percent: 70, },
+    { skill: "CSS", time: 5, percent: 80, },
+    { skill: "Tailwind", time: 1, percent: 65, },
+    { skill: "MySQL", time: 2, percent: 60, },
     { skill: "Figma", time: 1, percent: 60, },
   ]
   const SOFT_SKILLS = [
+    "Written Communication",
+    "Incident Management",
+    "Systems Diagramming",
     "Documentation",
     "Wireframing",
-    "Systems Diagramming",
-    "Incident Management",
   ]
   return (
-    <div className="bg-card shadow-lg flex flex-col space-y-12 flex-wrap rounded-2xl p-10 lg:h-[calc(screen-24px)] flex-grow justify-center items-center select-none">
-      <h1 className="text-primary text-3xl lg:text-6xl">Skills</h1>
+    <div className="flex flex-col space-y-8 flex-wrap rounded-2xl p-10 lg:h-[calc(screen-24px)] flex-grow justify-center items-center select-none">
+      <h1 className="text-primary drop-shadow-lg text-3xl lg:text-6xl">Skills</h1>
+      <p className="text-body drop-shadow-sm text-center lg:w-9/12">All of my current professional job experience has been in the IT Support space, with a focus on documentation, communication and adaptability, with a background in Computer Science having studied a Bachelor's in IT, majoring in Computer Science @ QUT</p>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {HARD_SKILLS
           .map((s, i) => (
@@ -28,11 +30,11 @@ export default function Skills() {
           ))
         }
       </div>
-      <div className="flex flex-col justify-center items-center">
-        <div className="lg:flex lg:flex-row lg:flex-wrap grid grid-cols-2 justify-center items-center">
+      <div className="flex flex-col justify-center items-center lg:w-9/12">
+        <div className="lg:flex lg:flex-row lg:flex-wrap grid grid-cols-2 lg:gap-3 justify-center items-center">
           {SOFT_SKILLS
             .map((s, i) => (
-              <div key={i} className="bg-page rounded-xl mb-3 shadow-lg p-3 mx-3 w-42 hover:bg-[#7280a3] transition-colors cursor-pointer duration-500">
+              <div key={i} className="bg-[#717c96] rounded-xl mb-3 shadow-lg p-3 mx-3 w-42 hover:bg-[#8a98bc] transition-colors cursor-pointer duration-500">
                 <p className="text-body text-center text-sm">{s}</p>
               </div>
             ))

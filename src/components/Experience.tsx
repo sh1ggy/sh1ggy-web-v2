@@ -34,7 +34,6 @@ export default function Experience() {
         imagePath: "../wings.svg"
       },
     ]
-  // const [selectedJob, setSelectedJob] = useState<string>(JOBS[0].jobName);
 
   return (
     <div className=" flex flex-col space-y-6 rounded-2xl mx-10">
@@ -49,10 +48,12 @@ export default function Experience() {
             .map((j, i) => (
               <div key={i} className='collapse collapse-arrow bg-[#484D59] group shadow-xl rounded-xl transition-transform'>
                 <input type="checkbox" />
+                {/* Header */}
                 <div className="collapse-title font-medium flex flex-col lg:flex-row bg-card group-hover:bg-[#2d2e36]  ease-in-out shadow-sm rounded-xl transition-colors duration-200">
                   <p>{j.roleName} <strong>@ {j.company}</strong></p>
                   <p className="lg:ml-auto">{j.date}</p>
                 </div>
+                {/* Content */}
                 <div className="collapse-content">
                   <div className="flex flex-col lg:flex-row justify-center h-full lg:bottom-0 lg:inset-x-0 space-x-3">
                     <div className="flex flex-col rounded-br-lg">
