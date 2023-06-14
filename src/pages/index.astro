@@ -6,6 +6,7 @@ import Skills from "../components/Skills";
 import Contact from "../components/Contact";
 import Projects from "../components/Projects";
 import Hackathons from "../components/Hackathons";
+import Header from "../components/Header";
 import "../styles.css";
 ---
 
@@ -29,7 +30,7 @@ import "../styles.css";
 			</a>
 		</div>
 		<!-- NAVBAR -->
-		<header
+		<!-- <header
 			id="header"
 			class="flex items-center rounded-b-2xl px-6 bg-card sticky top-0 w-full z-50"
 		>
@@ -61,7 +62,8 @@ import "../styles.css";
 					>Contact</a
 				>
 			</div>
-		</header>
+		</header> -->
+		<Header client:only/>
 		<main class="flex flex-col justify-center items-center flex-grow">
 			<section
 				class="container space-y-96 snap-proximity lg:snap-mandatory snap-y"
