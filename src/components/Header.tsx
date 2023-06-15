@@ -3,10 +3,10 @@ import { useScrollDirection } from "../hooks/useScrollDirection"
 
 export default function Header() {
   const scrollDirection = useScrollDirection();
+  // Mobile detection hook so that the navbar can be conditionally rendered
   const [matches, setMatches] = useState(
     window.matchMedia("(min-width: 768px)").matches
   )
-
   useEffect(() => {
     window
       .matchMedia("(min-width: 768px)")
@@ -15,7 +15,9 @@ export default function Header() {
 
   return (
     <>
+
       {matches &&
+        // DESKTOP NAVBAR
         <div className={`${scrollDirection === "down" ? "-top-24" : "top-0"} navbar flex items-center rounded-b-2xl px-6 bg-card sticky w-full z-50`}>
           <a
             href="#"
@@ -39,8 +41,8 @@ export default function Header() {
           </div>
         </div>
       }
-      {
-        !matches &&
+      {!matches &&
+        // MOBILE NAVBAR
         <div className={`${scrollDirection === "down" ? "-top-24" : "top-0"} navbar flex items-center rounded-b-2xl px-6 bg-card sticky w-full z-50 space-x-3`}>
           <div className="navbar-start">
             <div className="dropdown">

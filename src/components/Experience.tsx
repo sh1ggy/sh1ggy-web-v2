@@ -38,7 +38,7 @@ export default function Experience() {
   return (
     <div className=" flex flex-col space-y-6 rounded-2xl mx-10">
       <div className="flex flex-col w-full">
-        <div className="flex flex-col lg:flex-row mb-12 items-center lg:space-x-10">
+        <div className="flex flex-col lg:flex-row mb-12 items-center space-y-8 lg:space-x-10">
           <h1 className="text-primary drop-shadow-lg text-3xl lg:text-6xl">Experience</h1>
           <p className="text-body drop-shadow-sm lg:text-right text-center">All of my current professional job experience has been in the IT Support space, with a focus on documentation, communication and adaptability. I also have a Bachelor's in IT, majoring in Computer Science @ QUT</p>
         </div>
