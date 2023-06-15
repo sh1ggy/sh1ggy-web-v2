@@ -16,7 +16,7 @@ export default function Hackathons() {
             "NextJS",
             "ESP32",
           ],
-        imagePath: "../key.png",
+        imagePath: "../keydot.png",
       },
       {
         hack: "NAKL",
@@ -130,16 +130,16 @@ export default function Hackathons() {
       },
     ]
   return (
-    <div className="flex flex-col space-y-6 items-center justify-center p-10 pb-96">
+    <div className="flex flex-col space-y-6 p-10 lg:pb-96">
       <div className="flex flex-col items-center justify-center space-y-6">
-        <h1 className="text-primary text-3xl lg:text-6xl">Other Projects</h1>
-        <p className="text-body text-center">Whenever I get the chance to, I love participating in hackathons and it's definitely contributed a lot to my passion for programming and built my desire to continue working on projects I am passionate about.</p>
+        <h1 className="text-primary drop-shadow-lg text-3xl lg:text-6xl">Other Projects</h1>
+        <p className="text-body drop-shadow-md text-center">Whenever I get the chance to, I love participating in hackathons and it's definitely contributed a lot to my passion for programming and built my desire to continue working on projects I am passionate about.</p>
         <div className="text-accent cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-lg p-2">Count: {HACKATHONS.length}</div>
       </div>
       <div className="lg:grid lg:grid-cols-3 gap-3 lg:space-y-0 space-y-3 flex flex-col rounded-2xl relative sm:mb-96">
         {HACKATHONS
           .map((h, i) => (
-            <div key={i} className="bg-card shadow-md p-6 rounded-md justify-center items-end hover:scale-95 transition-transform space-y-3 h-full">
+            <div key={i} className="flex flex-col bg-card shadow-md p-6 rounded-md justify-start hover:scale-95 transition-transform space-y-3">
               <div className="flex flex-row">
                 <div className="flex flex-col w-full">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><strong>{h.hack}</strong></h3>
@@ -149,16 +149,19 @@ export default function Hackathons() {
                   <img src="../github.svg" className="h-10 w-10 ml-auto" />
                 </a>
               </div>
-              <a href={h.eventLink} className="flex hover:text-link space-x-1 transition-colors items-center">
-                <img src="../bluelink.svg" className="h-5 w-5" />
-                <p className="text-md font-semibold text-gray-900 dark:text-white">{h.event}</p>
-              </a>
-              <p className="text-body mb-2 font-normal text-gray-500 dark:text-gray-400 break-words">{h.desc}</p>
               {/* <img src={h.imagePath} className="w-full" /> */}
-              <div className="flex flex-row flex-0 space-x-3 justify-end">
-                {h.tags.map((t) => (
-                  <div className="text-body cursor-default items-center justify-center flex bg-[#565b68] transition-colors hover:bg-[#777d8e] rounded-lg p-2">{t}</div>
-                ))}
+              <div className="flex flex-col h-full">
+                <a href={h.eventLink} className="flex mb-3 hover:text-link space-x-1 transition-colors items-center">
+                  <img src="../bluelink.svg" className="h-5 w-5" />
+                  <p className="text-md font-semibold text-gray-900 dark:text-white">{h.event}</p>
+                </a>
+                <p className="text-body font-normal mb-3 text-gray-500 dark:text-gray-400 break-words">{h.desc}</p>
+                <div className="flex space-x-3 mt-auto">
+                  {h.tags.map((t, i) => (
+                    <div key={i}
+                      className="text-body cursor-default items-center justify-center flex bg-[#565b68] transition-colors hover:bg-[#777d8e] rounded-lg p-2">{t}</div>
+                  ))}
+                </div>
               </div>
             </div>
           ))

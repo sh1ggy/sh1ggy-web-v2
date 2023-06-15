@@ -6,14 +6,31 @@ import Skills from "../components/Skills";
 import Contact from "../components/Contact";
 import Projects from "../components/Projects";
 import Hackathons from "../components/Hackathons";
+import Header from "../components/Header";
 import "../styles.css";
-
 ---
 
 <Layout title="sh1ggy-web">
-	<div class="flex flex-col lg:h-screen lg:w-auto overflow-y">
+	<div class="flex flex-col lg:h-screen lg:w-auto overflow-y  scrollbar-thin scrollbar-track-container">
+		<!-- SOCIALS -->
+		<div
+			class="flex flex-col bottom-0 fixed mb-3 lg:mb-6 space-y-3 rounded-lg p-3 lg:p-6 z-10"
+		>
+			<a
+				href="https://www.github.com/sh1ggy"
+				class="hover:scale-90 transition-transform focus:outline-none drop-shadow-xl"
+			>
+				<img class="object-contain w-11" src="../github.svg" />
+			</a>
+			<a
+				href="https://www.linkedin.com/in/tyrone-nolasco/"
+				class="hover:scale-90 transition-transform focus:outline-none drop-shadow-xl"
+			>
+				<img class="object-contain w-11" src="../linkedin.svg" />
+			</a>
+		</div>
 		<!-- NAVBAR -->
-		<header
+		<!-- <header
 			id="header"
 			class="flex items-center rounded-b-2xl px-6 bg-card sticky top-0 w-full z-50"
 		>
@@ -45,44 +62,28 @@ import "../styles.css";
 					>Contact</a
 				>
 			</div>
-		</header>
-		<!-- SOCIALS -->
-		<div
-			class="flex flex-col bottom-0 fixed mb-6 space-y-3 rounded-lg p-6 z-10"
-		>
-			<a
-				href="https://www.github.com/sh1ggy"
-				class="hover:scale-90 transition-transform focus:outline-none"
-			>
-				<img class="object-contain w-12" src="../github.svg" />
-			</a>
-			<a
-				href="https://www.linkedin.com/in/tyrone-nolasco/"
-				class="hover:scale-90 transition-transform focus:outline-none"
-			>
-				<img class="object-contain w-12" src="../linkedin.svg" />
-			</a>
-		</div>
+		</header> -->
+		<Header client:only/>
 		<main class="flex flex-col justify-center items-center flex-grow">
 			<section
-				class="container space-y-96 snap-proximity lg:snap-mandatory snap-y"
+				class="container space-y-96 snap-proximity snap-y"
 			>
-				<div tabindex="-1" class="lg:snap-start">
+				<div tabindex="-1" class="fade fadeOut lg:snap-center">
 					<About client:visible />
 				</div>
-				<div tabindex="-1" id="exp" class="lg:snap-center">
+				<div tabindex="-1" id="exp" class="fade fadeOut lg:snap-center">
 					<Experience client:visible />
 				</div>
-				<div tabindex="-1" id="proj" class="lg:snap-center">
+				<div tabindex="-1" id="proj" class="fade fadeOut lg:snap-center scroll-my-24">
 					<Projects client:visible />
 				</div>
-				<div tabindex="-1" id="hack" class="lg:snap-start">
+				<div tabindex="-1" id="hack" class="fade fadeOut lg:snap-start">
 					<Hackathons client:visible />
 				</div>
-				<div tabindex="-1" id="skills" class="lg:snap-center">
+				<div tabindex="-1" id="skills" class="fade fadeOut lg:snap-center scroll-my-24">
 					<Skills client:visible />
 				</div>
-				<div tabindex="-1" id="contact" class="lg:snap-end">
+				<div tabindex="-1" id="contact" class="fade fadeOut lg:snap-center">
 					<Contact client:visible />
 				</div>
 			</section>
@@ -96,23 +97,66 @@ import "../styles.css";
 			</p>
 		</footer>
 	</div>
+	<script>
+		const observerOptions = {
+			root: null,
+			rootMargin: "0px",
+			threshold: 0.2,
+		};
+
+		function observerCallback(entries, observer) {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					// fade in observed elements that are in view
+					entry.target.classList.replace("fadeOut", "fadeIn");
+				} else {
+					// fade out observed elements that are not in view
+					entry.target.classList.replace("fadeIn", "fadeOut");
+				}
+			});
+		}
+
+		const observer = new IntersectionObserver(
+			observerCallback,
+			observerOptions
+		);
+
+		const fadeElms = document.querySelectorAll(".fade");
+		fadeElms.forEach((el) => observer.observe(el));
+	</script>
 </Layout>
 
-
 <style>
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	/* .vertical-snap {
+		margin: 0 auto;
+		display: grid;
+		grid-auto-flow: row;
+		gap: 1rem;
+		width: calc(180px + 1rem);
+		padding: 1rem;
+		scroll-snap-type: y mandatory;
+	} */
+	.fade {
+		transition: opacity 1s ease-in-out;
+	}
+
+	.fadeOut {
+		opacity: 0;
+	}
+	.fadeIn {
+		opacity: 1;
+	}
 	html {
 		scroll-snap-type: y mandatory;
 		scroll-behavior: smooth;
-	}
-	footer::after {
-		content: "";
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 100vh;
-		background-color: theme("colors.card");
-		z-index: -1;
 	}
 	main {
 		background-color: theme("colors.page");

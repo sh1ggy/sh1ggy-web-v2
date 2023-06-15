@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Projects() {
   const PROJECTS =
@@ -43,32 +43,42 @@ export default function Projects() {
       },
     ]
   return (
-    <div className="flex flex-col items-center lg:h-full h-[calc(100dvh)] justify-center shadow-lg rounded-xl">
-      <div className="flex flex-col justify-center items-center p-3 rounded-t-xl space-y-6 w-full bg-[#353840]">
+    <div className="flex flex-col items-center justify-center p-10 h-full">
+      <div className="flex flex-col justify-center items-center p-3 rounded-t-xl space-y-8 py-6 w-full bg-[#353840] shadow-lg">
         <h1 className="text-primary text-3xl lg:text-6xl px-3">Featured Projects</h1>
         <p className="text-body text-center px-3">With 3 years of web development experience my skill level is currently junior level as I balance my personal up-skilling in web development and project work with full-time work in IT support.</p>
       </div>
       <div className="carousel rounded-b-lg shadow-inner w-full">
         {PROJECTS
-          .map((p, i) => (
-            <div key={i} id={`item${i}`} className="carousel-item relative w-full">
-              <div className="bg-card flex flex-col space-y-6 p-10 justify-center items-center">
-                <h1 className={`text-3xl ${"text-[" + p.color + "]"} lg:text-4xl`}>{p.name}</h1>
-                <p className="text-body text-center">{p.desc}</p>
-                <div className="flex flex-row space-x-3">
-                  {p.tags.map((t) => (
-                    <div className="text-body flex items-center justify-center text-center cursor-default hover:bg-[#565b68] transition-colors bg-[#55607B] rounded-lg p-2">{t}</div>
-                  ))}
-                </div>
-                <a href={p.repo} className="opacity-70 hover:opacity-90 transition-opacity relative z-0 group">
-                  <div className="group absolute inset-0 flex justify-center items-center z-10 opacity-50 rounded-3xl">
-                    <img className="h-10 w-10 hover:visible" src="../link.svg" />
+          .map((p, i) => {
+            return (
+              // Slide tracks currently viewed project 
+              <div key={i} id={`slide${i + 1}`} className="carousel-item relative w-full">
+                <div className="bg-card flex flex-col space-y-6 py-10 px-20 justify-center items-center">
+                  <h1 style={{ color: `${p.color}` }} className="text-3xl lg:text-4xl">{p.name}</h1>
+                  <p className="text-body text-center">{p.desc}</p>
+                  <div className="flex flex-row space-x-3">
+                    {p.tags.map((t, i) => (
+                      <div key={i}
+                        className="text-body flex items-center justify-center text-center cursor-default hover:bg-[#565b68] transition-colors bg-[#55607B] rounded-lg p-2">{t}</div>
+                    ))}
                   </div>
-                  <img src={p.imagePath} />
-                </a>
+                  <a href={p.repo} className="opacity-70 hover:opacity-90 transition-opacity relative z-0 group">
+                    <div className="group absolute inset-0 flex justify-center items-center z-10 opacity-50 rounded-3xl">
+                      <img className="h-10 w-10 hover:visible" src="../link.svg" />
+                    </div>
+                    <img src={p.imagePath} />
+                  </a>
+                  {/* Conditionally render the buttons based on if the index is a valid slide */}
+                  <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href={`#slide${i}`} className={`${(i - 1 < 0) && "opacity-0 pointer-events-none"} btn btn-ghost`}>❮</a>
+                    <a href={`#slide${i + 2}`} className={`${(i + 1 == PROJECTS.length) && "opacity-0 pointer-events-none"} btn btn-ghost`}>❯</a>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))
+            )
+          }
+          )
         }
       </div>
     </div>
