@@ -48,19 +48,19 @@ export default function Projects() {
         <h1 className="text-primary text-3xl lg:text-6xl px-3">Featured Projects</h1>
         <p className="text-body text-center px-3">With 3 years of web development experience my skill level is currently junior level as I balance my personal up-skilling in web development and project work with full-time work in IT support.</p>
       </div>
-      <div className="carousel rounded-b-lg shadow-inner w-full">
+      <div className="carousel rounded-b-lg shadow-inner w-full bg-card">
         {PROJECTS
           .map((p, i) => {
             return (
               // Slide tracks currently viewed project 
-              <div key={i} id={`slide${i + 1}`} className="carousel-item relative w-full">
-                <div className="bg-card flex flex-col space-y-6 py-10 px-20 justify-center items-center">
+              <div key={i} id={`slide${i + 1}`} className="carousel-item relative w-full items-center justify-center">
+                <div className="bg-card flex flex-col space-y-6 py-10 lg:px-20 px-5 justify-center items-center">
                   <h1 style={{ color: `${p.color}` }} className="text-3xl lg:text-4xl">{p.name}</h1>
                   <p className="text-body text-center">{p.desc}</p>
                   <div className="flex flex-row space-x-3">
                     {p.tags.map((t, i) => (
                       <div key={i}
-                        className="text-body flex items-center justify-center text-center cursor-default hover:bg-[#565b68] transition-colors bg-[#55607B] rounded-lg p-2">{t}</div>
+                        className="lg:text-md text-xs text-body flex items-center justify-center text-center cursor-default hover:bg-[#565b68] transition-colors bg-[#55607B] rounded-lg p-2">{t}</div>
                     ))}
                   </div>
                   <a href={p.repo} className="opacity-70 hover:opacity-90 transition-opacity relative z-0 group">
@@ -70,9 +70,9 @@ export default function Projects() {
                     <img src={p.imagePath} />
                   </a>
                   {/* Conditionally render the buttons based on if the index is a valid slide */}
-                  <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href={`#slide${i}`} className={`${(i - 1 < 0) && "opacity-0 pointer-events-none"} btn btn-ghost`}>❮</a>
-                    <a href={`#slide${i + 2}`} className={`${(i + 1 == PROJECTS.length) && "opacity-0 pointer-events-none"} btn btn-ghost`}>❯</a>
+                  <div className="lg:absolute flex justify-between transform-translate-y-1/2 lg:left-5 lg:right-5">
+                    <a href={`#slide${i}`} className={`${(i - 1 < 0) && "pointer-events-none cursor-not-allowed btn-disabled"} btn btn-ghost`}>❮</a>
+                    <a href={`#slide${i + 2}`} className={`${(i + 1 == PROJECTS.length) && "pointer-events-none cursor-not-allowed btn-disabled"} btn btn-ghost`}>❯</a>
                   </div>
                 </div>
               </div>

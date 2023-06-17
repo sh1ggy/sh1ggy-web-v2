@@ -18,7 +18,7 @@ export default function Skills() {
     <div className="flex flex-col space-y-8 flex-wrap rounded-2xl p-10 lg:h-[calc(screen-24px)] flex-grow justify-center items-center select-none">
       <h1 className="text-primary drop-shadow-lg text-3xl lg:text-6xl">Skills</h1>
       <p className="text-body drop-shadow-sm text-center lg:w-9/12">All of my current professional job experience has been in the IT Support space, with a focus on documentation, communication and adaptability, with a background in Computer Science having studied a Bachelor's in IT, majoring in Computer Science @ QUT</p>
-      <div className="grid grid-cols-3 lg:grid-cols-4 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 gap-6">
         {HARD_SKILLS
           .map((s, i) => (
             <div key={i} className="bg-[#444c62] flex flex-col group relative rounded-xl shadow-lg lg:p-6 p-3 transition-colors ease-in-out duration-1000 hover:bg-[#5e6578] cursor-pointer w-full items-center justify-center">
