@@ -42,30 +42,30 @@ export default function Contact() {
       </div>
 
       <h1 className="text-primary drop-shadow-lg text-3xl lg:text-6xl mr-3">Contact Me</h1>
-      <form className="flex flex-col space-y-5 w-full">
+      <form className="flex flex-col lg:space-y-5 space-y-4 w-full">
         <div className="flex flex-row bg-card rounded-lg shadow-lg">
-          <div className="w-1/3 rounded-l-lg p-6 bg-card text-primary">
+          <div className="w-1/3 rounded-l-lg py-3 px-6 lg:p-6 bg-card text-primary">
             <strong>Name</strong>
           </div>
           <input
             onChange={(e) => { setName(e.target.value) }}
-            className="w-2/3 rounded-lg p-6 text-card focus:ring-4 focus:outline-none focus:ring-primary" />
+            className="w-2/3 rounded-lg py-3 px-6 lg:p-6 text-card focus:ring-4 focus:outline-none focus:ring-primary" />
         </div>
         <div className="flex flex-row bg-card rounded-lg shadow-lg">
-          <div className="w-1/3 rounded-l-lg p-6 bg-card text-primary">
+          <div className="w-1/3 rounded-l-lg py-3 px-6 lg:p-6 bg-card text-primary">
             <strong>Subject</strong>
           </div>
           <input
             onChange={(e) => { setSubject(e.target.value) }}
-            className="w-2/3 rounded-lg p-6 text-card focus:ring-4 focus:outline-none focus:ring-primary" />
+            className="w-2/3 rounded-lg py-3 px-6 lg:p-6 text-card focus:ring-4 focus:outline-none focus:ring-primary" />
         </div>
         <div className="flex flex-row bg-card rounded-lg shadow-lg">
-          <div className="w-1/3 rounded-l-lg p-6 bg-card text-primary">
+          <div className="w-1/3 rounded-l-lg py-3 px-6 lg:p-6 bg-card text-primary">
             <strong>Email</strong>
           </div>
           <input
             onChange={(e) => { setEmail(e.target.value) }}
-            className="w-2/3 rounded-lg p-6 text-card focus:ring-4 focus:outline-none focus:ring-primary" />
+            className="w-2/3 rounded-lg py-3 px-6 lg:p-6 text-card focus:ring-4 focus:outline-none focus:ring-primary" />
         </div>
         <div className="flex flex-col bg-card rounded-lg shadow-lg">
           <div className="w-1/3 flex flex-1 rounded-l-lg p-6 h-10 lg:h-52 bg-card text-primary">
