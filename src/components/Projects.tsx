@@ -18,7 +18,7 @@ export default function Projects() {
       },
       {
         name: "NAKL",
-        desc: "A serverless peer to peer transfer platform to quickly transfer text and files between two parties seamlessly. This project is ongoing and is currently a work in progress.",
+        desc: "A serverless peer to peer transfer platform to quickly transfer text and files between two parties seamlessly with a focus on anonymity, speed and privacy. This project is ongoing and is currently a work in progress.",
         tags:
           [
             "TypeScript",
@@ -30,7 +30,7 @@ export default function Projects() {
       },
       {
         name: "keyDOTboard",
-        desc: "An RFID card password manager with auto-login functionality using an ESP32 and a RFID card reader to detect and input the cards that you set up in the program.",
+        desc: "An RFID card password manager with auto-login functionality using an ESP32 and a RFID card reader to detect and input the passwords based on the cards that you set up in the program.",
         tags:
           [
             "Tauri",
@@ -45,7 +45,7 @@ export default function Projects() {
   return (
     <div className="flex flex-col items-center justify-center p-10 h-full">
       <div className="flex flex-col justify-center items-center p-3 rounded-t-xl space-y-8 py-6 w-full bg-[#353840] shadow-lg">
-        <h1 className="text-primary text-3xl lg:text-6xl px-3">Featured Projects</h1>
+        <h1 className="text-primary text-3xl lg:text-6xl px-3 text-center">Featured Projects</h1>
         <p className="text-body text-center px-3">These are my most significant projects indicative of my web development experience level. I balance personal up-skilling with full-time work in IT support.</p>
       </div>
       <div className="carousel rounded-b-lg shadow-inner w-full bg-card">
@@ -77,8 +77,7 @@ export default function Projects() {
                 </div>
               </div>
             )
-          }
-          )
+          })
         }
       </div>
     </div>
