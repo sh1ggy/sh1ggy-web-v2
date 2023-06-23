@@ -43,7 +43,7 @@ export default function Projects() {
       },
     ]
   return (
-    <div className="flex flex-col items-center justify-center p-10 h-full">
+    <div className="flex flex-col items-center justify-center p-10 h-full lg:mx-14">
       <div className="flex flex-col justify-center items-center p-3 rounded-t-xl space-y-8 py-6 w-full bg-[#353840] shadow-lg">
         <h1 className="text-primary text-3xl lg:text-6xl px-3 text-center">Featured Projects</h1>
         <p className="text-body text-center px-3">These are my most significant projects indicative of my web development experience level. I balance personal up-skilling with full-time work in IT support.</p>

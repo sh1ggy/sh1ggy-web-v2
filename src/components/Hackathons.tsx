@@ -130,7 +130,7 @@ export default function Hackathons() {
       },
     ]
   return (
-    <div className="flex flex-col space-y-6 p-10 lg:pb-96">
+    <div className="flex flex-col space-y-6 p-10 lg:pb-96 lg:mx-14">
       <div className="flex flex-col items-center justify-center space-y-6">
         <h1 className="text-primary drop-shadow-lg text-3xl lg:text-6xl">Other Projects</h1>
         <p className="text-body drop-shadow-md text-center">Whenever I get the chance to, I love participating in hackathons and it's definitely contributed a lot to my passion for programming and built my desire to continue working on projects I am passionate about.</p>

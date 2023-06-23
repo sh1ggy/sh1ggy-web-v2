@@ -30,24 +30,24 @@ import "../styles.css";
 			</a>
 		</div>
 		<Header client:only />
-		<main class="flex flex-col justify-center items-center flex-grow">
+		<main class="flex flex-col flex-grow">
 			<section class="container space-y-96">
-				<div tabindex="-1" class="fade fadeOut">
+				<div tabindex="-1" class="fade fadeOut w-screen">
 					<About client:visible />
 				</div>
-				<div tabindex="-1" id="exp" class="fade fadeOut">
+				<div tabindex="-1" id="exp" class="fade fadeOut bg-[red] w-screen">
 					<Experience client:visible />
 				</div>
-				<div tabindex="-1" id="proj" class="fade fadeOut scroll-my-24">
+				<div tabindex="-1" id="proj" class="fade fadeOut scroll-my-24 bg-[red] w-screen">
 					<Projects client:visible />
 				</div>
-				<div tabindex="-1" id="hack" class="fade fadeOut">
+				<div tabindex="-1" id="hack" class="fade fadeOut bg-[red] w-screen">
 					<Hackathons client:visible />
 				</div>
-				<div tabindex="-1" id="skills" class="fade fadeOut scroll-my-24">
+				<div tabindex="-1" id="skills" class="fade fadeOut bg-[red] scroll-my-24 w-screen">
 					<Skills client:visible />
 				</div>
-				<div tabindex="-1" id="contact" class="fade fadeOut">
+				<div tabindex="-1" id="contact" class="fade fadeOut bg-[red] w-screen">
 					<Contact client:visible />
 				</div>
 			</section>
@@ -62,6 +62,7 @@ import "../styles.css";
 		</footer>
 	</div>
 	<script>
+		// Scroll handling
 		if (history.scrollRestoration) {
 			history.scrollRestoration = "manual";
 		}
@@ -84,6 +85,7 @@ import "../styles.css";
 			});
 		});
 
+		// Fade animation handling
 		const observerOptions = {
 			root: null,
 			rootMargin: "0px",

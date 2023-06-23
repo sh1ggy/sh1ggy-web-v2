@@ -18,7 +18,7 @@ export default function Header() {
 
       {matches &&
         // DESKTOP NAVBAR
-        <div className={`${scrollDirection === "down" ? "-top-24" : "top-0"} navbar flex items-center rounded-b-2xl px-6 bg-card sticky w-full z-50`}>
+        <div className={`${scrollDirection === "down" ? "-top-24" : "top-0"} navbar flex items-center rounded-b-2xl px-6 bg-card sticky w-full z-50 transition-all duration-500`}>
           <a
             href="#"
             className="text-body rounded-lg hover:bg-[#4c515e] p-5 transition-all duration-1000 focus:outline-none">
@@ -43,7 +43,7 @@ export default function Header() {
       }
       {!matches &&
         // MOBILE NAVBAR
-        <div className={`${scrollDirection === "down" ? "-top-24" : "top-0"} navbar flex items-center rounded-b-2xl px-6 bg-card sticky w-full z-50 space-x-3`}>
+        <div className={`${scrollDirection === "down" ? "-top-24" : "top-0"} navbar flex items-center rounded-b-2xl px-6 bg-card sticky w-full z-50 space-x-3 transition-all duration-500`}>
           <div className="navbar-start">
             <div className="dropdown">
               <label tabIndex={0} className="btn btn-ghost">
