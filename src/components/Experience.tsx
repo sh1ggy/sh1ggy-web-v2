@@ -46,8 +46,8 @@ export default function Experience() {
         <div className="space-y-3">
           {JOBS
             .map((j, i) => (
-              <div key={i} className='collapse collapse-arrow bg-[#484D59] group shadow-xl rounded-xl transition-transform'>
-                <input type="checkbox" />
+              <div key={i} className='collapse bg-[#484D59] group shadow-xl rounded-xl transition-transform'>
+                <input type="radio" name="my-accordion-1"/>
                 {/* Header */}
                 <div className="collapse-title font-medium flex flex-col lg:flex-row bg-card group-hover:bg-[#2d2e36]  ease-in-out shadow-sm rounded-xl transition-colors duration-200">
                   <p>{j.roleName} <strong>@ {j.company}</strong></p>

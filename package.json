@@ -17,7 +17,6 @@
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "astro": "^2.4.1",
-    "daisyui": "^2.51.6",
     "fullpage.js": "^4.0.20",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -25,6 +24,7 @@
     "three": "^0.152.2"
   },
   "devDependencies": {
+    "daisyui": "^3.1.7",
     "tailwind-scrollbar": "^3.0.4"
   }
 }
