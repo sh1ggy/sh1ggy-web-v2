@@ -1,8 +1,33 @@
 import { useState } from "react"
 
+type Project = {
+  hack: string,
+  date: string,
+  event: string,
+  desc: string,
+  eventLink: string,
+  repo: string,
+  tags: string[],
+  imagePath?: string,
+}
+
 export default function Hackathons() {
-  const HACKATHONS =
+  const HACKATHONS: Project[] =
     [
+      {
+        hack: "scribbly",
+        date: "16-07-2023",
+        event: "Code Network 2023 Hackathon",
+        desc: "1v1 Google QuickDraw clone w ML scoring",
+        eventLink: "https://www.eventbrite.com.au/e/code-network-winter-hackathon-2023-tickets-656620267897",
+        repo: "https://github.com/sh1ggy/scribbly",
+        tags:
+          [
+            "NextJS13",
+            "Rust",
+            "WS",
+          ],
+      },
       {
         hack: "keyDOTboard",
         date: "22-04-2023",
