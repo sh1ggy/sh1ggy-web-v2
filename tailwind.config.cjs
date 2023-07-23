@@ -14,9 +14,9 @@ module.exports = {
 		extend: {
 			backgroundColor: '#353A47',
 			fontFamily: {
-				signika: ['Signika'],
-				ubuntu: ['Ubuntu'],
-				mukta: ['Mukta']
+				signika: ['Signika', 'sans-serif'],
+				ubuntu: ['Ubuntu', 'sans-serif'],
+				mukta: ['Mukta', 'sans-serif']
 			},
 		},
 	},
