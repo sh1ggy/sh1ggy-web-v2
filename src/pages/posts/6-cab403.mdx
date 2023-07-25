@@ -1,0 +1,44 @@
+---
+layout: '../../layouts/BlogPostLayout.astro'
+title: CAB403 - Systems Programming
+smTitle: CAB403
+description: Favourite university unit (CPMSS project)
+tags: [C, pthreads, shm]
+repo: https://github.com/sh1ggy/cab403-cpmss
+event: "https://www.youtube.com/watch?v=SlU0jjFIrYc"
+eventDate: "2021-09-12"
+writtenDate: "2022-02-14"
+---
+--- 
+<br/>
+
+Studying at Queensland University of Technology (QUT) allowed for an easy environment to slowly hone my programming skills especially in group settings. In this post I just want to highlight one of my favourite units that I would definitely recommend to anyone who is studying Information Technologies at QUT.
+
+This subject was all about the low-level structure of computer systems and their applications. Our primary method of experiencing the applications of low-level systems was to write code in C while following safety-critical methodologies. The major assignment of the semester was a Car Park Management System & Simulator (CPMSS) written in C and done in a group of three; being one of the most involved assignments that I've had to participate in. 
+
+**Role** - My participation in this university project was very heavy since we were left with only two consistently engaged programmers after one of our team members lessened their contributions over timer. The team's workflow had us live sharing on Visual Studio Code working off of my computer to compile the C code that we were writing together, so it was my responsibility to create the make file to glue our project together as well as make all the commits to the GitHub repository that we were maintaining. The debugging process had me and the other team member closely combing through the code together and it was basically a 50/50 contribution between the two of us. Personally, I handled more of the overall architecture of the files and how they communicated to each other through shared memory.  
+
+## Task Description
+
+The task required us to simulate the functions of a parking lot with simulated cars getting their license plates scanned and being assigned a parking floor to go to, going through boom gates and being monitored throughout their time in the car park. 
+
+The **structure** of the system consisted of the following components:
+ - **_Manager_** - responsible for keeping track of all relevant information to do with the car park
+ - **_Simulator_** - creates the cars and simulates their time spend doing certain actions in the car park via threads
+ - **_Firealarm System_**- the safety-critical component which would be invoked when values are outside of set thresholds.  
+ 
+The CPMSS communicated together through a large shared memory (shm) structure that was used between the aforementioned processes depending on the situation. This meant that we had to use **mutex values** and **condition variables** to ensure that there was no deadlock or conflict between processes trying to access the same data simultaneously. 
+
+## Things Learnt	
+Managing your memory manually, remembering which scope we were in, as well as structuring the program appropriately are a few of the challenges that we faced during this project. This was one of the first assignments that didn't outright provide the structure of your program, so having all that freedom was definitely daunting especially because of how unfriendly C is sometimes. Setting up the .make file for example was the first roadblock that we had to solve in order to compile everything that we needed to, especially because our file structure was split up into separate modules.
+
+Structuring the interactions between each program was one of the hardest parts of starting this assignment and I think that ultimately we made a mistake running the manager and simulator inside of distinct threads rather than just running them both as processes. Sharing memory caused a lot of problems when we were trying to both write to it as well as read it and display it on the manager program's view.
+
+We decided to handle each car in their own thread. The difficulty in doing this was that every thread needed a way to read and write to shared memory without causing memory leaks. Debugging and researching this was probably the most time-consuming part of this assignment.
+
+ - **Debugging & Patience**: All debugging was done via the error / warning messages we received as well as running our program through valgrind to see if we could pinpoint any specific places of interest. Issues were resolved through a brute force method that would try to systematically reduce the possibility of bugs until we could resolve the issue. Patience during times where there would be little to no progress and there had to be research done in order to solve the issue we were facing was key in the completion of this assignment. 
+
+ - **Manual Memory Management**: The thorough use of valgrind to debug the shared memory structure brought me down to the lowest level of memory manipulation that I have experienced, which gave me a greater appreciation for modern frameworks and workflows. The input / output problem-solving framework that I descibed in the [`Bingo Butler`](/blog/UQCSBingo) article was a good way to frame a lot of the problems that we had. Double, triple checking that the input was what we thought it was as well as constantly re-thinking what we wanted to do with it contributed to our ultimate success.
+
+## Conclusion
+If you are considering choosing CAB403 as one of your units during the QUT IT course, I would highly recommend it. Through vigorous use of C, you learn some fundamental paradigms of programming that play a part in a lot of programs under the hood and I think that experiencing a unit this notoriously hard will shift your programming perspective a little. Structuring this project from the ground up was very gratifying and I think that that was the main reason as to why I enjoyed the process of completing this assignment so much.      

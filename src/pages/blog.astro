@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+const allPosts = (await Astro.glob("../pages/posts/*.mdx")).reverse();
+const pageTitle = "sh1ggy log";
+---
+
+<Layout title={pageTitle}>
+  <div class="flex flex-col lg:h-screen lg:w-auto overflow-y">
+    <h1
+      class="hover:text-link hover:cursor-pointer duration-500 transition-colors text-primary text-center mb-3 lg:text-5xl font-ubuntu"
+    >
+      {pageTitle}
+    </h1>
+    <table class="bg-container rounded-lg m-6">
+      <thead>
+        <tr>
+          <th><strong>Date</strong></th>
+          <th><strong>Title</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Tags</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          allPosts.map((post) => (
+            <tr
+              class="hover:scale-95 hover:cursor-pointer rounded-lg transition-all duration-500"
+              onclick={`window.location='${post.url}'`}
+            >
+              <td>
+                <i>{post.frontmatter.eventDate}</i>
+              </td>
+              <td>
+                <a href={`${post.url}`}>{post.frontmatter.title}</a>
+              </td>
+              <td>{post.frontmatter.description}</td>
+              <td>
+                {/* splitting by ","  */}
+                {post.frontmatter.tags.map((tag: string) => (
+                  <div class="rounded-lg p-2 bg-primary text-card w-fit">{tag}</div>
+                ))}
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</Layout>

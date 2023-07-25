@@ -3,10 +3,10 @@ interface Props {
 }
 export default function Tags({ tags }: Props) {
   return (
-    <div className="flex flex-row gap-3 rounded-l">
+    <div className="flex flex-row justify-center gap-3 rounded-lg mt-3">
       {
         tags.map((tag: string) => (
-          <div className="bg-card rounded-lg p-2">{tag}</div>
+          <div className="bg-container rounded-lg p-2">{tag}</div>
         ))
       }
     </div>

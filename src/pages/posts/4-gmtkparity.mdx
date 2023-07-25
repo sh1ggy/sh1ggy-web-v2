@@ -1,0 +1,42 @@
+---
+layout: '../../layouts/BlogPostLayout.astro'
+title: GMTK 2021 Game Jam - Parity
+smTitle: GMTKParity
+description: First game jam, with the theme of "Joined Together"
+tags: [Godot, Asesprite]
+repo: https://github.com/ProPablo/parity-GMTK
+event: https://sh-ggy.itch.io/parity
+eventDate: "2021-06-14"
+writtenDate: "2022-02-07"
+---
+--- 
+<br/>
+
+Game Maker's Toolkit held their fifth game jam in 2021, with the theme "Joined Together" and lasting **48 hours**. I joined with a team of two and chose Godot as our chosen engine because of its simplicity. This was my first attempt at game development and so there were a lot of new things that I learnt during this experience. Compared to the hackathon format, learning a new paradigm of programming made this game jam a lot more interesting personally, especially because I came properly prepared. 
+
+You can play the game for yourself in the browser from the [itch.io link](https://sh-ggy.itch.io/parity) but I will describe it here as well.
+
+My team's game, Parity, had you controlling a black hole, sucking up and combining assets falling from the sky according to a combination cards that scroll across the screen. You have 4 HP points, which decrease when the combination cards go all the way to the right of the screen or when you suck in more than your 4 maximum inventory slots (in which you can only hold for a set amount of time). All of the game's timing is indicated by the UI element shaking and interpolating colours. 
+
+The game has 7 acts, all of which follow their own visual theme and change up the assets and become a little harder as a result. Sadly there are no bosses or extra mechanics other than controlling the black hole, the game just relies on the size of the assets to add difficulty. 
+
+**Role** - I handled all of the asset gathering and mapping them into the game (collisions and region mapping). Since there were only two people in the team this time around there was overlap in our roles and it there was a lot of handing tasks back and forth between each other. There was a lot more doing than planning and it was through quickly drawing out our ideas during discussions that made it a lot easier to conceptualise what needed to be done as well as keeping us on the page.   
+
+![Parity Main HUD](/blog/GMTKParity/game.png "game")
+
+The idea itself was conceptualised very quickly at the start of the 48 hour time period where we developed the blackhole sucking mechanic to start and fully laid out what was necessary for the game to be funtional. I think that having done this gave the game jam direction, more so than the hackathons that we have participated in previously. 
+
+![Parity Sketch HUD](/blog/GMTKParity/sketch.png "sketch")
+
+## Things Learnt	
+ - **Preparation Skills:** Before participating in this game jam, I ran through the Godot tutorial game guide and also made a Flappy Bird clone which properly introduced me to Godot as a game engine as well as the general. The funny thing about the Flappy Bird tutorial is that it was for Unity, but drawing the dots between the Godot and Unity engine helped to focus on the game development concepts alone. Using a tutorial in this way definitely contributed to a deeper understanding of how to tackle game development.
+
+ - **Scope Creep:** We did brainstorm a lot of extra mechanics, bosses and lore to the game but considering this was our first shot at game development, we only had the time to focus on core mechanics. Colour and positional interpolation was the easiest way to communicate with the player with the flashing colours and shaking of assets conveying the urgency of certain actions. To separate each act's assets, we used a .json file to establish certain characteristics of each sprite to add them into the game appropriately and with the appropriate hitbox. This process was very slow to say the least as the amount of assets needed was huge considering that this was a game focussed on dodging and combining a bunch of assets falling from the sky. 
+
+ The assets themselves surprisingly took a while to get functional in the game and I think that having a kind of bank of assets or a way to quickly produce them would help a lot with developing games quickly. Considering this was an issue that I faced in the previous Heart Attack hackathon (LINK), having a way to quickly produce assets is a priority when it comes to the next game jam I participate in. I did have to use Asesprite to quickly edit or create a needed asset which was a fun skill to dip my toes in.
+
+ - **Limits:** This game jam was probably the hardest that I've pushed myself and not only did it burn me out for a while but gave me a higher level of patience and respect for myself. I defintiely recommend game jams in particular to test your ability to be patient as the process felt a lot more hectic than just developing your standard full stack website. 
+
+## Conclusion
+The creative process involved in game development is something I recommend everyone to experience as it is much different from the solution-orientated mindset that's usually applied to work or university. It is especially satisfying because at the end of this game jam there was a feasible game to play and show to others, leading to a greater feeling of accomplishment. Hopefully I can bring this feeling of accomplishment and creativity to non game development projects as it makes the process much more enjoyable and meaningful to me personally.
+
