@@ -1,49 +1,50 @@
 ---
 import Layout from "../layouts/Layout.astro";
 const allPosts = (await Astro.glob("../pages/posts/*.mdx")).reverse();
-const pageTitle = "sh1ggy log";
+const pageTitle = "";
 ---
 
 <Layout title={pageTitle}>
-  <div class="flex flex-col lg:h-screen lg:w-auto overflow-y">
-    <h1
-      class="hover:text-link hover:cursor-pointer duration-500 transition-colors text-primary text-center mb-3 lg:text-5xl font-ubuntu"
-    >
-      {pageTitle}
-    </h1>
-    <table class="bg-container rounded-lg m-6">
-      <thead>
-        <tr>
-          <th><strong>Date</strong></th>
-          <th><strong>Title</strong></th>
-          <th><strong>Description</strong></th>
-          <th><strong>Tags</strong></th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          allPosts.map((post) => (
-            <tr
-              class="hover:scale-95 hover:cursor-pointer rounded-lg transition-all duration-500"
-              onclick={`window.location='${post.url}'`}
-            >
-              <td>
-                <i>{post.frontmatter.eventDate}</i>
-              </td>
-              <td>
-                <a href={`${post.url}`}>{post.frontmatter.title}</a>
-              </td>
-              <td>{post.frontmatter.description}</td>
-              <td>
-                {/* splitting by ","  */}
-                {post.frontmatter.tags.map((tag: string) => (
-                  <div class="rounded-lg p-2 bg-primary text-card w-fit">{tag}</div>
-                ))}
-              </td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
+  <div class="flex flex-col lg:h-screen lg:w-auto overflow-y mx-6">
+    <header class="text-center py-10 w-full">
+      <strong class="text-4xl text-primary"><code>sh1ggy log</code></strong>
+    </header>
+    <div class="flex flex-col space-y-6">
+      {
+        allPosts.map((post) => (
+          <div
+            onclick={`window.location='${post.url}'`}
+            class="card card-side h-min bg-container hover:scale-95 hover:cursor-pointer rounded-lg transition-all duration-500"
+          >
+            <figure>
+              <img
+                src={`/blog/${post.frontmatter.smTitle}/background.jpeg`}
+                class="object-fit w-96 h-full blur-[1px]"
+              />
+            </figure>
+            <div class="card-body">
+              <a href={`${post.url}`}>
+                <h2 class="card-title">{post.frontmatter.title}</h2>
+                <div class="flex flex-row space-x-2 w-fit">
+                  {post.frontmatter.tags.map((tag: string) => (
+                    <div class="flex flex-wrap justify-center items-center text-center rounded-md p-2 bg-card shadow-sm">
+                      <p class="w-max">{tag}</p>
+                    </div>
+                  ))}
+                </div>
+              </a>
+              <h3>{post.frontmatter.description}</h3>
+              <code>{post.frontmatter.eventDate}</code>
+            </div>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </Layout>
+
+<style>
+  main {
+    background-color: theme("colors.page");
+  }
+</style>
