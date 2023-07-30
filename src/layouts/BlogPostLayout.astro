@@ -2,7 +2,9 @@
 const { frontmatter } = Astro.props;
 import Tags from "../components/Blog/Tags";
 import Header from "../components/Header";
-const allPosts = await Astro.glob("../pages/posts/*.mdx");
+const currentPost = await Astro.glob("../pages/posts/*.mdx");
+const { resource, id } = Astro.params;
+// const allMdxPosts = await Astro.glob("../pages/posts/*.mdx");
 ---
 
 <!DOCTYPE html>
@@ -10,8 +12,8 @@ const allPosts = await Astro.glob("../pages/posts/*.mdx");
   class="p-10 scrollbar-thin scrollbar-track-card scrollbar-thumb-container scrollbar-thumb-rounded-lg"
 >
   <div class="flex mb-10">
-    <a href="/blog" class="btn btn-ghost duration-500 mr-auto">Blog</a>
-    <a href="/" class="btn btn-ghost duration-500">Home</a>
+    <a href="/blog" class="btn btn-ghost duration-500 !text-body mr-auto">Blog</a>
+    <a href="/" class="btn btn-ghost !text-body duration-500">Home</a>
   </div>
   <div class="space-y-3">
     <img
@@ -22,11 +24,12 @@ const allPosts = await Astro.glob("../pages/posts/*.mdx");
       <div class="flex flex-col rounded-lg p-3">
         <a href={frontmatter.event}>
           <h1
-            class="hover:text-link hover:cursor-pointer duration-500 transition-colors text-primary text-center mb-3 lg:text-5xl font-ubuntu"
+            class="hover:text-link hover:cursor-pointer duration-500 transition-colors text-primary text-center mb-3 lg:text-5xl text-3xl font-ubuntu"
           >
             {frontmatter.title}
           </h1>
         </a>
+        <p>{id}</p>
         <Tags tags={frontmatter.tags} />
         <div class="flex flex-col items-center justify-center my-3">
           <!-- <p class="rounded-lg bg-container p-3 italic">{frontmatter.description}</p> -->
@@ -78,6 +81,10 @@ const allPosts = await Astro.glob("../pages/posts/*.mdx");
     }
     ul {
       list-style-type: circle!important;
+      padding-left: 2rem!important;
+    }
+    a {
+      /* color: theme("colors.link")!important; */
     }
   </style>
 
