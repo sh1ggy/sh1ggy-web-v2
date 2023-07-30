@@ -2,38 +2,31 @@
 import Layout from "../layouts/Layout.astro";
 const allPosts = (await Astro.glob("../pages/posts/*.mdx")).reverse();
 const pageTitle = "";
+import Tags from "../components/Blog/Tags";
 ---
 
 <Layout title={pageTitle}>
-  <div class="flex flex-col lg:h-screen lg:w-auto overflow-y mx-6">
-    <header class="flex flex-col text-center py-10 w-full space-y-3">
+  <div class="flex flex-col lg:h-screen">
+    <header class="flex flex-col text-center py-10 space-y-3">
       <strong class="text-4xl text-primary"><code>sh1ggy log</code></strong>
-      <a href="/" class="btn btn-ghost mr-auto ml-auto">Back to Home</a>
+      <button onclick="location.href='/'" class="btn btn-ghost mr-auto ml-auto">Back to Home</button>
     </header>
-    <div class="flex flex-col space-y-6">
+    <div class="flex flex-col space-y-6 mx-11">
       {
         allPosts.map((post) => (
           <div
             onclick={`window.location='${post.url}'`}
-            class="card card-side h-min bg-container hover:scale-95 hover:cursor-pointer rounded-lg transition-all duration-500"
+            class="card md:card-side h-min bg-container hover:scale-95 hover:cursor-pointer rounded-lg transition-all duration-500"
           >
             <figure>
               <img
                 src={`/blog/${post.frontmatter.smTitle}/background.jpeg`}
-                class="object-fit w-96 h-full blur-[1px]"
+                class="lg:object-fit object-cover w-screen lg:w-96 h-full blur-[1px]"
               />
             </figure>
-            <div class="card-body">
-              <a href={`${post.url}`}>
-                <h2 class="card-title">{post.frontmatter.title}</h2>
-                <div class="flex flex-row space-x-2 w-fit">
-                  {post.frontmatter.tags.map((tag: string) => (
-                    <div class="flex flex-wrap justify-center items-center text-center rounded-md p-2 bg-card shadow-sm">
-                      <p class="w-max">{tag}</p>
-                    </div>
-                  ))}
-                </div>
-              </a>
+            <div class="card-body" onclick={`location.href='${post.url}'`}>
+              <h2 class="card-title">{post.frontmatter.title}</h2>
+              <Tags tags={post.frontmatter.tags}/>
               <h3>{post.frontmatter.description}</h3>
               <code>{post.frontmatter.eventDate}</code>
             </div>

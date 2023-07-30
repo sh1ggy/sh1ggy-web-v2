@@ -30,9 +30,10 @@ const { resource, id } = Astro.params;
           </h1>
         </a>
         <p>{id}</p>
-        <Tags tags={frontmatter.tags} />
+        <div class="flex justify-center items-center">
+          <Tags tags={frontmatter.tags} />
+        </div>
         <div class="flex flex-col items-center justify-center my-3">
-          <!-- <p class="rounded-lg bg-container p-3 italic">{frontmatter.description}</p> -->
           <code class="m-3"
             ><strong>Written</strong> {frontmatter.writtenDate}</code
           >
@@ -50,7 +51,7 @@ const { resource, id } = Astro.params;
       <a href="/blog" class="btn btn-ghost duration-500 ml-auto">Blog</a>
     </div> -->
   </div>
-  <style is:global>
+  <style is:inline>
     body {
       font-size: 1rem;
       margin: 1rem;
@@ -76,15 +77,15 @@ const { resource, id } = Astro.params;
       font-weight: 300 !important;
     }
     img {
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: auto!important;
+      margin-right: auto!important;
     }
     ul {
       list-style-type: circle!important;
       padding-left: 2rem!important;
     }
     a {
-      /* color: theme("colors.link")!important; */
+      color: theme("colors.link")!important;
     }
   </style>
 
