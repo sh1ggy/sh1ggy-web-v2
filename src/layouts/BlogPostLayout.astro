@@ -13,7 +13,7 @@ const { resource, id } = Astro.params;
 >
   <a
     id="toTop"
-    class="btn btn-circle fixed bottom-0 right-0 m-6 bg-card shadown-lg border-none hover:bg-container hidden"
+    class="btn btn-circle fixed bottom-0 right-0 m-6 bg-[#9297a3] shadown-lg border-none hover:bg-container duration-500 pop popOut"
     href="#top"
   >
     <img class="object-contain w-24" src="/up.svg" />
@@ -70,14 +70,42 @@ const { resource, id } = Astro.params;
           document.body.scrollTop > 500 ||
           document.documentElement.scrollTop > 500
         ) {
-          toTopAnchor.classList.remove("hidden");
+          // toTopAnchor.classList.remove("hidden");
+          toTopAnchor.classList.replace("popOut", "popIn");
         } else {
-          toTopAnchor.classList.add("hidden");
+          toTopAnchor.classList.replace("popIn", "popOut");
+          // toTopAnchor.classList.add("hidden");
         }
       };
     }
+    // Fade animation handling
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.2,
+    };
   </script>
   <style is:inline>
+    @keyframes pop-in {
+      from {
+        transform: scale(0);
+      }
+      80% {
+        transform: scale(1.2);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+    .pop {
+      transition: scale 0.1s ease-in-out;
+    }
+    .popOut {
+      scale: 0;
+    }
+    .popIn {
+      scale: 1;
+    }
     h2 {
       font-size: 1.75rem !important;
       font-weight: 700 !important;
