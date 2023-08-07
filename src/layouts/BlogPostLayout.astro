@@ -11,6 +11,14 @@ const { resource, id } = Astro.params;
 <html
   class="p-10 scrollbar-thin scrollbar-track-card scrollbar-thumb-container scrollbar-thumb-rounded-lg scroll-smooth"
 >
+  <div class="fixed top-0 left-0 w-full h-2">
+    <div
+      class="h-full bg-primary rounded-r-lg"
+      id="readingProgress"
+      style="width: 0;"
+    >
+    </div>
+  </div>
   <a
     id="toTop"
     class="btn btn-circle fixed bottom-0 right-0 m-6 bg-[#9297a3] shadown-lg border-none hover:bg-container duration-500 pop popOut"
@@ -63,27 +71,36 @@ const { resource, id } = Astro.params;
     </div>
   </div>
   <script>
+    // Pop in back-to-top button
+    function popInHandler() {
+      if (
+        document.body.scrollTop > 500 ||
+        document.documentElement.scrollTop > 500
+      ) {
+        toTopAnchor.classList.replace("popOut", "popIn");
+      } else {
+        toTopAnchor.classList.replace("popIn", "popOut");
+      }
+    }
+
+    // Scroll progress bar
+    function scrollPercent() {
+      let scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      let winHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+      let docHeight =
+        document.body.scrollHeight || document.documentElement.scrollHeight;
+      let scrollPercent = (scrollY / (docHeight - winHeight)) * 100;
+      document.querySelector("#readingProgress").style.width =
+        scrollPercent + "%";
+    }
+
     var toTopAnchor = document.getElementById("toTop");
     if (toTopAnchor) {
-      window.onscroll = function () {
-        if (
-          document.body.scrollTop > 500 ||
-          document.documentElement.scrollTop > 500
-        ) {
-          // toTopAnchor.classList.remove("hidden");
-          toTopAnchor.classList.replace("popOut", "popIn");
-        } else {
-          toTopAnchor.classList.replace("popIn", "popOut");
-          // toTopAnchor.classList.add("hidden");
-        }
-      };
+      window.onscroll = popInHandler;
     }
-    // Fade animation handling
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.2,
-    };
+
+    window.addEventListener("scroll", scrollPercent);
   </script>
   <style is:inline>
     @keyframes pop-in {
