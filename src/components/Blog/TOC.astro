@@ -23,7 +23,7 @@ const toc = buildToc(headings);
 
 ---
 
-<nav class="toc">
+<nav class="toc prose max-w-none">
   <ul>
     { 
       toc.map((heading: MarkdownHeading) => <TOCHeading heading={heading}/>)
