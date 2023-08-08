@@ -1,15 +1,13 @@
 ---
-const { frontmatter } = Astro.props;
+const { frontmatter, headings } = Astro.props;
+import TOC from "../components/Blog/TOC.astro";
 import Tags from "../components/Blog/Tags";
-import Header from "../components/Header";
-const currentPost = await Astro.glob("../pages/posts/*.mdx");
-const { resource, id } = Astro.params;
-// const allMdxPosts = await Astro.glob("../pages/posts/*.mdx");
+// const currentPost = await Astro.glob("../pages/posts/*.mdx");
 ---
 
 <!DOCTYPE html>
 <html
-  class="p-10 scrollbar-thin scrollbar-track-card scrollbar-thumb-container scrollbar-thumb-rounded-lg scroll-smooth"
+  class="scroll-py-3 p-10 scrollbar-thin scrollbar-track-card scrollbar-thumb-container scrollbar-thumb-rounded-lg scroll-smooth"
 >
   <div class="fixed top-0 left-0 w-full h-2">
     <div
@@ -47,7 +45,6 @@ const { resource, id } = Astro.params;
               {frontmatter.title}
             </h1>
           </a>
-          <p>{id}</p>
           <div class="flex justify-center items-center">
             <Tags tags={frontmatter.tags} />
           </div>
@@ -62,7 +59,10 @@ const { resource, id } = Astro.params;
           ><strong>Participated</strong> {frontmatter.eventDate}</code
         >
       </div>
-
+      <hr class="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700">
+      <br/>
+      <TOC headings={headings} />
+      <br/>
       <slot />
       <!-- <div class="flex mb-10">
         <a href="/" class="btn btn-ghost duration-500">Home</a>
