@@ -2,7 +2,16 @@
 const { frontmatter, headings } = Astro.props;
 import TOC from "../components/Blog/TOC.astro";
 import Tags from "../components/Blog/Tags";
-// const currentPost = await Astro.glob("../pages/posts/*.mdx");
+const currentPath = Astro.url.pathname;
+const allPosts = await Astro.glob("../pages/posts/*.mdx");
+
+let prevPost, nextPost;
+allPosts.forEach((post, i) => {
+  if (post.url == currentPath) {
+    prevPost = allPosts[i - 1];
+    nextPost = allPosts[i + 1];
+  }
+});
 ---
 
 <!DOCTYPE html>
@@ -59,16 +68,28 @@ import Tags from "../components/Blog/Tags";
           ><strong>Participated</strong> {frontmatter.eventDate}</code
         >
       </div>
-      <hr class="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700">
-      <br/>
+      <hr class="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700" />
+      <br />
       <TOC headings={headings} />
-      <br/>
+      <br />
       <slot />
-      <!-- <div class="flex mb-10">
-        <a href="/" class="btn btn-ghost duration-500">Home</a>
-        <a href="/blog" class="btn btn-ghost duration-500 ml-auto">Blog</a>
-      </div> -->
+      <div class="flex mb-10">
+        {prevPost && 
+            <a
+              href={prevPost['url']}
+              class="btn btn-ghost duration-500 text-link mr-auto"
+            > {"← " + prevPost['frontmatter']['smTitle']}
+            </a>
+        }
+        { nextPost && 
+          <a
+            href={nextPost['url']}
+            class="btn btn-ghost duration-500 text-link ml-auto"
+          >{nextPost['frontmatter']['smTitle'] + " →"}</a>
+        }
+      </div>
     </div>
+    <br/>
   </div>
   <script>
     // Pop in back-to-top button
@@ -151,8 +172,8 @@ import Tags from "../components/Blog/Tags";
       list-style-type: circle !important;
       padding-left: 2rem !important;
     }
-    a {
-      color: theme("colors.link") !important;
+    p>a>code {
+      color: #72b5cb !important;
     }
   </style>
 
