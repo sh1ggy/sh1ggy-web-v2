@@ -6,7 +6,7 @@ const currentPath = Astro.url.pathname;
 const allPosts = await Astro.glob("../pages/posts/*.mdx");
 
 let prevPost, nextPost;
-allPosts.forEach((post, i) => {
+await allPosts.forEach((post, i) => {
   if (post.url == currentPath) {
     prevPost = allPosts[i - 1];
     nextPost = allPosts[i + 1];
