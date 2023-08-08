@@ -1,0 +1,46 @@
+---
+layout: '../../layouts/BlogPostLayout.astro'
+title: UCQS 2021 Hackathon - Bingo Butler
+smTitle: UQCSBingo
+description: Fourth hackathon and learning new technologies 
+tags: [NextJS, TypeScript, DiscordJS]
+repo: https://github.com/sh1ggy/bingobutler
+event: "https://www.youtube.com/watch?v=ZEAWBDbdPFo&ab_channel=UQComputingSociety"
+eventDate: "2021-09-12"
+writtenDate: "2022-02-07"
+---
+
+
+The University of Queensland Computer Science Club held their second hackathon in 2021, lasting around **two days**, same as the last one. Again, there were no limitations but there were more prize categories, now allowing for projects to veer in specific directions if they were gunning for one of the categories. This time, I joined with a two man team, kongi, with one of the people from the previous UQCS hackathon as we had established a strong coding dynamic since then which we would put to the test here. 
+
+We definitely wanted to create a Discord bot using DiscordJS while weaving in some NextJS development as well. Learning NextJS was the focus of this hackathon and being introduced to a new framework was definitely a challenge for me personally.
+
+The project that we landed on was a bingo Discord bot to be used primarily for speed-runners where the bot would pick out of a list of user-inputted challenges and organise a random select of them into a bingo board for the participants to tick off, sending them a URL where they can do this. The following flowchart explains the user process fully. 
+
+**Role** - During this event I ended up contributing more than the last UQCS hackathon as it was only a team of two, but as a result of my lack of confidence I only contributed around 40% as the assistant programmer. I learnt to map raw data and conditionally render it to the front end with React as well as learn the project work flow with NextJS which is currently what I'm using to create this website.
+
+![Bingo Bot Flowchart](/blog/UQCSBingo/flowchart.png "flowchart")
+![Bingo Bot Link Generation](/blog/UQCSBingo/gen.png "link generation")
+
+## Things Learnt	
+ - **The Importance of Preparation**: Compared to the [GMTK 2021 Game Jam](/posts/4-gmtkparity), I came to this hackathon a bit underprepared and I think that was my downfall. Although I did go through the ReactJS bingo example, at this point I still wasn't as comfortable as I wanted to be with ReactJS and so there was a lot of time spent fumbling around and relying on my more proficient team member for advice and direction. In the future I would like to be self-sufficient enough to just program as I see fit.
+ 
+ - **Input & Output**: One of the most common problems that needs to be solved in programming is the transformation of raw input to a processed and presentable output. In this case our input was the list of challenges typed out in the Discord text chat and our output was a bingo board. I was responsible for this transformation of mapping the data out and styling it like a proper interactable bingo board. 
+
+ ![](/blog/UQCSBingo/ui.png)
+
+ - **Forcing Yourself**: During this hackathon, I put an immense amount of pressure on myself to perform despite my lack of knowledge with both frameworks. This is also the same problem I had in the previous UQCS hackathon, though I did better at dealing with the stress this time around. The lesson learnt here is definitely just to have fun at these events, learn new things and don't take it too seriously.
+
+## Timeline
+
+### Day One
+We initialised the project much quicker than the previous UQCS hackathon and just went on our way. The DiscordJS bot took priority, making sure that our input could actually be gathered. The NextJS website was also initialised on the side with some simple styles. 
+
+### Day Two
+This day was spent processing the data as well as doing authentication through DiscordJS's API. DiscordJS had recently done a major overhaul in their latest version so we just ended up rolling it back as the level of familiarity with low with the newest release. By the end of the day, we were able to see the data being randomly organised as a bingo board, raw input and processed output. We were also able to randomly generate colours within our chosen palette and assign them to the participants of the game. 
+
+### Day Three
+This day was spent mainly using WebSockets to establish a connection between all participants of the game as well as bug testing to make sure that nothing was breaking. We managed to get our win condition working and everything came together in the end, in line with the vision that we had in the beginning. 
+
+## Conclusion
+There was improvement over the last hackathon, but the problem is is that this is something that our team wouldn't have used personally but had fun programming. Next time I enter a hackathon I want to make something that I would actually be interested in using myself or that I find useful to others and that way the vision might be clearer. The problem that this solved was definitely too niche for us to be making a tool for the community that needed it.  

@@ -1,0 +1,140 @@
+---
+layout: '../../layouts/BlogPostLayout.astro'
+title: Redland Museum DIGS
+smTitle: RMDIGS
+description: Major client-based project
+tags: [C#, TypeScript, React Admin, React Native]
+repo: https://github.com/ProPablo/rm_dashboard
+event: https://www.redlandmuseum.org.au/
+eventDate: "2020-09-01"
+writtenDate: "2022-02-25"
+---
+
+
+The climax of my degree was a **Capstone Project** (IFB398 & IFB399) that involved 2 semester's worth of work, which I am still working on today. In this post I will detail the work done on this project during university. This project alone, I think, is the reason why web development seems like the direction that I want to take my career after working with TypeScript and React for about a year now as well as designing the application. 
+
+**Role -** The main role that I played during this project was as the project manager and main client correspondent. I also acted as the assistant front-end programmer and lead UX designer. 
+
+## Prelude
+
+The subjects had my team regularly communicating with both a university tutor and client to make sure that we were hitting our deadlines and were on track for the direction of the project. The Redland Museum client was given to our team of four where we would be creating a **Display Information and Guidance System** involving both a phone app and a browser-based management portal. 
+
+The project we were given had 4 years worth of work, done by 4 different teams and so a lot of the challenge came from determining what exactly our role was in the whole scheme of things. This was made even more challenging since we had no way to contact any of the other teams nor access to their previous GitHub repository, having to resort to communicating surface level technicals through the client. 
+
+
+_The relational architecture of the project goes as follows:_
+- An **artefact** is an object in the museum
+- An **artefact** can have an attached **artefact media**
+- A **beacon** signifies the app which zone the client is in
+- A **zone** contains multiple **artefacts** and **beacons**
+- The zones are organised in a specified sequence for the **tour**
+
+_The dynamic of the system proceeds as follows:_
+- Client makes changes on the administrative portal **_(Codebase 1)_**
+- User sees the content organised in the same way on the application itself **_(Codebase 2)_**, on the **Zone** and **Store Item** tabs 
+- The sequence of the tour reflects how it was organised by the client, displaying the appropriate media
+- When a beacon is detected it will display the corresponding zone that it belongs to
+- When the user reaches the next zone in the tour (indicated to them by a bouncing red box), they can _progress_ the tour and will be directed to the next zone in the tour's sequence
+
+All of these attributes must be specified by the client in the web portal (codebase 1) in order to render as expected in the mobile application (codebase 2)
+
+---
+
+## Timeline
+### Semester 1 (IFB398)
+[`Codebase 1 Repository`](https://github.com/ProPablo/Codebase1)
+
+[`Codebase 2 Repository`](https://github.com/ProPablo/Codebase2_GT)
+
+The resources that we were given were university-related content consisting of reports, risk assessments, video demonstrations and the raw project files. It was difficult to contextualise the work that had been done, so we spent a lot of time at the beginning sorting out what we even had access to. 
+
+The major elements of the project we were left with was a ASP.NET web portal and a Xamarin mobile application, both of which were done by different teams. The Xamarin mobile applicaiton was not able to communicate with the API that was set up by their previous team so we were left trying to connect the dots. 
+
+We ultimately decided to scrap the Xamarin application after experimenting with the development environment and chose a React Native application instead. On the other hand, we very slowly figured out how to navigate and make use of the ASP.NET web portal left over from the other team as well as send API calls to it from the React Native application. My responsibilities involved drawing up mock ups and programming them into the application. Below are a few tasks that we were responsible for completing.
+
+#### Major Tasks
+##### Codebase 1
+- Database migrations
+- Database field restructuring
+- UI changes
+
+##### Codebase 2
+ - Communication with the ASP.NET API
+ - Feature parity with previous application
+ - UI built from the ground up
+
+By the end of the semester the tasks we were doing were very time consuming because of the missing context for this project. As a result of not being able to communicate with the previous team we were essentially left stranded and it was hard to meet the deadlines that we were setting ourselves. At this stage there was a structure to the project at the very least, here is the visual of that. 
+
+![Semester 1 Architecture](/blog/RMDIGS/architecture.png)
+
+Here is a demonstration video and report summarising what we had done and how the system worked at this stage. We did aim to get the system functional in the next semester but at this stage it was hard to see us succeeding. 
+
+This is the report describing our experiences in much more detail as well as a diagram visualising the state of our system at this point.
+
+[`Semester 1 Interim Project Report.pdf`](/blog/RMDIGS/sem1report.pdf)
+
+<div class="flex items-center justify-center py-6">
+  <video class="w-fit rounded-lg" controls>
+    <source src="/blog/RMDIGS/sem1demo.mp4" type="video/mp4"/>
+  </video>  
+</div>
+
+---
+
+### Semester 2 (IFB399)
+[Repository](https://github.com/ProPablo/rm_dashboard)
+
+At the start of the semester we proposed an ultimatum. If we were able to reach feature-parity using another technology within the week, we were to scrap the ASP.NET web portal completely. We chose React Admin, TypeScript, TypeORM and NodeJS as our technologies to implement the new web portal with, ultimately succeeding and transitioning the project to adopt these new technologies after demonstrating it to our client. 
+
+As the assistant programmer, I contributed to the design of the portal and handling more of the grunt work (in terms of code) following with the lead programmer who was responsible for the structure and architecture of the codebases as a whole.
+
+Despite the increase in effort and time needed to essentially create one of the codebases from scratch, we were able to more comfortably navigate our code. This allowed us to spend less time on research and more time designing the functionality needed for this app to be considered usable. 
+
+In addition to this, we were able to extend the functionality of the old portal and expand upon the relationships between data now that we were able to look at the project from end-to-end. For example, the zone containing beacons and artefacts as its children was not really fleshed out in the original web portal, but now it has been made much more apparent that a zone **contains** beacons and artefacts. Organising the zones in a tour sequence was also new considering that the previous teams had not gotten to this point in the system yet where navigation needed to be implemented.
+
+![Relational Zone](/blog/RMDIGS/zonerel.png "zonerel")
+
+The final push had us trying to frantically implement the beacon-based navigation system which all came together in the end and had us with a product that we could consider complete (at least in the eyes of the university)
+
+#### Major Tasks
+##### Codebase 1
+- Feature matching the old codebase 
+- Media handling
+- Zone relationships with beacons and artefacts
+- Sequencing zones in the navigation system with a tour 
+
+##### Codebase 2
+ - Communication with our own Codebase 1's API 
+ - Media rendering
+ - Detecting beacons to check state of tour
+
+By the end of the semester we had a whole end-to-end flowchart that our system was able to run through and in general were in a much better state to consider this project functional. 
+
+![Flowchart](/blog/RMDIGS/flowchart.png "flowchart")
+
+This is semester 2's report describing our experiences in much more detail, breaking down the sprints as well as detailing major snippets of code that were essential to our system.
+
+[`Semester 2 Final Project Report.pdf`](/blog/RMDIGS/sem2report.pdf)
+
+<div class="flex items-center justify-center py-6">
+  <video class="w-fit rounded-lg" controls>
+    <source src="/blog/RMDIGS/sem2demo.mp4" type="video/mp4"/>
+  </video>  
+</div>
+
+There's also an accompanying video to demonstrate the how our two codebases were able to work with each other. 
+
+
+## Post University
+Although the pace has dropped dramatically at this point, there are still moments of work and communication to this day. The final major feature added to the system was a map that can be used to visually adjust the location and size of zones which is reflected on the mobile app highlighting to the user which zone they are in and which zone they should go to next on the map. The finishing touches are mainly design or user experience-related that rely on more testing to determine if there need to be changes or not. 
+
+## Things Learnt	
+ - **Management Skills:** Through constant email contact with the client, I was primarily responsible for managing client expectations and adjusting feature deadlines accordingly as well as communicating ideas between the team and the client. Trello was essential in keeping the team's tasks in check as we would use it in a weekly sprint format, keeping velocity high. 
+
+ - **Executive Decisions:** Alongside the lead programmer, we made big breaking decisions together whether it was to do with the direction of the project or the fundamentals of a feature that we had been working on. These decisions fed directly into the test-driven and client-focused development process that was chosen for this project where, in the case of fundamental design changes, thorough discussions with the client would have to occur to ensure that we were all on the same page.
+
+ - **GitHub:** Extensive use of GitHub's collaborative version management features were able to make this project possible with a team of three programmers. Dealing with merge conflicts, a variety of branches and 
+
+## Conclusion
+Ultimately, I think this project marked the beginning of my deep dive into web development both as a career path and as a hobby. The project not only taught me precious teamwork skills but also allowed me to be fully exposed to the end-to-end project experience from managing client expectations and task delegation to user testing. Additionally my confidence with using version control software increased dramatically as there were many merge conflicts, branches and even repositories created over the duration of this project. I have this project to thank for my interest in web development today.
+

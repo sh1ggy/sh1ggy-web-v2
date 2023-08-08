@@ -1,3 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import('https://fonts.googleapis.com/css?family=Signika')
+@import('https://fonts.googleapis.com/css?family=Ubuntu')
+@import('https://fonts.googleapis.com/css?family=Mukta')
+
 main {
   background-color: theme("colors.card");
 }
@@ -10,3 +17,5 @@ h2,h3 {
 p {
   font-family: theme("fontFamily.ubuntu");
 }
+
+		

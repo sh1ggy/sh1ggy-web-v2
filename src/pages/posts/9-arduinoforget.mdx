@@ -1,0 +1,61 @@
+---
+layout: '../../layouts/BlogPostLayout.astro'
+title: Arduino 2022 Hackathon - Forget Me Bot
+smTitle: ArduinoForget
+description: First hardware hackathon
+tags: [TypeScript, React Native, C]
+repo: https://github.com/sh1ggy/reminder-app
+event: https://www.eventbrite.com.au/e/arduino-hackathon-tickets-41459224657#
+eventDate: "2022-04-08"
+writtenDate: "2022-04-24"
+---
+
+
+Held by QUT Robotics, Robogals and UQ MARS, the 3 day, 2022 Arduino Hackathon was me and my friend's first foray into a hardware-focused project. The theme of this hackathon was assistive technologies, which honestly had both of us stumped during the brainstorming process since we were set on making something fun and wacky for the next hackathon rather than taking it too seriously and putting too much pressure on it. We came into the event with the resolve to actually end up making something more fun than serious and making a joke about how a counter-assistive project we made over the weekend is assistive, which one team actually ended up doing. What led us to shift to a more serious project was one of the presenters telling a heartfelt story about their programming journey despite losing a finger. 
+
+We ended up deciding to make a reminder box (the **Forget Me Bot**) and accompanying React Native app to utilise me and my friends' strengths. I personally had no experience coding on an Arduino and since we came in with a team of two we were definitely not going to have enough time for me to learn it from scratch so I just stuck with what I knew about React Native to make the accompanying application (trying to learn more along the way obviously). We actually did have a third team member join us because why not, but he was largely absent from the whole event, really only showing up to do his own work. He did contribute to the wiring of some of the serial devices (I think the LCD) but when it came to the final presentation he did not come up to the front with us. 
+
+**Role -** to summarise the role I played, I was fully responsible for the React Native application which, I guess, was a big step for me, having been mentored heavily during the RM project and my role being more higher-level than being deeply involved in the more technical programming itself. 
+
+## The Project
+
+The **Forget Me Bot** was going to function on time intervals, where you set an interval, start and end time for the reminder bot to go trigger it's specified action. For example the device would go off every 20 minutes between 9am and 10pm, reminding you to drink water by blinking an LED light. The reminder bot had a lot of serial peripherals attached that were going to be utilised to engage the user physically with their reminders in an aim to make the process more intentional. We had it planned so that the user would have to wave their hand over an ultrasonic sensor in order to stop the reminder just so that it's an intentional action that the user is performing to stop. 
+
+We basically got everything done, getting each single component to work using Arduino code but the problem came when trying to interpret data that was sent over from the React Native app to the ESP32 Bluetooth and WiFi module. It would have been a lot of bit management since the information that was sent by the app and accepted by the ESP32 was in the form of a Buffer. 
+
+### Hardware
+![Forget Me Bot](/blog/ArduinoForget/diagram.jpeg "reminder")
+
+Concerning hardware, I think that the biggest roadblock was the fact that the scope wasn't narrow enough as we were taking this hackathon as a chance to learn and play around with as many technologies as possible. I personally didn't get much experience with the hardware-side of things but I think that it planted the seeds in my mind to experiment with project-related hardware design skills one day and extend my interest in UI/UX Design. 
+#### Things Learned
+- **XBee** being a misleading component to base the bot off of especially considering that no one knew anything about it
+- **ESP32** being bought late as a result of XBee led to the React Native 
+
+### React Native
+![Forget Me Not Application](/blog/ArduinoForget/app.png "reminder-app")
+
+This hackathon was surprisingly the first time that I was really making a React Native app from scratch just by myself since it has been so long since me and my friend started the Redland Museum DIGS Project. Honestly, it was pretty gratifying to see that I was grasping the concept of state after so long and am motivated to continue pursuing web or app development in my spare time. I mean it should be no surprise though, I was mainly responsible for the design and initialisation of the RM DIGS application.
+
+#### Things Learned
+- More confidence in mapping over an array of data 
+- Create a form that can delete and save data using stateful variables
+- Need a bit more work on my props skills (the major issue here is the structure and sometimes using variables in a non-stateful way -> you should always be setting and using the state variable itself rather than creating a non-stateful variable to achieve that, just a bad habit) 
+- [Bluetooth classic library](https://github.com/kenjdavidson/react-native-bluetooth-classic) is a solid library (despite the low amount of stars) for sending and receiving data through Bluetooth
+- [React Native Paper](https://callstack.github.io/react-native-paper/) is a really nice component library based on MUI, also being much easier to use
+- [Async Storage](https://react-native-async-storage.github.io/async-storage/) is a local storage solution for React Native that I didn't get to using but found during my research and would like to utilise one day.
+
+## The Environment
+I haven't necessarily talked too much in detail about the environment of previous hackathons but basically, all of the other hackathons have had both me and my teammate either not sleep or sleep outside of a proper bedroom. This has contributed to varying levels of mental strain depending on the hackathon I'm talking about, so for this one we decided on renting out an AirBnb last minute to improve the experience a little. The AirBnb itself was not up to par and if anything it detracted from the experience because we both paid for it. One of the nights we ended up just staying at QUT for the entire night to work on the hackathaon project because the WiFi was so bad. Having the AirBnb be a terrible place to work demoralised me personally and definitely affected my mental state a bit during the hackathon, I think that I was a bit on edge.
+
+## The Presentation
+Because we hadn't been able to complete the project, I was left in a similar position to how I felt during the UQCS 2020 Hackathon where I was incredibly anxious about having to present a hardware-focussed project at a microprocessor-focussed hackathon when I had only done the software side of things. My teammate was deadset on trying to make the project work at the last minute and so he was quite unresponsive when I was concerned about the presentation. I think it is for this reason that a third or fourth team member would definitely be welcome at these events (I don't personally count our other team member during this event as being able to contribute in this situation as he was doing university assessment) to split up conversation and discussion a bit more. A team of two makes it real easy to feel isolated or like there's a wall up between you and your team member in the case that you disagree or get into flow state of work. This barrier of communications shows especially when it's a complex project that neither of the two team members has a solid idea of the tasks that need to be completed. 
+
+The presentation itself actually went quite well, we were the last team to go up and just described our pains and learning processes throughout the whole weekend. The pitch that I presented was very weak as I didn't really focus on the assistive technology aspect, being blindsighted by the failures of our project. We described what we wanted the project to do and what we actually ended up with as well as what caused us to fail in our completion of the **Forget Me Bot**. What this amounted to was us gaining recognition as the _"most masochistic project"_ of the hackathon, being awarded a firm handshake from one of the executives. Honestly, it made all of that anxiety go away, hackathons are a place to learn and have fun after all and receiving the handshake prize got me to ponder that.
+
+
+## Conclusion
+
+Overall, quite a solid hackathon where I felt pretty autonomous, making mistakes along the way. My biggest mistake was not reading through the documentation thoroughly enough (considering the pressure and time crunch). I think that is a skill that I need to drill through my head is that the documentation more often than not contains the solution to issues that I'm facing early on in development. **Documentation (Instructions) > Stack Overflow (Examples & Use Cases)** in this circumstance. My only problem and challenge here was my attitude, though much better than previous hackathons I didn't really like my mentality. The stress was actually a lot less but the combination of the terrible AirBnb and the lack of sleep was enough to do it to me.
+
+Making things from scratch is a good way to reaffirm your knowledge. A mature codebase like `rm_dashboard` is a hard way for me to tune in and actually try to learn from a project because of a lot of the difficult coding didn't go to me. I'd say that the biggest discoveries during this hackathon was the new Bluetooth classic library for React Native and the fact that documentation is king. I think that developing the React Native app sooner would have been a better thing to do and I wish that I got the chance to do that on the first night. In terms of hackathons, I think that the first night is more important that we initially thought because time wasted on the first night is time wasted leading into the second day, for example you have to switch technologies you end up just wasting so much time and mental energy on the wrong thing. Overall, super rewarding hackathon that wasn't anywhere close to as stressful as the Bingo Bot but I definitely have things to work on from on a greater scale as a team member.
+

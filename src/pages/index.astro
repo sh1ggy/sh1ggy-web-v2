@@ -11,147 +11,150 @@ import "../styles.css";
 ---
 
 <Layout title="sh1ggy-web">
-	<div class="flex flex-col lg:h-screen lg:w-auto overflow-y">
-		<!-- SOCIALS -->
-		<div
-			class="flex flex-col bottom-0 fixed mb-3 lg:mb-6 space-y-3 rounded-lg p-3 lg:p-6 z-10"
-		>
-			<a
-				href="https://www.github.com/sh1ggy"
-				class="hover:scale-90 transition-transform focus:outline-none drop-shadow-xl"
-			>
-				<img class="object-contain w-11" src="../github.svg" />
-			</a>
-			<a
-				href="https://www.linkedin.com/in/tyrone-nolasco/"
-				class="hover:scale-90 transition-transform focus:outline-none drop-shadow-xl"
-			>
-				<img class="object-contain w-11" src="../linkedin.svg" />
-			</a>
-		</div>
-		<Header client:only />
-		<main class="flex flex-col flex-grow">
-			<section class="container space-y-96">
-				<div tabindex="-1" class="fade fadeOut w-screen">
-					<About client:visible />
-				</div>
-				<div tabindex="-1" id="exp" class="fade fadeOut w-screen">
-					<Experience client:visible />
-				</div>
-				<div tabindex="-1" id="proj" class="fade fadeOut scroll-my-24 w-screen">
-					<Projects client:visible />
-				</div>
-				<div tabindex="-1" id="hack" class="fade fadeOut w-screen">
-					<Hackathons client:visible />
-				</div>
-				<div tabindex="-1" id="skills" class="fade fadeOut scroll-my-24 w-screen">
-					<Skills client:visible />
-				</div>
-				<div tabindex="-1" id="contact" class="fade fadeOut w-screen">
-					<Contact client:visible />
-				</div>
-			</section>
-		</main>
-		<!-- FOOTER -->
-		<footer
-			class="flex items-center rounded-t-xl p-6 bg-card w-full shadow-lg justify-center"
-		>
-			<p class="text-body bg-card">
-				{"Designed & Built with <3 by Tyrone Nolasco"}
-			</p>
-		</footer>
-	</div>
-	<script>
-		// Scroll handling
-		if (history.scrollRestoration) {
-			history.scrollRestoration = "manual";
-		}
+  <div class="flex flex-col lg:h-screen lg:w-auto overflow-y w-screen">
+    <!-- SOCIALS -->
+    <div
+      class="flex flex-col bottom-0 fixed mb-3 lg:mb-6 space-y-3 rounded-lg p-3 lg:p-6 z-10"
+    >
+      <a
+        href="https://www.github.com/sh1ggy"
+        class="hover:scale-90 transition-transform focus:outline-none drop-shadow-xl"
+      >
+        <img class="object-contain w-11" src="../github.svg" />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/tyrone-nolasco/"
+        class="hover:scale-90 transition-transform focus:outline-none drop-shadow-xl"
+      >
+        <img class="object-contain w-11" src="../linkedin.svg" />
+      </a>
+    </div>
+    <Header client:only />
+    <main class="flex flex-col flex-grow">
+      <section class="space-y-96">
+        <div tabindex="-1" class="fade fadeOut">
+          <About client:visible />
+        </div>
+        <div tabindex="-1" id="exp" class="fade fadeOut w-full">
+          <Experience client:visible />
+        </div>
+        <div tabindex="-1" id="proj" class="fade fadeOut scroll-my-24 w-full">
+          <Projects client:visible />
+        </div>
+        <div tabindex="-1" id="hack" class="fade fadeOut w-full">
+          <Hackathons client:visible />
+        </div>
+        <div
+          tabindex="-1"
+          id="skills"
+          class="fade fadeOut scroll-my-24 w-full"
+        >
+          <Skills client:visible />
+        </div>
+        <div tabindex="-1" id="contact" class="fade fadeOut w-full">
+          <Contact client:visible />
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer
+      class="flex items-center rounded-t-xl p-6 bg-card w-full shadow-lg justify-center"
+    >
+      <p class="text-body bg-card">
+        {"Designed & Built with <3 by Tyrone Nolasco"}
+      </p>
+    </footer>
+  </div>
+  <script>
+    // Scroll handling
+    if (history.scrollRestoration) {
+      history.scrollRestoration = "manual";
+    }
 
-		document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-			anchor.addEventListener("click", function (e) {
-				e.preventDefault();
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
 
-				const targetId = this.getAttribute("href").substring(1);
-				const targetElement = document.getElementById(targetId);
-				if (targetElement) {
-					const containerElement = targetElement.parentElement;
-					const targetOffsetLeft = targetElement.offsetLeft;
+        const targetId = this.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          const containerElement = targetElement.parentElement;
+          const targetOffsetLeft = targetElement.offsetLeft;
 
-					containerElement.scrollTo({
-						left: targetOffsetLeft,
-						behavior: "smooth",
-					});
-				}
-			});
-		});
+          containerElement.scrollTo({
+            left: targetOffsetLeft,
+            behavior: "smooth",
+          });
+        }
+      });
+    });
 
-		// Fade animation handling
-		const observerOptions = {
-			root: null,
-			rootMargin: "0px",
-			threshold: 0.2,
-		};
+    // Fade animation handling
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.2,
+    };
 
-		function observerCallback(entries, observer) {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					// fade in observed elements that are in view
-					entry.target.classList.replace("fadeOut", "fadeIn");
-				} else {
-					// fade out observed elements that are not in view
-					entry.target.classList.replace("fadeIn", "fadeOut");
-				}
-			});
-		}
+    function observerCallback(entries, observer) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // fade in observed elements that are in view
+          entry.target.classList.replace("fadeOut", "fadeIn");
+        } else {
+          // fade out observed elements that are not in view
+          entry.target.classList.replace("fadeIn", "fadeOut");
+        }
+      });
+    }
 
-		const observer = new IntersectionObserver(
-			observerCallback,
-			observerOptions
-		);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
 
-		const fadeElms = document.querySelectorAll(".fade");
-		fadeElms.forEach((el) => observer.observe(el));
-	</script>
+    const fadeElms = document.querySelectorAll(".fade");
+    fadeElms.forEach((el) => observer.observe(el));
+  </script>
 </Layout>
 
 <style>
-	@keyframes fade-in {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
-	.fade {
-		transition: opacity 1s ease-in-out;
-	}
-
-	.fadeOut {
-		opacity: 0;
-	}
-	.fadeIn {
-		opacity: 1;
-	}
-	html {
-		scroll-snap-type: y mandatory;
-		scroll-behavior: smooth;
-	}
-	main {
-		background-color: theme("colors.page");
-	}
-	h1 {
-		font-family: theme("fontFamily.signika");
-	}
-	h2,
-	h3 {
-		font-family: theme("fontFamily.mukta");
-	}
-	p {
-		background-color: theme("colors.body");
-		font-family: theme("fontFamily.ubuntu");
-	}
-	strong {
-		font-family: theme("fontFamily.signika");
-	}
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .fade {
+    transition: opacity 1s ease-in-out;
+  }
+  .fadeOut {
+    opacity: 0;
+  }
+  .fadeIn {
+    opacity: 1;
+  }
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+  main {
+    background-color: theme("colors.page");
+  }
+  h1 {
+    font-family: theme("fontFamily.signika");
+  }
+  h2,
+  h3 {
+    font-family: theme("fontFamily.mukta");
+  }
+  p {
+    background-color: theme("colors.body");
+    font-family: theme("fontFamily.ubuntu");
+  }
+  strong {
+    font-family: theme("fontFamily.signika");
+  }
 </style>

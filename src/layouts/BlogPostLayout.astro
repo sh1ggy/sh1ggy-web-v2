@@ -1,0 +1,181 @@
+---
+const { frontmatter, headings } = Astro.props;
+import TOC from "../components/Blog/TOC.astro";
+import Tags from "../components/Blog/Tags";
+const currentPath = Astro.url.pathname;
+const allPosts = await Astro.glob("../pages/posts/*.mdx");
+
+let prevPost, nextPost;
+allPosts.forEach((post, i) => {
+  if (post.url == currentPath) {
+    prevPost = allPosts[i - 1];
+    nextPost = allPosts[i + 1];
+  }
+});
+---
+
+<!DOCTYPE html>
+<html
+  class="scroll-py-3 p-10 scrollbar-thin scrollbar-track-card scrollbar-thumb-container scrollbar-thumb-rounded-lg scroll-smooth"
+>
+  <div class="fixed top-0 left-0 w-full h-2">
+    <div
+      class="h-full bg-primary rounded-r-lg"
+      id="readingProgress"
+      style="width: 0;"
+    >
+    </div>
+  </div>
+  <a
+    id="toTop"
+    class="btn btn-circle fixed bottom-0 right-0 m-6 bg-[#9297a3] shadown-lg border-none hover:bg-container duration-500 pop popOut"
+    href="#top"
+  >
+    <img class="object-contain w-24" src="/up.svg" />
+  </a>
+  <div class="md:text-lg text-2xl leading-snug md:leading-normal">
+    <div class="flex mb-10">
+      <a href="/blog" class="btn btn-ghost duration-500 text-body mr-auto"
+        >Blog</a
+      >
+      <a href="/" class="btn btn-ghost text-body duration-500">Home</a>
+    </div>
+    <div class="space-y-3">
+      <img
+        src={`/blog/${frontmatter.smTitle}/background.jpeg`}
+        class="fixed left-0 right-0 top-0 object-fill w-full h-full blur-sm opacity-[0.1] -z-10"
+      />
+      <div class="flex flex-col space-y-3">
+        <div class="flex flex-col rounded-lg p-3">
+          <a href={frontmatter.event}>
+            <h1
+              class="hover:text-link hover:cursor-pointer duration-500 transition-colors text-primary text-center mb-3 lg:text-5xl text-3xl font-ubuntu"
+            >
+              {frontmatter.title}
+            </h1>
+          </a>
+          <div class="flex justify-center items-center">
+            <Tags tags={frontmatter.tags} />
+          </div>
+          <div class="flex flex-col items-center justify-center my-3">
+            <code class="m-3"
+              ><strong>Written</strong> {frontmatter.writtenDate}</code
+            >
+            <a class="text-link" href={frontmatter.repo}>GitHub Repo</a>
+          </div>
+        </div>
+        <code class="text-right ml-auto"
+          ><strong>Participated</strong> {frontmatter.eventDate}</code
+        >
+      </div>
+      <hr class="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700" />
+      <br />
+      <TOC headings={headings} />
+      <br />
+      <slot />
+      <div class="flex mb-10">
+        {prevPost && 
+            <a
+              href={prevPost['url']}
+              class="btn btn-ghost duration-500 text-link mr-auto"
+            > {"← " + prevPost['frontmatter']['smTitle']}
+            </a>
+        }
+        { nextPost && 
+          <a
+            href={nextPost['url']}
+            class="btn btn-ghost duration-500 text-link ml-auto"
+          >{nextPost['frontmatter']['smTitle'] + " →"}</a>
+        }
+      </div>
+    </div>
+    <br/>
+  </div>
+  <script>
+    // Pop in back-to-top button
+    function popInHandler() {
+      if (
+        document.body.scrollTop > 500 ||
+        document.documentElement.scrollTop > 500
+      ) {
+        toTopAnchor.classList.replace("popOut", "popIn");
+      } else {
+        toTopAnchor.classList.replace("popIn", "popOut");
+      }
+    }
+
+    // Scroll progress bar
+    function scrollPercent() {
+      let scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      let winHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+      let docHeight =
+        document.body.scrollHeight || document.documentElement.scrollHeight;
+      let scrollPercent = (scrollY / (docHeight - winHeight)) * 100;
+      document.querySelector("#readingProgress").style.width =
+        scrollPercent + "%";
+    }
+
+    var toTopAnchor = document.getElementById("toTop");
+    if (toTopAnchor) {
+      window.onscroll = popInHandler;
+    }
+
+    window.addEventListener("scroll", scrollPercent);
+  </script>
+  <style is:inline>
+    @keyframes pop-in {
+      from {
+        transform: scale(0);
+      }
+      80% {
+        transform: scale(1.2);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+    .pop {
+      transition: scale 0.1s ease-in-out;
+    }
+    .popOut {
+      scale: 0;
+    }
+    .popIn {
+      scale: 1;
+    }
+    h2 {
+      font-size: 1.75rem !important;
+      font-weight: 700 !important;
+      margin-top: 1.5rem !important;
+      margin-bottom: 1.5rem !important;
+    }
+    h3 {
+      font-size: 1.5rem !important;
+      font-weight: 500 !important;
+      margin-top: 1.25rem !important;
+      margin-bottom: 1.25rem !important;
+    }
+    h4 {
+      font-size: 1.25rem !important;
+      font-weight: 400 !important;
+    }
+    h5 {
+      font-size: 1rem !important;
+      font-weight: 300 !important;
+    }
+    img {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    ul {
+      list-style-type: circle !important;
+      padding-left: 2rem !important;
+    }
+    p>a>code {
+      color: #72b5cb !important;
+    }
+  </style>
+
+
+</html>

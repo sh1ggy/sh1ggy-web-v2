@@ -18,19 +18,23 @@ export default function About() {
           <div className="flex flex-row space-x-5">
             <button
               onClick={() => setShowBio(!showBio)}
-              className="w-2/3 bg-accent text-card text-xs rounded-3xl px-3 py-2 hover:scale-110 transition-transform"
+              className="w-2/3 bg-accent text-card text-xs rounded-3xl px-3 py-2 hover:scale-110 transition-transform duration-500"
             >about me</button>
             <button
-              className="w-1/3 bg-card text-link text-xs rounded-3xl px-3 py-2 hover:scale-110 transition-transform"
+              className="w-1/3 bg-card text-link text-xs rounded-3xl px-3 py-2 hover:scale-110 transition-transform duration-500"
               onClick={() => window.open('../resume.pdf')}
             >resume.pdf</button>
           </div>
+          <a
+            href="/blog"
+            className="w-full text-center bg-card text-body text-xs rounded-3xl px-3 py-2 hover:scale-110 transition-transform duration-500"
+          >blog</a>
         </div>
       }
 
       {/* BIO */}
       {showBio &&
-        <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 transition-all justify-center shadow-xl">
+        <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 transition-all justify-center shadow-xl lg:mx-24">
           <div className="flex flex-row w-full">
             <div className="flex-0 justify-start items-start">
               <p className="text-sm text-primary">Hi! My name is...</p>
