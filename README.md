@@ -9,7 +9,7 @@ The website itself is still currently a work in progress.
 ## Getting Started
 
 This is a [Astro](https://astro.build/) project bootstrapped with [`npm create astro@latest`](https://docs.astro.build/en/getting-started/).
-
+.
 
 - Run the development server:
 
