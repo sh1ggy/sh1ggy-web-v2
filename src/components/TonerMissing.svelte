@@ -210,30 +210,30 @@
     }
 </script>
 
-<div class="flex flex-col justify-center items-center space-y-8">
+<div class="flex flex-col justify-center items-center space-y-8 p-12">
     <!-- <input type="range" step="0.01" min="0" max="1" class="range" bind:value={C} /> -->
 
-    <div class="ml-auto w-40">
+    <canvas
+        class="border-8 border-primary rounded-md bg-container"
+        id="originalImageCanvas"
+        bind:this={originalImageCanvas}
+    />
+    <canvas
+        class="border-8 border-primary rounded-md bg-container"
+        id="resultCanvas"
+        bind:this={resultCanvas}
+    />
+
+    <div class="w-full">
         <Checkbox bind:checked={C} name="Cyan" />
         <Checkbox bind:checked={M} name="Magenta" />
         <Checkbox bind:checked={Y} name="Yellow" />
         <Checkbox bind:checked={K} name="Black" />
     </div>
 
-    <canvas
-        class="border-8 border-base-200 rounded-md"
-        id="originalImageCanvas"
-        bind:this={originalImageCanvas}
-    />
-    <canvas
-        class="border-8 border-base-200 rounded-md"
-        id="resultCanvas"
-        bind:this={resultCanvas}
-    />
-
-    <div class="flex container">
+    <div class="flex flex-col items-center justify-center space-y-3">
         <input
-            class="file-input file-input-bordered file-input-success w-full max-w-xs mr-auto"
+            class="file-input file-input-bordered file-input-primary w-full max-w-xs mr-auto"
             type="file"
             id="file"
             name="file"
@@ -241,7 +241,9 @@
             bind:this={fileInput}
         />
 
-        <button class="btn btn-primary ml-auto" on:click={handleClear}>Close</button>
+        {#if file}
+            <button class="btn btn-accent" on:click={handleClear}>Close</button>
+        {/if}
     </div>
 </div>
 
