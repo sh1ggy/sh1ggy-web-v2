@@ -1,4 +1,8 @@
 <script lang="ts">
+    // Using these as examples
+    // https://learn.svelte.dev/tutorial/reactive-statements
+    // https://svelte.dev/examples/7guis-counter
+
     import Checkbox from "./Checkbox.svelte";
 
     /// Values from 0 to 255
@@ -23,12 +27,21 @@
     }
 
     let file: File | null = null;
+    let fileInput;
 
     // Each of these are values from 0 to 1
     let C = true;
     let M = true;
     let Y = true;
     let K = true;
+
+    $: {
+        console.log({ C, M, Y, K });
+        // Instead of doing the print, you can instead call the function passing in the values as args,
+        // just the function isnt good enough for the compiler to know that it needs to be called on change
+        onSliderChange();
+    }
+
     let originalImageCanvas: HTMLCanvasElement;
     let resultCanvas: HTMLCanvasElement;
 
@@ -77,10 +90,10 @@
     }
 
     function onSliderChange() {
+        if (!file) return;
         resultCanvas.width = w;
         resultCanvas.height = h;
         const ctx = resultCanvas.getContext("2d");
-        debugger;
 
         var imageData = ctx.createImageData(w, h);
         let data = new Uint8ClampedArray(w * h * 4);
@@ -147,7 +160,6 @@
                         img.height
                     );
 
-                    debugger;
                     const data = imageData.data;
                     for (let i = 0; i < data.length; i += 4) {
                         const rgba = {
@@ -158,7 +170,6 @@
                         };
                         const rgb = RGBAtoRGB(rgba);
                         const cmyk = rgb2cmyk(rgb);
-                        // debugger;
                         originalImage.push(cmyk);
                     }
 
@@ -181,53 +192,57 @@
             ctx.clearRect(0, 0, resultCanvas.width, resultCanvas.height);
         }
     }
+
+    function handleClear() {
+        let ctx = originalImageCanvas.getContext("2d");
+        ctx.clearRect(
+            0,
+            0,
+            originalImageCanvas.width,
+            originalImageCanvas.height
+        );
+        ctx = resultCanvas.getContext("2d");
+
+        ctx.clearRect(0, 0, resultCanvas.width, resultCanvas.height);
+        file = null;
+        originalImage = [];
+        fileInput.value = "";
+    }
 </script>
 
-<div>
+<div class="flex flex-col justify-center items-center space-y-8">
     <!-- <input type="range" step="0.01" min="0" max="1" class="range" bind:value={C} /> -->
-    <Checkbox bind:checked={C} name="Cyan" />
-    <Checkbox bind:checked={M} name="Magenta" />
-    <Checkbox bind:checked={Y} name="Yellow" />
-    <Checkbox bind:checked={K} name="Black" />
 
-    <canvas id="originalImageCanvas" bind:this={originalImageCanvas} />
-    <canvas id="resultCanvas" bind:this={resultCanvas} />
-
-    <!-- {#if avatar}
-        <img class="avatar" src={avatar} alt="d" />
-    {:else}
-        <img
-            class="avatar"
-            src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png"
-            alt=""
-        />
-    {/if}
-    <img
-        class="upload"
-        src="https://static.thenounproject.com/png/625182-200.png"
-        alt=""
-        on:click={() => {
-            fileinput.click();
-        }}
-    />
-    <div
-        class="chan"
-        on:click={() => {
-            fileinput.click();
-        }}
-    >
-        Choose Image
+    <div class="ml-auto w-40">
+        <Checkbox bind:checked={C} name="Cyan" />
+        <Checkbox bind:checked={M} name="Magenta" />
+        <Checkbox bind:checked={Y} name="Yellow" />
+        <Checkbox bind:checked={K} name="Black" />
     </div>
 
-    <input
-        style="display:none"
-        type="file"
-        accept=".jpg, .jpeg, .png"
-        on:change={(e) => onFileSelected(e)}
-        bind:this={fileinput}
-    /> -->
+    <canvas
+        class="border-8 border-base-200 rounded-md"
+        id="originalImageCanvas"
+        bind:this={originalImageCanvas}
+    />
+    <canvas
+        class="border-8 border-base-200 rounded-md"
+        id="resultCanvas"
+        bind:this={resultCanvas}
+    />
 
-    <input type="file" id="file" name="file" on:change={handleFileChange} />
+    <div class="flex container">
+        <input
+            class="file-input file-input-bordered file-input-success w-full max-w-xs mr-auto"
+            type="file"
+            id="file"
+            name="file"
+            on:change={handleFileChange}
+            bind:this={fileInput}
+        />
+
+        <button class="btn btn-primary ml-auto" on:click={handleClear}>Close</button>
+    </div>
 </div>
 
 <style>
