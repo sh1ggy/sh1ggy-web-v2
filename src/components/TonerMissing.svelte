@@ -208,6 +208,13 @@
         originalImage = [];
         fileInput.value = "";
     }
+
+    function downloadImage() {
+        const link = document.createElement("a");
+        link.download = "image.png";
+        link.href = resultCanvas.toDataURL();
+        link.click();
+    }
 </script>
 
 <div class="flex flex-col justify-center items-center space-y-8 p-12">
@@ -237,12 +244,14 @@
             type="file"
             id="file"
             name="file"
+            accept="image/png, image/jpeg"
             on:change={handleFileChange}
             bind:this={fileInput}
         />
 
         {#if file}
-            <button class="btn btn-accent" on:click={handleClear}>Close</button>
+            <button class="btn btn-accent w-full max-w-xs" on:click={downloadImage}>Download Image</button>
+            <button class="btn btn-card w-full max-w-xs" on:click={handleClear}>Close</button>
         {/if}
     </div>
 </div>
