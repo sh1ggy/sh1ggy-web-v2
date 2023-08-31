@@ -231,7 +231,7 @@
         bind:this={resultCanvas}
     />
 
-    <div class="w-full">
+    <div class="flex flex-col w-1/3">
         <Checkbox bind:checked={C} name="Cyan" />
         <Checkbox bind:checked={M} name="Magenta" />
         <Checkbox bind:checked={Y} name="Yellow" />

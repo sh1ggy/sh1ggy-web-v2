@@ -10,6 +10,6 @@
     <label class="label cursor-pointer">
         <!-- Potential to use slot here -->
         <span class="label-text">{name}</span>
-        <input type="checkbox" bind:checked class="checkbox" />
+        <input type="checkbox" bind:checked class="checkbox checkbox-accent" />
     </label>
 </div>

@@ -1,0 +1,11 @@
+---
+const tools = await Astro.glob("./*.astro");
+import ToolsList from "../../components/Toolkit/ToolsList.svelte";
+---
+
+<html class="p-12 bg-page">
+  <div class="p-12 bg-card rounded-lg">
+    <h1 class="text-body text-2xl m-3">Toolkit</h1>
+    <ToolsList {tools} client:load="svelte" />
+  </div>
+</html>

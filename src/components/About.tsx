@@ -40,7 +40,9 @@ export default function About() {
               <p className="text-sm text-primary">Hi! My name is...</p>
               <h1 className="text-primary text-5xl">Tyrone Nolasco</h1><br />
             </div>
-            <img className="ml-auto h-20" src="../gato.png" />
+            <a href="/toolkit" className="ml-auto hover:scale-110 transition-transform duration-500">
+              <img className="h-20" src="../gato.png" />
+            </a>
           </div>
           <div className="flex flex-col justify-center items-center">
             <p className="text-body">I started my journey in high school, having graduated recently last January with a Bachelors in Computer Science from QUT. Currently, I am an aspiring web developer working in <strong>IT Support @ Sonic IT</strong> trying to balance my upskilling in programming with full time work. I have a particular keenness for documentation, front-end design and diagramming.
