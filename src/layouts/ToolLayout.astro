@@ -1,0 +1,31 @@
+---
+const { frontmatter, headings } = Astro.props;
+import TOC from "../components/Blog/TOC.astro";
+import Tags from "../components/Blog/Tags";
+const currentPath = Astro.url.pathname;
+const allPosts = await Astro.glob("../pages/posts/*.mdx");
+let prevPost, nextPost;
+allPosts.forEach((post, i) => {
+  if (post.url == currentPath) {
+    prevPost = allPosts[i - 1];
+    nextPost = allPosts[i + 1];
+  }
+});
+---
+
+<!DOCTYPE html>
+<html
+  class="bg-page scroll-py-3 scrollbar-thin scrollbar-track-card scrollbar-thumb-container scrollbar-thumb-rounded-lg scroll-smooth"
+>
+  <div class="fixed top-0 bg-container w-full">
+    <div class="flex">
+      <a href="/" class="btn btn-ghost duration-500 text-body mr-auto"
+        >Home</a
+      >
+      <a href="/toolkit" class="btn btn-ghost text-body duration-500">Toolkit</a>
+    </div>
+  </div>
+  <div class="m-12">
+    <slot />
+  </div>
+</html>

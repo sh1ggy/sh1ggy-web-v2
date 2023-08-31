@@ -1,0 +1,9 @@
+---
+// https://github.com/withastro/language-tools/issues/580 -- use different component names for imports
+import TonerMissingComponent from "../../components/Toolkit/TonerMissing.svelte";
+import ToolLayout from "../../layouts/ToolLayout.astro";
+---
+
+<ToolLayout>
+  <TonerMissingComponent client:only="svelte"/>
+</ToolLayout>
