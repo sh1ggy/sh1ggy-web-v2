@@ -1,10 +1,9 @@
 ---
-// TODO: fix this import
-// @ts-ignore
-import TonerMissing from "../../components/Toolkit/TonerMissing.svelte";
+// https://github.com/withastro/language-tools/issues/580 -- use different component names for imports
+import TonerMissingComponent from "../../components/Toolkit/TonerMissing.svelte";
 import ToolLayout from "../../layouts/ToolLayout.astro";
 ---
 
 <ToolLayout>
-  <TonerMissing client:only="svelte"/>
+  <TonerMissingComponent client:only="svelte"/>
 </ToolLayout>
