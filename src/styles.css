@@ -1,9 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import('https://fonts.googleapis.com/css?family=Signika')
-@import('https://fonts.googleapis.com/css?family=Ubuntu')
-@import('https://fonts.googleapis.com/css?family=Mukta')
+
+@import('https://fonts.googleapis.com/css?family=Signika');
+@import('https://fonts.googleapis.com/css?family=Ubuntu');
+@import('https://fonts.googleapis.com/css?family=Mukta');
 
 main {
   background-color: theme("colors.card");

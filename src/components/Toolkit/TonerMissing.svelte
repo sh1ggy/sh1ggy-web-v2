@@ -255,26 +255,3 @@
         {/if}
     </div>
 </div>
-
-<style>
-    /* https://svelte.dev/repl/b17c13d4f1bb40799ccf09e0841ddd90?version=4.2.0 */
-
-    #app {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-flow: column;
-    }
-
-    .upload {
-        display: flex;
-        height: 50px;
-        width: 50px;
-        cursor: pointer;
-    }
-    .avatar {
-        display: flex;
-        height: 200px;
-        width: 200px;
-    }
-</style>
