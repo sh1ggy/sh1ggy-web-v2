@@ -13,7 +13,7 @@ allPosts.forEach((post, i) => {
 });
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html
   class="scroll-py-3 p-10 scrollbar-thin scrollbar-track-card scrollbar-thumb-container scrollbar-thumb-rounded-lg scroll-smooth"
 >
@@ -65,18 +65,20 @@ allPosts.forEach((post, i) => {
           </div>
         </div>
         <code class="text-right ml-auto"
-          ><strong>Participated</strong> {frontmatter.eventDate}</code
+          ><strong>Participated </strong>{frontmatter.eventDate}</code
         >
       </div>
-      
+
       <hr class="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700" />
-      
+
       <br />
       <TOC headings={headings} />
       <br />
 
-      <article class="prose lg:prose-xl prose-img:rounded-lg prose-img:ml-auto prose-img:mr-auto prose-a:text-link max-w-none">
-        <slot/>
+      <article
+        class="prose lg:prose-xl prose-img:rounded-lg prose-img:ml-auto prose-img:mr-auto prose-a:text-link max-w-none"
+      >
+        <slot />
       </article>
 
       <div class="flex mb-10">
