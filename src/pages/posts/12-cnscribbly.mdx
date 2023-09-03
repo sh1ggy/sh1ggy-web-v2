@@ -1,0 +1,92 @@
+---
+layout: '../../layouts/BlogPostLayout.astro'
+title: Code Network 2023 Hackathon - scribbly
+smTitle: CNScribbly
+description: 1v1 QuickDraw w AI 
+tags: [NextJS13, Rust, TypeScript, WebSockets]
+repo: https://github.com/sh1ggy/scribbly
+event: https://www.eventbrite.com.au/e/code-network-winter-hackathon-2023-tickets-656620267897
+eventDate: "2023-07-14"
+writtenDate: "2023-09-03"
+---
+
+This year's Code Network hackathon, we decided to go for something AI-orientated and with there being no theme to the Code Network hackathons we put a lot more time into preparation of the idea. Going as team kongi again, we aimed to rise from the defeat of the keyDOTboard project and go for a well-prepared attempt at this hackathon. Considering all the learnings of the previous hackathon, we started preparations about a week earlier, spending all precious days before the hackathon doing R&D. The project itself was a head-to-head version of Google's [QuickDraw](https://quickdraw.withgoogle.com/) website where the goal is to draw the prompt in order to win audience votes and the vote of the AI that would process the drawings -- the first two players would be the ones drawing the prompt, with the rest of the players being spectators of the game.
+
+Our motive for this hackathon was clear as we had a concrete goal in mind, with an appropriate defeat motivation fueling our fire. We still decided to go with some new additions to our ever-growing stack in Jotai, Rust (with Bebop) and PyTorch. The difference between this and the previous hackathon is that we had no directly referable repositories which made things slightly difficult but definitely highlighted the importance of our research and development stage this time around. As per last hackathon's action to pull out of the presentations last minute, we decided that we should go with a project that demonstrates itself in order to put less pressure on us having to make the pitch itself breathe life into our project and make it stick out. 
+
+We decided to stay at a friend's house closer to the hackathon itself as going back and forth between home for our last hackathon sapped up a lot of time.  
+
+## Stack
+- _Front-end_ - NextJS13, Jotai, TailwindCSS (& DaisyUI)
+- _Back-end_- Rust with libraries Bebop and tokio-tungstenite
+
+As per our regular kongi team structure, I was responsible for the front-end while **Anhad** developed the back-end, with the difference this time being the addition of the serialisation library [Bebop](https://github.com/betwixt-labs/bebop) to hold us together, with shared type generation thus making the creation and implementation of our API much easier this time around.
+
+## Timeline
+### Pre-hackathon
+- Brainstormed and scaffolded three solid ideas surrounding AI and piloted them with our friends to get a sense of what idea was the most engaging.
+- Created a project that utilised all components of the stack specified above for the purposes of testing out the Bebop workflow as well as getting established with how Rust websockets can interface with our NextJS 13 front-end via `tokio-tungstenite`.
+- A lot of time was spent to establish what the user workflow would be, with us keeping it as simple as possible as well as creating back-out features for ourselves in cases where the MVP would shift around (which it most likely would).
+- We then created a play-by-play of the entire hackathon that we would aim to follow over the weekend. 
+
+### Hackathon
+#### Day 1
+- Spent a dedicated amount of time to conceptualise our shared Bebop API and accommodate for the kind of information we would be sharing between the front and back end of the project. 
+- We decided to keep to just one active game at a time for presentation purposes.
+- The front-end was brought to a point where our research and development was morphed and shaped into what we envisioned for this project, with there being a real-time drawing component that used `HTML canvas`
+- **Personal pain point -** a lot of time was spent to morph some elements of the code that were already written to suit this hackathon instead of just writing it from scratch which ended up causing more of a time waste than if it was written raw from the start.
+
+#### Day 2
+- This day was integration day, where we were getting to a point where we were hosting the actual lobby itself via webhooks and got to a point where we were able to join the game via QR code.
+- At this stage data was being sent between the front and back end and I was able to, in real-time, render out the drawings of both of the drawing players to the audience. 
+- There was a point in this day where I had broken the drawing component where the drawing itself would render offset from the actual canvas so I had to find a working commit and attempt to revert some of the code back to a working state.
+- There was also time spent cleaning up the user workflow and making things intuitive. 
+- **Personal pain points** 
+	- using `async` on client components leads to very unexpected behaviour and was one of the 
+	- Jotai's provider structure was not followed initially, leading to instances where when we pulled state from our Jotai atoms, nothing would render properly. This was especially felt as we were using layouts as part of NextJS 13's new routing structure, making it hard to narrow down the actual issue at hand.
+	- Attempting to make the `HTML canvases` that were to be drawn on by players appropriately scale to the window size which led to a lot of unexpected behaviour which ultimately ended up being scrapped in favour of fixed window sizes to display the drawings. 
+	- Timers for each of the game's phases were implemented so that the game would transition between each phase automatically
+
+
+#### Day 3
+- At this point the front-end was complete enough for me to pursue some extra out of scope MVP features that would help enhance the presentation like confetti on the results screen. 
+- The state of the back-end was a little dicey as the AI component of the project hadn't been started and as such I wanted to completely leave Anhad to his own devices so as not to interrupt his workflow as he had a lot of work ahead of him. 
+
+Here is a visualisation of the ML processing done using a pre-trained QuickDraw model. 
+![](/blog/CNScribbly/ML.png)
+
+- The final integration test had us cutting it very close to the deadline of the hackathon where I was stunlocked by Jotai not behaving as expected, with our global game state not reflecting correctly on the final results screen. 
+	- We were still at a point where the project was perfectly demoable as a result of drawing component being fully complete but I vowed myself to get the results screen to a functional state which I ended up doing. 
+
+During the **presentation**, we let the project speak for itself and got the Code Network 2023 Hackathon audience participate in the game, with one of the audience members actually being one of the drawers which is not what we intended. At the end of it all, we won the Grand Prize of **Most Awesome** as well as **People's Choice**
+
+**Here is a play-by-play of the general user workflow:** 
+
+1. After having joined an instantiated game, the first two players draw the indicated prompt. 
+![](/blog/CNScribbly/drawing.png)
+
+2. Upon the completion of the drawings, audience voting comences. It's worth noting as well that the drawings are shown real-time stroke-by-stroke.
+![](/blog/CNScribbly/audience.png)
+
+3. When a winner is chosen, the result gets displayed like so. 
+![](/blog/CNScribbly/result.png)
+
+### Post-Hackathon
+Time was spent to get the project deployed, but because the incredible lack of sleep that was had during the weekend, the front-end code was a complete mess and really hard to sort through. Funnily enough, the voting and AI elements of the project were only semi-functional but our demo spoke for itself so much so that we were able to get away with the half implementation. 
+
+Due to the nature of the project, we pretty much had to shelf it and not work on it like we did for keyDOTboard in attempts to avoid the miserable experience that was the post-hackathon work phase of that project.
+
+## Learning
+### Reflective 
+What I learned is that I should never give up, even among the highest level of adversity and pressure. I tend to get to a point closer to the end of hackathons where I start to give up, especially if I see that the project is in an un-demoable state but with this hackathon in particular I am proud that I was able to clutch out the results screen and contribute to tying the presentation all together. Coming into this hackathon with the motivation of the previous defeat was definitely one of the driving factors in me really reaching for the finish line here. 
+
+The combination of the easily shareable types between the front-end and back-end via Bebop with the sufficient preparation did contribute to me feeling capable enough to perform under that pressure. The main pain point of this hackathon for me personally was the stunlock caused by narrowing myself into a hole by sticking with the responsive implementation of the `HTML canvases`. This has helped to plant the concept in my head that I should not be afraid to dispose of code as at the end of the day it will all be there in the git history. Attachment to code only leads to sinking time into code that may not even work for the scenario. 
+
+### Takeaways
+- **Technology conclusions -** 
+	- Jotai is a solid state management library
+	- NextJS 13's layout and file-based routing system makes it really intuitive to make your endpoints
+	- Bebop is a really solid serialisation package that tied the front and back end closely together
+- **Don't be afraid to let go** of the code you wrote during the R&D period, the freedom to forgo this code is what you did the preparation for
+- Even when things seem unreachable or unrecoverable, **don't give** up, not until the last minute. 
+- Having a sufficient preparation phase as well as establishing appropriate back-out plans helped to remove a little stress from our hackathon process, ultimately allowing us to perform better than if we were to go in unprepared.
