@@ -1,6 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const allPosts = (await Astro.glob("../pages/posts/*.mdx")).reverse();
+const allPosts = (await Astro.glob("../pages/posts/*.mdx")).sort((a, b) => {
+  const aFileName = parseInt(a.url.split('/')[2].split('-')[0]);
+  const bFileName = parseInt(b.url.split('/')[2].split('-')[0]);
+  return (
+    aFileName - bFileName
+  )
+}).reverse();
 const pageTitle = "";
 import Tags from "../components/Blog/Tags";
 ---
