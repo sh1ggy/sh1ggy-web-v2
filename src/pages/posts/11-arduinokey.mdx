@@ -29,24 +29,26 @@ NextJS 13 would be a new endeavour for us as we had been avoiding the app router
 
 ## Timeline
 ### Hackathon
-- **Day 1** 
-	- No progress on the front-end was made. 
-	- Made physical Arduino project trying to read RFID hardware
-- **Day 2**
-	- Discussed the general functionality of the website
-	- Did a bit of experimentation with NextJS 13. 
-	- **Front-end** was brought to a functional state where new cards were able to be created as well as edited afterwards with appropriate form validation. During this process, placeholders were established while I awaited for **Anhad** to implement the back-end
-	- **Back-end** works were done to relay the read RFID through serial to Rust back-end
-	- **Personal pain point -** I was stuck waiting for things to do and as a result kept bothering **Anhad** with incessant questions, taking away from his time to get established with **`rust`** and our application's back-end. 
+#### Day 1 
+- No progress on the front-end was made. 
+- Made physical Arduino project trying to read RFID hardware
+
+#### Day 2
+- Discussed the general functionality of the website
+- Did a bit of experimentation with NextJS 13. 
+- **Front-end** was brought to a functional state where new cards were able to be created as well as edited afterwards with appropriate form validation. During this process, placeholders were established while I awaited for **Anhad** to implement the back-end
+- **Back-end** works were done to relay the read RFID through serial to Rust back-end
+- **Personal pain point -** I was stuck waiting for things to do and as a result kept bothering **Anhad** with incessant questions, taking away from his time to get established with **`rust`** and our application's back-end. 
 
 Here's what our hardware situation looked like during the hackathon
 
 ![](/blog/ArduinoKey/hardware.png)
-- **Day 3**
-	- A full day of integration testing where it ended up being the case that the front-end had to accommodate for numerous features that weren't necessarily discussed in the initial conceptualisation phase of this hackathon. 
-	- This involved the back-end attempting to save front-end information to the ESP32's RAM and sync computer sidecars to ESP memory.
-	- **Personal pain point -** for some reason the concept of `localstorage` really put me down a rabbit hole that I couldn't get out of and I sunk a lot of time into the implementation time toward the end of the hackathon when the pressure was high. 
-	- We got to a point where we were essentially 95% done with the project but weren't able to close our implementation off and as a result we skipped out on the presentation which I still do regret.
+
+#### Day 3
+- A full day of integration testing where it ended up being the case that the front-end had to accommodate for numerous features that weren't necessarily discussed in the initial conceptualisation phase of this hackathon. 
+- This involved the back-end attempting to save front-end information to the ESP32's RAM and sync computer sidecars to ESP memory.
+- **Personal pain point -** for some reason the concept of `localstorage` really put me down a rabbit hole that I couldn't get out of and I sunk a lot of time into the implementation time toward the end of the hackathon when the pressure was high. 
+- We got to a point where we were essentially 95% done with the project but weren't able to close our implementation off and as a result we skipped out on the presentation which I still do regret.
 
 ### Post-Hackathon
 Due to our self-viewed failure to present, we were adamant to continue working on this project and see its completion, which inadvertently led to a prolonged sense of stress and strained the **kongi** dynamic a bit, inducing senses of burn out for me personally while I will discuss in the next section. 
