@@ -18,37 +18,39 @@ We decided to stay at a friend's house closer to the hackathon itself as going b
 
 ## Stack
 - _Front-end_ - NextJS13, Jotai, TailwindCSS (& DaisyUI)
-- _Back-end_- Rust with libraries Bebop and tokio-tungstenite
+- _Back-end_- Rust, with tlibraries Bebop and tokio-tungstenite
 
 As per our regular kongi team structure, I was responsible for the front-end while **Anhad** developed the back-end, with the difference this time being the addition of the serialisation library [Bebop](https://github.com/betwixt-labs/bebop) to hold us together, with shared type generation thus making the creation and implementation of our API much easier this time around.
 
 ## Timeline
 ### Pre-hackathon
 - Brainstormed and scaffolded three solid ideas surrounding AI and piloted them with our friends to get a sense of what idea was the most engaging.
-- Created a project that utilised all components of the stack specified above for the purposes of testing out the Bebop workflow as well as getting established with how Rust websockets can interface with our NextJS 13 front-end via `tokio-tungstenite`.
-- A lot of time was spent to establish what the user workflow would be, with us keeping it as simple as possible as well as creating back-out features for ourselves in cases where the MVP would shift around (which it most likely would).
+- We got familiar with all the components of the stack specified above for the purposes of testing out the Bebop workflow as well as getting established with how Rust websockets can interface with our NextJS 13 front-end via `tokio-tungstenite`. 
+- We established what the user workflow would be, with us keeping it as simple as possible as well as creating back-out features for ourselves in cases where the MVP would shift around (which it most likely would).
 - We then created a play-by-play of the entire hackathon that we would aim to follow over the weekend. 
 
 ### Hackathon
 #### Day 1
-- Spent a dedicated amount of time to conceptualise our shared Bebop API and accommodate for the kind of information we would be sharing between the front and back end of the project. 
+Spent a dedicated amount of time to conceptualise our shared Bebop API and accommodate for the kind of information we would be sharing between the front and back end of the project. 
+
 - We decided to keep to just one active game at a time for presentation purposes.
 - The front-end was brought to a point where our research and development was morphed and shaped into what we envisioned for this project, with there being a real-time drawing component that used `HTML canvas`
-- **Personal pain point -** a lot of time was spent to morph some elements of the code that were already written to suit this hackathon instead of just writing it from scratch which ended up causing more of a time waste than if it was written raw from the start.
+- **Personal pain point -** a lot of time was spent to morph some elements of existing code instead of just writing it from scratch which ended up causing more of a time waste than if it was written raw from the start.
 
 #### Day 2
-- This day was integration day, where we were getting to a point where we were hosting the actual lobby itself via webhooks and got to a point where we were able to join the game via QR code.
-- At this stage data was being sent between the front and back end and I was able to, in real-time, render out the drawings of both of the drawing players to the audience. 
-- There was a point in this day where I had broken the drawing component where the drawing itself would render offset from the actual canvas so I had to find a working commit and attempt to revert some of the code back to a working state.
+At this stage data was being sent between the front and back end and I was able to, in real-time, render out the drawings of both of the drawing players to the audience. 
+
+- The drawing component was complete in that audience users could view the drawings as they were in real-time. I had broken the drawing component where the drawing itself would render offset from the actual canvas so I had to find a working commit and attempt to revert some of the code back to a working state.
 - There was also time spent cleaning up the user workflow and making things intuitive. 
 - **Personal pain points** 
-	- using `async` on client components leads to very unexpected behaviour and was one of the 
+	- Using `async` on client components leads to very unexpected behaviour and was one of the stunlocks of the hackathon
 	- Jotai's provider structure was not followed initially, leading to instances where when we pulled state from our Jotai atoms, nothing would render properly. This was especially felt as we were using layouts as part of NextJS 13's new routing structure, making it hard to narrow down the actual issue at hand.
-	- Attempting to make the `HTML canvases` that were to be drawn on by players appropriately scale to the window size which led to a lot of unexpected behaviour which ultimately ended up being scrapped in favour of fixed window sizes to display the drawings. 
-	- Timers for each of the game's phases were implemented so that the game would transition between each phase automatically
+	- Attempting to make the `HTML canvases` that were to be drawn on by players appropriately scale to the window size which led to a lot of unexpected behaviour. This ultimately ended up being scrapped in favour of fixed window sizes to display the drawings. 
 
 
 #### Day 3
+- Timers for each of the game's phases were implemented so that the game would transition between each phase automatically
+- This day was integration day, where were at a point where we were able to join the game via QR code.
 - At this point the front-end was complete enough for me to pursue some extra out of scope MVP features that would help enhance the presentation like confetti on the results screen. 
 - The state of the back-end was a little dicey as the AI component of the project hadn't been started and as such I wanted to completely leave Anhad to his own devices so as not to interrupt his workflow as he had a lot of work ahead of him. 
 
