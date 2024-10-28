@@ -10,16 +10,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.0.0",
-    "@astrojs/react": "^3.0.0",
-    "@astrojs/svelte": "^4.0.0",
-    "@astrojs/tailwind": "^5.0.0",
-    "@astrojs/ts-plugin": "^1.0.6",
+    "@astrojs/mdx": "^3.1.8",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/svelte": "^5.7.2",
+    "@astrojs/tailwind": "^5.1.2",
+    "@astrojs/ts-plugin": "^1.10.4",
     "@emailjs/browser": "^3.11.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
-    "astro": "^3.0.7",
+    "astro": "^4.16.7",
     "fullpage.js": "^4.0.20",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -28,7 +28,7 @@
     "three": "^0.152.2"
   },
   "devDependencies": {
-    "daisyui": "^3.1.7",
+    "daisyui": "^4.12.14",
     "tailwind-scrollbar": "^3.0.4"
   }
 }
