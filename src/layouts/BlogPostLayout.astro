@@ -40,7 +40,7 @@ allPosts.forEach((post, i) => {
 
   <img
     src={`/blog/${frontmatter.smTitle}/background.jpeg`}
-    class="fixed left-0 right-0 top-0 object-fill w-full h-full blur-sm opacity-[0.1] -z-10"
+    class="pointer-events-none fixed left-0 right-0 top-0 object-fill w-full h-full blur-sm opacity-[0.1] -z-10"
   />
 
   <div>
@@ -59,7 +59,7 @@ allPosts.forEach((post, i) => {
           </div>
           <div class="flex flex-col items-center justify-center my-3">
             <code class="m-3"
-              ><strong>Written</strong> {frontmatter.writtenDate}</code
+              ><strong>Written </strong> {frontmatter.writtenDate}</code
             >
             <a class="text-link" href={frontmatter.repo}>GitHub Repo</a>
           </div>
@@ -122,13 +122,14 @@ allPosts.forEach((post, i) => {
 
     // Scroll progress bar
     function scrollPercent() {
-      let scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      let scrollY = window.scrollY || document.documentElement.scrollTop;
       let winHeight =
         window.innerHeight || document.documentElement.clientHeight;
       let docHeight =
         document.body.scrollHeight || document.documentElement.scrollHeight;
+      let readingProgress = document.querySelector("#readingProgress") as HTMLElement
       let scrollPercent = (scrollY / (docHeight - winHeight)) * 100;
-      document.querySelector("#readingProgress").style.width =
+      readingProgress.style.width =
         scrollPercent + "%";
     }
 

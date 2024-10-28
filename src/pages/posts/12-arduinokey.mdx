@@ -1,0 +1,79 @@
+---
+layout: '../../layouts/BlogPostLayout.astro'
+title: Arduino 2023 Hackathon - keyDOTboard
+smTitle: ArduinoKey
+description: RFID card password manager
+tags: [Tauri, NextJS13, TypeScript]
+repo: https://github.com/sh1ggy/keyDOTboard
+event: https://events.humanitix.com/arduino-hackathon-2023
+eventDate: "2023-04-21"
+writtenDate: "2023-08-03"
+---
+
+There has been a large gap between this post and the previous one and as a result the writing style has changed a lot due to personal changes in programming philosophy and differences in general writing ability. 
+
+This year's Arduino hackathon theme was automation. Going as team kongi as per last year's Arduino hackathon, we aimed to redeem ourselves and complete as simple of a project as possible. Our hackathon philosophy at this stage had been going through an iterative process and it was at this hackathon we had arrived at a point in our process wanted to reflect that simplicity is the key and so we chose to make an RFID card password manager. 
+
+The motive for choosing this as the hackathon project was that because there was already  similar implementations around and as such we could focus on experimenting with new technologies like Tauri and RFID as we haven't done so before without the stress of coming up with the implementation ourselves.
+
+Our preparation involved scouting that this project didn't already exist as a product and subsequently we attempted to find similar implementations of RFID scanners that could log you into your computer for example. We did this while also setting up our Tauri development environment. 
+
+## Stack
+- _Front-end_ - Tauri, NextJS13 & TailwindCSS
+- _Back-end_- Rust (as a result of Tauri)
+- _Hardware -_ Arduino, ESP32 & RC522
+
+As per our normal team structure, I was responsible for the front-end while **Anhad** developed the back-end. 
+
+NextJS 13 would be a new endeavour for us as we had been avoiding the app router these past few hackathons, sticking to NextJS 12 which we had already utilised in a hackathon setting. 
+
+## Timeline
+### Hackathon
+#### Day 1 
+- No progress on the front-end was made. 
+- Made physical Arduino project trying to read RFID hardware
+
+#### Day 2
+- Discussed the general functionality of the website
+- Did a bit of experimentation with NextJS 13. 
+- **Front-end** was brought to a functional state where new cards were able to be created as well as edited afterwards with appropriate form validation. During this process, placeholders were established while I awaited for **Anhad** to implement the back-end
+- **Back-end** works were done to relay the read RFID through serial to Rust back-end
+- **Personal pain point -** I was stuck waiting for things to do and as a result kept bothering **Anhad** with incessant questions, taking away from his time to get established with **`rust`** and our application's back-end. 
+
+Here's what our hardware situation looked like during the hackathon
+
+![](/blog/ArduinoKey/hardware.png)
+
+#### Day 3
+- A full day of integration testing where it ended up being the case that the front-end had to accommodate for numerous features that weren't necessarily discussed in the initial conceptualisation phase of this hackathon. 
+- This involved the back-end attempting to save front-end information to the ESP32's RAM and sync computer sidecars to ESP memory.
+- **Personal pain point -** for some reason the concept of `localstorage` really put me down a rabbit hole that I couldn't get out of and I sunk a lot of time into the implementation time toward the end of the hackathon when the pressure was high. 
+- We got to a point where we were essentially 95% done with the project but weren't able to close our implementation off and as a result we skipped out on the presentation which I still do regret.
+
+### Post-Hackathon
+Due to our self-viewed failure to present, we were adamant to continue working on this project and see its completion, which inadvertently led to a prolonged sense of stress and strained the **kongi** dynamic a bit, inducing senses of burn out for me personally while I will discuss in the next section. 
+
+As far as the work went, we got the project to a point where we could call it finished in 6 further coding sessions over the course of a week and a half, getting the front and back end fully integrated, with successful hardware device functionality. However, it all culminated to a point where we learned that the ESP32 that we based our whole project around doesn't have the capability to output COM port key strokes thus invalidating the entire project. As a result, we shelved the project, got a workaround working with the keystrokes instead sending through Bluetooth. 
+
+Having come to these conclusions about the experience of working on keyDOTboard, we swore to implement the following two aspects of workflow into our hackathon process. 
+1. Do sufficient R&D before the hackathon so that the dynamic of the event and the API itself is as clear as it can be
+2. Minimise the work done on the hackathon project post-hackathon as hackathons are temporal and should almost be treated as such. 
+	- This is especially apparent when you're writing on top of the code that you wrote while sleep deprived and stressed out -- with the most ideal option being that you scrap most of the code you wrote in favour of decent code being written outside of the hackathon setting.
+	- It's okay to think a concept is good but, minimise trying to keep your code as working around the code you wrote in the hackathon is more trouble than its worth. Do not be afraid to dispose of code that is no longer valuable. 
+
+This is what the project ended up looking by the end of it. Take a look at the GitHub repository's [User Guide](https://github.com/sh1ggy/keyDOTboard/blob/main/UserGuide.md) for a bit more of an overview of the application.
+![](/blog/ui.png)
+
+
+## Learning
+### Reflective 
+What I learned is that I should treat programming like a hobby and not like a subject in university or as if it were work. I personally engaged in the latter way of thinking and it left me feeling incredibly burnt out from coding as well as feeling suffocated working in the kongi duo. This self-inflicted toxic productivity and perfectionism is what I wanted to address going forward as ultimately, programming is something that is gratifying and fun to me and the last thing that I would want to do is ruin that for myself. As a result of all of these conclusions I reached a point where I wanted to come into the next hackathon not only prepared, but also excited to have fun by learning and making stuff. keyDOTboard was conclusively a valuable experience as with the strongest defeat comes the greatest victory. 
+
+### Takeaways
+- **Technology conclusions -** Tauri, NextJS 13 and TailwindCSS are a strong stack for building desktop applications as a front-end developer. 
+	- NextJS 13 was surprisingly intuitive, with layouts and the file-based routing structure making it really easy to visualise your project's user workflow
+	- TailwindCSS makes it incredibly easy to relate your HTML with what styles its using, especially in a hackathon setting as you don't need to switch between different sources of information to get the whole picture about how your elements are styled
+- Do your **due diligence**, research and develop before hackathons so that you're not rocking up cold and spending the majority of the time deciding how to get started.
+- **Communication is key**, air your feelings when working in a team and don't leave feeling resentful. 
+- When presenting, **there is no immediate threat**, despite how stressful public speaking is, there are no consequences when you stumble, so take things in stride and pitch your failures for others to learn from. 
+

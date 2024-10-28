@@ -1,0 +1,55 @@
+---
+layout: '../../layouts/BlogPostLayout.astro'
+title: Code Network 2022 Hackathon - simio
+smTitle: CNSimio
+description: Tile-based envrionmental sim 
+tags: [Unity, AseSprite]
+repo: https://github.com/ProPablo/simio
+event: https://www.eventbrite.com.au/e/winter-hackathon-2022-tickets-373983062407
+eventDate: "2023-07-15"
+writtenDate: "2023-09-12"
+---
+
+This year was the first time that I would participate in the Code Network Winter Hackathon event which was exciting because it was another opportunity to create a project with no limit on theme. The only preparation done for this hackathon was only in the conception of the project, wherein we decided to develop a game. The game itself is Simio, an environmental sim which aimed to combine the environmental sim aspects of stuff like Simmilands, the tiling aesthetics of Dorfromantik and the deck building components of Slay the Spire to make a game where the main goal is to balance your ecosystem of animals. The team this time consisted of Anhad's game jam duo buddy Owen and my friend Doug whom I participated in my first hackathon with. 
+
+The motive for developing a game was primarily because Anhad wanted to be able to participate in GMTK 2022 as well. As a result of this, despite the freedom of Code Network 2022, we ended up having to adhere to the GMTK 2022 theme. You can play the game [here](https://buburito.itch.io/wildlifesim)
+
+## Stack
+- **Implementation -** Unity 
+- **Documentation & Presentation**
+	- Draw.io for diagramming
+	- Google Docs for ideation
+	- beautiful.ai for presenting
+
+## Timeline
+### Pre-hackathon
+- Brainstormed a few different gameplay loops that Simio could follow, with the core of the concept being the environmental sim with a hex tilemap that animals roam around in with different biomes. The idea is that we could morph any of these concepts to match the theme of GMTK that we were waiting for. 
+
+### Hackathon
+#### Day 1
+Awaited the GMTK prompt which ended up being "Roll the Dice" for which we had to re-jig our environmental sim concept to be inclusive of that theme. 
+- Currently the environmental sim idea that we had didn't have a mode of player agency and as such, adding in an explicit dice roll to determine events that happen in the sim is what we decided to go with. With this decision in mind we brainstormed the general concepts, mapping out interactions and events that had potential to happen.
+- It was decided that the animals or actors as we referred to them internally could then interact with each other on a tick-based timing system where they would perform one action per tick. Said interactions would follow a sort of hierarchical food-chain sort of mechanic where each actor had unique attributes that made them stand apart from each other.
+- **Personal pain point -** there was a very clear discrepancy in the game development skill level between me and Doug between Owen and Anhad as per their game jam experience. As a result of this there was a clear rift in the team, with me and Doug having to focus on the concepts, planning and diagramming whilst Anhad and Owen are purely implementation. This did lead to me personally feeling like I had little stake in the project.
+
+#### Day 2
+Spent this day diagramming, playtesting and doing sprite creation
+- I spent a lot of time personally creating the below diagram which aimed to describe the relationship between the various animals that would walk around our environmental sim and interact with each other
+![](/blog/CNSimio/diagram.png)
+- Most of the sprites that were used were free assets, though we did create a few of our own in the same style for additional animals
+- At this stage, the game had taken form, with noise generation for random generation in the terrain where there were differently generated biomes as well as varying levels of elevation to indicate that. The ability to spawn in random animals on a selected tile and have them move around was also present. 
+
+#### Day 3
+It was decided that the "Roll the Dice" mechanics were not feasible as part of this hackathon's scope and instead the agency we would give the player ended up being a "boop" action as we called it. What this mechanic did was allow the player to invoke a tick to occur on their selected tile without having to wait for time to pass. 
+
+
+During the **presentation**, Doug lead the pitch with a focus on setting the scene by clearly establishing our motives and inspiration. We then let the project speak for itself in the demo while also explaining its inner workings with the diagrams we made. After having presented our game, we won **Most Technical** for our heavy planning and solid implementation. I personally didn't participate in any **post hackathon** works as I didn't have much of a stake in the development of this project.
+
+## Learning
+### Reflective 
+This hackathon is probably the least involved I have been in the actual implementation of a project and as a result it felt particularly jarring to receive any sort of award or credit. Ultimately it really did come down to the strength of the presentation where we detailed our motives, inspiration, planning and project down to a T. I'd say that this particular Code Network hackathon sort of opened my eyes to the power of the pitch which I hoped to bring to future hackathons. 
+
+### Takeaways
+- A **good pitch** is everything because despite our game not necessarily being finished, our ability to describe various mechanics prove advantageous from a presentation perspective. 
+- Despite not being involved necessarily in the project, you can still provide value to the hackathon project in other ways.
+- Trying to balance both GMTK and Code Network within the scope of the same hackathon was not a good idea and ultimately led to less focus on either one. 
