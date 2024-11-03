@@ -14,6 +14,7 @@ import { RiTailwindCssLine } from "react-icons/ri";
 import { SiDiagramsdotnet } from "react-icons/si";
 import { MdOutlineAppShortcut } from "react-icons/md";
 import { MdDesignServices } from "react-icons/md";
+import { AiOutlineDotNet } from "react-icons/ai";
 
 import type { ReactNode } from "react";
 
@@ -31,18 +32,19 @@ interface SoftSkill {
 
 export default function Skills() {
   const HARD_SKILLS: HardSkill[] = [
-    { name: "TypeScript", time: 3, percent: 60, icon: <TbBrandTypescript /> },
-    { name: "React", time: 3, percent: 60, icon: <FaReact /> },
+    { name: "TypeScript", time: 3, percent: 70, icon: <TbBrandTypescript /> },
+    { name: "React", time: 3, percent: 70, icon: <FaReact /> },
+    { name: ".NET", time: 1, percent: 30, icon: <AiOutlineDotNet /> },
     {
       name: "React Native",
       time: 2,
       percent: 50,
       icon: <TbBrandReactNative />,
     },
-    { name: "CSS", time: 5, percent: 80, icon: <FaCss3 /> },
-    { name: "Tailwind", time: 1, percent: 65, icon: <RiTailwindCssLine /> },
-    { name: "MySQL", time: 2, percent: 60, icon: <FaDatabase /> },
-    { name: "Figma", time: 1, percent: 60, icon: <FaFigma /> },
+    { name: "Tailwind", time: 2, percent: 70, icon: <RiTailwindCssLine /> },
+    { name: "CSS", time: 3, percent: 70, icon: <FaCss3 /> },
+    { name: "SQL", time: 2, percent: 60, icon: <FaDatabase /> },
+    { name: "Figma", time: 2, percent: 60, icon: <FaFigma /> },
   ];
 
   const SOFT_SKILLS: SoftSkill[] = [
@@ -73,7 +75,7 @@ export default function Skills() {
               </p>
             </div>
             <p className="text-body text-center mt-auto mb-2 lg:mb-0 z-10">
-              {s.time} years
+              {s.time} year{s.time > 1 && "s"}
             </p>
             <div
               style={{ width: `${s.percent}%` }}
