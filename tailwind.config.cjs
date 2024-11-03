@@ -39,6 +39,7 @@ module.exports = {
 					"primary": "#a0c99e",
 					"accent": "#fbb874",
 					"backgroundColor": '#353A47',
+					"link": "#a9dbeb"
 				}
 			},
 			'light',
