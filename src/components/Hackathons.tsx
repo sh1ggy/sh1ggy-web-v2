@@ -178,7 +178,7 @@ export default function Hackathons() {
                 {h.desc}
               </p>
               <div className="flex space-x-3 mt-auto">
-                <Tags tags={h.tags} isDark={false} />
+                <Tags tags={h.tags} />
               </div>
             </div>
           </div>

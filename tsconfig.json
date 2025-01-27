@@ -15,6 +15,12 @@
       "es6",
       "dom",
       "dom.iterable"
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   }
 }

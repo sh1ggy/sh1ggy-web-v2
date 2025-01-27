@@ -35,7 +35,7 @@ import Tags from "../components/Blog/Tags";
             <div class="card-body" onclick={`location.href='${post.url}'`}>
               <h2 class="card-title">{post.frontmatter.title}</h2>
               <div class="flex gap-3">
-                <Tags tags={post.frontmatter.tags} isDark/>
+                <Tags tags={post.frontmatter.tags} />
               </div>
               <h3>{post.frontmatter.description}</h3>
               <code>{post.frontmatter.eventDate}</code>

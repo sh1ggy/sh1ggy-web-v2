@@ -58,7 +58,7 @@ export default function Projects() {
                   <h1 style={{ color: `${p.color}` }} className="text-3xl lg:text-4xl">{p.name}</h1>
                   <p className="text-body text-center">{p.desc}</p>
                   <div className="flex flex-row space-x-3">
-                    <Tags tags={p.tags} isDark={false}/>
+                    <Tags tags={p.tags} />
                   </div>
                   <a href={p.repo} className="opacity-70 hover:opacity-90 duration-200 transition-opacity relative z-0 group">
                     <div className="group absolute inset-0 flex justify-center items-center z-10 opacity-50 rounded-3xl">

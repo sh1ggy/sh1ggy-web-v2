@@ -3,10 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import About from "../components/About.jsx";
 import Experience from "../components/Experience";
 import Skills from "../components/Skills";
-import Contact from "../components/Contact";
 import Projects from "../components/Projects";
 import Hackathons from "../components/Hackathons";
-import Header from "../components/Header";
 import "../styles.css";
 ---
 
@@ -29,7 +27,6 @@ import "../styles.css";
         <img class="object-contain w-11" src="../linkedin.svg" />
       </a>
     </div>
-    <Header client:only="react" />
     <main class="flex flex-col flex-grow">
       <section class="space-y-96">
         <div tabindex="-1" class="fade fadeOut">
@@ -51,16 +48,13 @@ import "../styles.css";
         >
           <Skills client:visible />
         </div>
-        <div tabindex="-1" id="contact" class="fade fadeOut w-full">
-          <Contact client:visible />
-        </div>
       </section>
     </main>
     <!-- FOOTER -->
     <footer
       class="flex items-center rounded-t-xl p-6 bg-card w-full shadow-lg justify-center"
     >
-      <p class="text-body bg-card">
+      <p class="bg-page">
         {"Designed & Built with <3 by Tyrone Nolasco"}
       </p>
     </footer>
