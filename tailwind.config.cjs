@@ -18,7 +18,7 @@ module.exports = {
         ubuntu: ["Ubuntu", "sans-serif"],
         mukta: ["Mukta", "sans-serif"],
         gluten: ["Gluten", "sans-serif"],
-				shanns: ["Comic Shanns", "sans-serif"],
+        shanns: ["Comic Shanns", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -84,7 +84,6 @@ module.exports = {
     },
   },
   plugins: [
-    require("daisyui"),
     require("tailwind-scrollbar")({ nocompatible: true }),
     require("@tailwindcss/typography"),
     require("tailwindcss-animate"),

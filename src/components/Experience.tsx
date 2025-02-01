@@ -42,7 +42,7 @@ export default function Experience() {
       tags: ["React", "TypeScript", ".NET", "TailwindCSS", "Azure"],
       colour: "#12316e",
       bgColour: "#4c6da9",
-      imagePath: "../sonic.svg",
+      imagePath: "../icons/sonic.svg",
     },
     {
       roleName: "Systems Support",
@@ -54,7 +54,7 @@ export default function Experience() {
       tags: ["MySQL", "Troubleshooting", "Documentation"],
       colour: "#12316e",
       bgColour: "#4c6da9",
-      imagePath: "../sonic.svg",
+      imagePath: "../icons/sonic.svg",
     },
     {
       roleName: "IT Supervisor & SM Designer",
@@ -66,12 +66,12 @@ export default function Experience() {
       tags: ["MySQL", "PHP", "Design", "Training", "Documentation"],
       colour: "#ff5252",
       bgColour: "#f7a1a1",
-      imagePath: "../wings.svg",
+      imagePath: "../icons/wings.svg",
     },
   ];
 
   return (
-    <div className="relative w-full max-w-5xl mx-auto px-12 py-8">
+    <div className="relative w-full max-w-5xl mx-auto px-12 py-8 bg-gradient-to-br from-purple-900 to-indigo-900 bg-indigo-900">
       <Carousel
         opts={{
           align: "center",
@@ -81,10 +81,10 @@ export default function Experience() {
           {JOBS.map((j, index) => (
             <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/3">
               <div className="group perspective">
-                <Card className="xl:w-[290px] xl:h-[420px] [transform-style:preserve-3d] transition-all duration-500 group-hover:[transform:rotateY(180deg)]">
+                <Card className="w-[300px] h-[420px] [transform-style:preserve-3d] transition-all duration-500 group-hover:[transform:rotateY(180deg)]">
                   <CardContent
                     style={{ backgroundColor: j.bgColour }}
-                    className="absolute inset-0 [backface-visibility:hidden]  bg-gradient-to-br from-blue-300 to-blue-100 p-2 rounded-xl flex items-center justify-center"
+                    className="absolute inset-0 [backface-visibility:hidden] [transform:rotateX(0deg)] bg-gradient-to-br from-blue-300 to-blue-100 p-2 rounded-xl flex items-center justify-center"
                   >
                     <p className="flex flex-col justify-center items-center text-xl font-bold text-center text-blue-800">
                       <img src={j.imagePath} />
@@ -92,12 +92,12 @@ export default function Experience() {
                   </CardContent>
                   <CardContent className="flex flex-col [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-yellow-300 to-yellow-100 p-6">
                     <CardHeader>
-                      <h3
+                      <CardTitle
                         style={{ color: j.colour }}
                         className="text-2xl font-bold text-blue-600 mb-2"
                       >
                         {j.company}
-                      </h3>
+                      </CardTitle>
                       <p className="text-lg font-semibold text-blue-800">
                         {j.roleName}
                       </p>

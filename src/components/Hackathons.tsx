@@ -1,6 +1,6 @@
-import { useState } from "react";
 import Tags from "./Blog/Tags";
 import { FaGithub } from "react-icons/fa";
+import { Badge } from "./ui/badge";
 
 type Project = {
   hack: string;
@@ -135,11 +135,11 @@ export default function Hackathons() {
     <div className="flex flex-col space-y-6 p-10 lg:pb-96 lg:mx-14">
       <div className="flex flex-col items-center justify-center space-y-6">
         <h1 className="text-primary drop-shadow-lg text-3xl lg:text-6xl">
-          Other Projects
+          fun hax
         </h1>
-        <div className="text-accent cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-lg p-2">
+        <Badge variant="secondary">
           Count: {HACKATHONS.length}
-        </div>
+        </Badge>
       </div>
       <div className="lg:grid lg:grid-cols-3 gap-5 lg:space-y-0 space-y-3 flex flex-col rounded-2xl relative sm:mb-96">
         {HACKATHONS.map((h, i) => (
