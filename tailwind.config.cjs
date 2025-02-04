@@ -5,9 +5,9 @@ module.exports = {
   theme: {
     colors: {
       primary: "#a0c99e",
-      accent: "#fbb874",
       body: "#000000",
       link: "#72B5CB",
+      skill: "#a0c99e",
       container: "#484D59",
       page: "#f6f3f6ff",
       card: "#353A47",
@@ -84,6 +84,7 @@ module.exports = {
     },
   },
   plugins: [
+    require("daisyui"),
     require("tailwind-scrollbar")({ nocompatible: true }),
     require("@tailwindcss/typography"),
     require("tailwindcss-animate"),

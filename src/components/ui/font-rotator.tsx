@@ -19,7 +19,7 @@ export default function FontRotator({ text }: Props) {
 
   return (
     <h1
-      className={`text-3xl font-bold text-center text-neutral-500 p-4 ${fonts[currentFontIndex]}`}
+      className={`text-2xl font-bold text-center text-neutral-500 p-4 ${fonts[currentFontIndex]}`}
     >
       {text}
     </h1>

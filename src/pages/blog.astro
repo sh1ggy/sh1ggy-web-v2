@@ -14,8 +14,8 @@ import Tags from "../components/Blog/Tags";
 <Layout title={pageTitle}>
   <div class="flex flex-col lg:h-screen">
     <header class="flex flex-col text-center py-10 space-y-3">
-      <strong class="text-4xl text-primary"><code>sh1ggy log</code></strong>
-      <button onclick="location.href='/'" class="btn btn-ghost mr-auto ml-auto"
+      <strong class="text-4xl text-[white]"><code>sh1ggy log</code></strong>
+      <button onclick="location.href='/'" class="btn mr-auto ml-auto"
         >Back to Home</button
       >
     </header>
@@ -37,7 +37,7 @@ import Tags from "../components/Blog/Tags";
               <div class="flex gap-3">
                 <Tags tags={post.frontmatter.tags} />
               </div>
-              <h3>{post.frontmatter.description}</h3>
+              <h3 class="text-[white]">{post.frontmatter.description}</h3>
               <code>{post.frontmatter.eventDate}</code>
             </div>
           </div>

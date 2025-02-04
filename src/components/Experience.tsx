@@ -62,7 +62,7 @@ export default function Experience() {
       location: "Fortitude Valley",
       link: "wingseducation.com.au",
       date: "Aug 2021 - May 2022",
-      bio: "Led development of LMS using Moodle (PHP) & SQL, managed company social media platforms and composed key internal documentation.",
+      bio: "Led development of LMS using Moodle (PHP) & SQL, managed company social media platforms and composed key internal documentation used for training IT interns.",
       tags: ["MySQL", "PHP", "Design", "Training", "Documentation"],
       colour: "#ff5252",
       bgColour: "#f7a1a1",

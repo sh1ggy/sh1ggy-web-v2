@@ -10,23 +10,6 @@ import "../styles.css";
 
 <Layout title="sh1ggy-web">
   <div class="flex flex-col lg:h-screen lg:w-auto overflow-y w-screen">
-    <!-- SOCIALS -->
-    <div
-      class="flex flex-col bottom-0 fixed mb-3 lg:mb-6 space-y-3 rounded-lg p-3 lg:p-6 z-10"
-    >
-      <a
-        href="https://www.github.com/sh1ggy"
-        class="hover:scale-90 transition-transform focus:outline-none drop-shadow-xl"
-      >
-        <img class="object-contain w-11" src="../github.svg" />
-      </a>
-      <a
-        href="https://www.linkedin.com/in/tyrone-nolasco/"
-        class="hover:scale-90 transition-transform focus:outline-none drop-shadow-xl"
-      >
-        <img class="object-contain w-11" src="../linkedin.svg" />
-      </a>
-    </div>
     <main class="flex flex-col flex-grow">
       <section class="space-y-96">
         <div tabindex="-1" class="fade fadeOut">
@@ -35,26 +18,26 @@ import "../styles.css";
         <div tabindex="-1" id="exp" class="fade fadeOut w-full">
           <Experience client:visible />
         </div>
+        <div tabindex="-1" id="skills" class="fade fadeOut scroll-my-24 w-full">
+          <Skills client:visible />
+        </div>
         <div tabindex="-1" id="proj" class="fade fadeOut scroll-my-24 w-full">
           <Projects client:load />
         </div>
-        <div tabindex="-1" id="hack" class="fade fadeOut w-full">
-          <Hackathons client:visible />
-        </div>
         <div
           tabindex="-1"
-          id="skills"
-          class="fade fadeOut scroll-my-24 w-full"
+          id="hack"
+          class="lg:fade lg:fadeOut scroll-my-24 w-full"
         >
-          <Skills client:visible />
+          <Hackathons client:visible />
         </div>
       </section>
     </main>
     <!-- FOOTER -->
     <footer
-      class="flex items-center rounded-t-xl p-6 bg-card w-full shadow-lg justify-center"
+      class="flex items-center rounded-t-xl p-6 w-full shadow-lg justify-center"
     >
-      <p class="bg-page">
+      <p class="text-[white] bg-none!">
         {"Designed & Built with <3 by Tyrone Nolasco"}
       </p>
     </footer>
