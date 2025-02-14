@@ -45,7 +45,7 @@ interface Project {
   };
 }
 
-const projects: Project[] = [
+export const projects: Project[] = [
   {
     fullName: "PUGB",
     name: "Photo Battle Royale",
@@ -244,7 +244,7 @@ const ProjectGrid: React.FC = () => {
     null
   );
 
-  const ProjectView: React.FC<{ project: any }> = ({ project }) => {
+  const ProjectView: React.FC<{ project: Project }> = ({ project }) => {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}

@@ -1,10 +1,9 @@
+import { Button } from "@/components/ui/button";
+import FontRotator from "@/components/ui/font-rotator";
+import ImageRotator from "@/components/ui/image-rotator";
+import { projects } from "@/components/ui/project-grid";
 import { useState } from "react";
-import { HACKATHONS } from "./Hackathons";
-import ImageRotator from "./ui/image-rotator";
-import { Button } from "./ui/button";
-import FontRotator from "./ui/font-rotator";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-// import * from "three";
 
 export default function About() {
   const [showBio, setShowBio] = useState(false);
@@ -71,10 +70,7 @@ export default function About() {
           <>
             <div className="absolute top-20 flex flex-col gap-12 right-1/2 left-1/2">
               <div className="flex w-full justify-center gap-3">
-                <Button
-                  onClick={() => setShowBio(!showBio)}
-                  variant="link"
-                >
+                <Button onClick={() => setShowBio(!showBio)} variant="link">
                   back
                 </Button>
               </div>
@@ -87,7 +83,6 @@ export default function About() {
               </div>
               <div className="text-md flex flex-col justify-center items-center gap-3">
                 <p className="text-body text-center">
-                  is a{" "}
                   <span className="bg-[#d4e6ff] rounded-sm p-1 mx-1">
                     full-time developer
                   </span>
@@ -96,18 +91,20 @@ export default function About() {
                 </p>
                 <br />
                 <p className="text-left">
-                  I'm characterised by my proficiency in{" "}
+                  lover of{" "}
                   <span className="bg-[#d4e6ff] rounded-sm p-1">
                     documentation and front-end design
-                  </span>
-                  , with a strong foundation in programming. I have a keen eye
-                  for detail and a passion for creating.
+                  </span>{" "}
+                  with a keen eye for detail and a passion for creating.
                 </p>
                 <br />
                 <p className="text-body text-right">
-                  Hackathons have been my source of inspiration and challenge,
-                  having participated in {HACKATHONS.length} hackathons since
-                  2019.
+                  Hackathons are my source of inspiration and challenge,
+                  participating in
+                  <span className="bg-[#d4e6ff] rounded-sm p-1">
+                    {projects.length} hackathons since 2019
+                  </span>{" "}
+                  and being the proud winner of <strong>Code Network's 2023 Hackathon</strong>
                 </p>
                 <br />
               </div>

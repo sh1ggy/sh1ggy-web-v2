@@ -1,4 +1,4 @@
-import ProjectGrid from "./ui/project-grid";
+import ProjectGrid from "@/components/ui/project-grid";
 
 export default function Hackathons() {
   return (

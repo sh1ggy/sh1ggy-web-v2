@@ -1,4 +1,5 @@
-import { Badge } from "./ui/badge";
+import { Badge } from "@/components/ui/badge";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   Card,
   CardContent,
@@ -10,8 +11,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
   CarouselNext,
+  CarouselPrevious,
 } from "./ui/carousel";
 
 interface Job {
@@ -78,50 +79,60 @@ export default function Experience() {
         }}
       >
         <CarouselContent>
-          {JOBS.map((j, index) => (
-            <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/3">
-              <div className="group perspective">
-                <Card className="w-[300px] h-[420px] [transform-style:preserve-3d] transition-all duration-500 group-hover:[transform:rotateY(180deg)]">
-                  <CardContent
-                    style={{ backgroundColor: j.bgColour }}
-                    className="absolute inset-0 [backface-visibility:hidden] [transform:rotateX(0deg)] bg-gradient-to-br from-blue-300 to-blue-100 p-2 rounded-xl flex items-center justify-center"
-                  >
-                    <p className="flex flex-col justify-center items-center text-xl font-bold text-center text-blue-800">
-                      <img src={j.imagePath} />
-                    </p>
-                  </CardContent>
-                  <CardContent className="flex flex-col [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-yellow-300 to-yellow-100 p-6">
-                    <CardHeader>
-                      <CardTitle
-                        style={{ color: j.colour }}
-                        className="text-2xl font-bold text-blue-600 mb-2"
+          <AnimatePresence mode="wait">
+            {JOBS.map((j, i) => (
+              <motion.div
+                key={j.date}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.5 }}
+                className="group perspective"
+              >
+                <CarouselItem className="lg:basis-1/3">
+                  <div className="group perspective">
+                    <Card className="h-[420px] [transform-style:preserve-3d] transition-all duration-500 group-hover:[transform:rotateY(180deg)]">
+                      <CardContent
+                        style={{ backgroundColor: j.bgColour }}
+                        className="absolute inset-0 [backface-visibility:hidden] [transform:rotateX(0deg)] bg-gradient-to-br from-blue-300 to-blue-100 p-2 rounded-xl flex items-center justify-center"
                       >
-                        {j.company}
-                      </CardTitle>
-                      <p className="text-lg font-semibold text-blue-800">
-                        {j.roleName}
-                      </p>
-                      <p className="text-sm text-gray-600 mb-4">{j.date}</p>
-                      <p className="text-sm">{j.bio}</p>
-                    </CardHeader>
-                    <CardFooter className="mt-24">
-                      <div className="flex flex-wrap gap-1 items-center justify-center">
-                        {j.tags.map((skill, index) => (
-                          <Badge
-                            key={index}
-                            variant="outline"
-                            className="px-2 py-1 text-xs rounded"
+                        <p className="flex flex-col justify-center items-center text-xl font-bold text-center text-blue-800">
+                          <img src={j.imagePath} />
+                        </p>
+                      </CardContent>
+                      <CardContent className="flex flex-col [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-yellow-300 to-yellow-100 p-6">
+                        <CardHeader>
+                          <CardTitle
+                            style={{ color: j.colour }}
+                            className="text-2xl font-bold text-blue-600 mb-2"
                           >
-                            {skill}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardFooter>
-                  </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
+                            {j.company}
+                          </CardTitle>
+                          <p className="text-lg font-semibold text-blue-800">
+                            {j.roleName}
+                          </p>
+                          <p className="text-sm text-gray-600 mb-4">{j.date}</p>
+                          <p className="text-sm">{j.bio}</p>
+                        </CardHeader>
+                        <CardFooter className="mt-24">
+                          <div className="flex flex-wrap gap-1 items-center justify-center">
+                            {j.tags.map((skill, index) => (
+                              <Badge
+                                key={index}
+                                variant="outline"
+                                className="px-2 py-1 text-xs rounded"
+                              >
+                                {skill}
+                              </Badge>
+                            ))}
+                          </div>
+                        </CardFooter>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </CarouselContent>
         <CarouselPrevious />
         <CarouselNext />
