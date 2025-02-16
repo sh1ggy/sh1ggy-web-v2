@@ -117,7 +117,7 @@ export const projects: Project[] = [
       event: "UQCS Hackathon",
       eventLink: "https://uqcs.org/competitions/hackathon-2022/",
     },
-    repo: "https://github.com/ProPablo/naklw",
+    repo: "https://github.com/ProPablo/nakl",
     tags: [
       <FaReact size={ICON_SIZE} />,
       <TbBrandReactNative size={ICON_SIZE} />,
@@ -315,7 +315,7 @@ const ProjectGrid: React.FC = () => {
                 transition={{ delay: index * 0.1 }}
                 onClick={() => setSelectedProject(project)}
               >
-                <Card className="h-full flex flex-col">
+                <Card key={project.name} className="h-full flex flex-col">
                   <div className="relative w-full pt-[56.25%]">
                     <img
                       src={
@@ -326,7 +326,7 @@ const ProjectGrid: React.FC = () => {
                     />
                     <div className="bg-[white] border-x border-b shadow-inset shadow-xl py-2 z-50 absolute top-0 left-1/2 transform -translate-x-1/2 px-3 rounded-b-lg">
                       <div className="flex ml-auto gap-3 items-center">
-                        {project.tags.map((tag) => tag)}
+                        {project.tags.map((tag) => <React.Fragment key={tag.toString()}>{tag}</React.Fragment>)}
                       </div>
                     </div>
                   </div>

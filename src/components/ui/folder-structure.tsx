@@ -129,27 +129,25 @@ const TreeItem: React.FC<{
           <Folder className="mr-2 h-4 w-4" />
           {item.name}
         </Button>
-        <AnimatePresence>
-          {isOpen && item.children && (
-            <motion.ul
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="ml-4 mt-1 space-y-1 overflow-hidden"
-            >
-              {item.children.map((child, index) => (
-                <TreeItem
-                  key={index}
-                  item={child}
-                  expandedFolders={expandedFolders}
-                  toggleFolder={toggleFolder}
-                  setSelectedProject={setSelectedProject}
-                />
-              ))}
-            </motion.ul>
-          )}
-        </AnimatePresence>
+        {isOpen && item.children && (
+          <motion.ul
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="ml-4 mt-1 space-y-1 overflow-hidden"
+          >
+            {item.children.map((child, index) => (
+              <TreeItem
+                key={index}
+                item={child}
+                expandedFolders={expandedFolders}
+                toggleFolder={toggleFolder}
+                setSelectedProject={setSelectedProject}
+              />
+            ))}
+          </motion.ul>
+        )}
       </li>
     );
   }
@@ -283,7 +281,7 @@ const FolderStructure: React.FC = () => {
   };
 
   return (
-    <AnimatePresence mode="wait">
+    <>
       {selectedProject ? (
         <ProjectView key="project" project={selectedProject} />
       ) : (
@@ -304,7 +302,7 @@ const FolderStructure: React.FC = () => {
           />
         </motion.div>
       )}
-    </AnimatePresence>
+    </>
   );
 };
 

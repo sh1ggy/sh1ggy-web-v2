@@ -1,7 +1,3 @@
-@import('https://fonts.googleapis.com/css?family=Signika');
-@import('https://fonts.googleapis.com/css?family=Ubuntu');
-@import('https://fonts.googleapis.com/css?family=Mukta');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
