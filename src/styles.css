@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: "Gluten";
-  src: url("../public/fonts/Gluten-Black.otf");
+  src: url("/fonts/Gluten-Black.otf");
 }
 
 @font-face {
   font-family: "Comic Shanns";
-  src: url("../public/fonts/comic-shanns.ttf");
+  src: url("/fonts/comic-shanns.ttf");
 }
 
 h1 {

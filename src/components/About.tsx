@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import FontRotator from "@/components/ui/font-rotator";
 import ImageRotator from "@/components/ui/image-rotator";
-import { projects } from "@/components/ui/project-grid";
+import { PROJECTS } from "@/constants/info";
 import { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -102,7 +102,7 @@ export default function About() {
                   Hackathons are my source of inspiration and challenge,
                   participating in
                   <span className="bg-[#d4e6ff] rounded-sm p-1">
-                    {projects.length} hackathons since 2019
+                    {PROJECTS.length} hackathons since 2019
                   </span>{" "}
                   and being the proud winner of <strong>Code Network's 2023 Hackathon</strong>
                 </p>
