@@ -1,197 +1,114 @@
-import { useState } from "react"
+"use client";
 
-type Project = {
-  hack: string,
-  date: string,
-  event: string,
-  desc: string,
-  eventLink: string,
-  repo: string,
-  tags: string[],
-  imagePath?: string,
-}
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { PROJECTS } from "@/constants/info";
+import { AnimatePresence, motion } from "framer-motion";
+import { ExternalLink, Link } from "lucide-react";
+import * as React from "react";
 
-export default function Hackathons() {
-  const HACKATHONS: Project[] =
-    [
-      {
-        hack: "scribbly",
-        date: "16-07-2023",
-        event: "Code Network 2023 Hackathon",
-        desc: "1v1 Google QuickDraw clone w ML scoring",
-        eventLink: "https://www.eventbrite.com.au/e/code-network-winter-hackathon-2023-tickets-656620267897",
-        repo: "https://github.com/sh1ggy/scribbly",
-        tags:
-          [
-            "NextJS13",
-            "Rust",
-            "WS",
-          ],
-      },
-      {
-        hack: "keyDOTboard",
-        date: "22-04-2023",
-        event: "Arduino 2023 Hackathon",
-        desc: "RFID card password manager with auto-login",
-        eventLink: "https://events.humanitix.com/arduino-hackathon-2023",
-        repo: "https://github.com/sh1ggy/keyDOTboard",
-        tags:
-          [
-            "Tauri",
-            "NextJS",
-            "ESP32",
-          ],
-        imagePath: "../keydot.png",
-      },
-      {
-        hack: "NAKL",
-        date: "26-08-2022",
-        event: "UQCS 2022 Hackathon",
-        desc: "P2P chat & file transfer app & website",
-        eventLink: "https://uqcs.org/competitions/hackathon-2022/",
-        repo: "https://github.com/ProPablo/naklw",
-        tags:
-          [
-            "React",
-            "React Native",
-          ],
-        imagePath: "../key.png",
-      },
-      {
-        hack: "simIO",
-        date: "15-07-2022",
-        event: "CN 2022 Hackathon",
-        desc: "Wildlife management sim and card game hybrid",
-        eventLink: "https://www.eventbrite.com.au/e/winter-hackathon-2022-tickets-373983062407",
-        repo: "https://github.com/ProPablo/simio",
-        tags:
-          [
-            "Unity",
-          ],
-        imagePath: "../key.png",
-      },
-      {
-        hack: "Forget me BOT",
-        date: "08-04-2022",
-        event: "Arduino 2022 Hackathon",
-        desc: "Reminder Arduino bot with companion app",
-        eventLink: "https://www.eventbrite.com.au/e/arduino-hackathon-tickets-41459224657#",
-        repo: "https://github.com/sh1ggy/reminder-app",
-        tags:
-          [
-            "React Native",
-            "Arduino",
-          ],
-        imagePath: "../key.png",
-      },
-      {
-        hack: "Bingo Butler",
-        date: "12-09-2021",
-        event: "UQCS 2021 Hackathon",
-        desc: "Discord bot to generate a P2P speedrunning lockout game",
-        eventLink: "https://sh-ggy.itch.io/parity",
-        repo: "https://github.com/ProPablo/parity-GMTK",
-        tags:
-          [
-            "DiscordJS",
-            "NextJS",
-          ],
-        imagePath: "../key.png",
-      },
-      {
-        hack: "Parity",
-        date: "14-06-2021",
-        event: "GMTK 2021 Game Jam",
-        desc: "Bullet hell inventory management sim",
-        eventLink: "https://sh-ggy.itch.io/parity",
-        repo: "https://github.com/ProPablo/parity-GMTK",
-        tags:
-          [
-            "Godot",
-            "Asesprite",
-          ],
-        imagePath: "../key.png",
-      },
-      {
-        hack: "H34RT 4TT4CK",
-        date: "11-04-2020",
-        event: "UCQS 2020 Hackathon",
-        desc: "Cookie Clicker inspired idle game and rhythm game hybrid game built in the web browser",
-        eventLink: "https://www.youtube.com/watch?v=g_abZ3xN0z0&t=2s&ab_channel=UQComputingSociety",
-        repo: "https://github.com/KieranMDolan/UQCS-Hackathon-2020",
-        tags:
-          [
-            "React",
-            "Firebase",
-          ],
-        imagePath: "../key.png",
-      },
-      {
-        hack: "COVID Toolkit",
-        date: "18-10-2020",
-        event: "Hack Quarantine",
-        desc: "An app with COVID country stats, hand-washing timer & FAQ",
-        eventLink: "https://hackquarantine.devpost.com/",
-        repo: "https://github.com/sh1ggy/COVIDToolkit",
-        tags:
-          [
-            "Android Studio",
-          ],
-        imagePath: "../key.png",
-      },
-      {
-        hack: "Casual Earnings",
-        date: "17-11-2019",
-        event: "Mobile App Hackathon",
-        desc: "Wage calculator & rostering application concept made in accordance to specifications made by a start-up",
-        eventLink: "https://www.eventbrite.com.au/e/brisbanes-mobile-app-hackathon-tickets-72067400535#",
-        repo: "https://github.com/sh1ggy/hackathon19-TDRJKM-android",
-        tags:
-          [
-            "Android Studio",
-            "Adobe XD",
-          ],
-        imagePath: "../key.png",
-      },
-    ]
+
+const Hackathons: React.FC = () => {
   return (
     <div className="flex flex-col space-y-6 p-10 lg:pb-96 lg:mx-14">
-      <div className="flex flex-col items-center justify-center space-y-6">
-        <h1 className="text-primary drop-shadow-lg text-3xl lg:text-6xl">Other Projects</h1>
-        <p className="text-body drop-shadow-md text-center">Whenever I get the chance to, I love participating in hackathons and it's definitely contributed a lot to my passion for programming and built my desire to continue working on projects I am passionate about.</p>
-        <div className="text-accent cursor-default hover:bg-[#565b68] transition-colors bg-card rounded-lg p-2">Count: {HACKATHONS.length}</div>
-      </div>
-      <div className="lg:grid lg:grid-cols-3 gap-3 lg:space-y-0 space-y-3 flex flex-col rounded-2xl relative sm:mb-96">
-        {HACKATHONS
-          .map((h, i) => (
-            <div key={i} className="flex flex-col bg-card shadow-md p-6 rounded-md justify-start hover:scale-95 transition-transform space-y-3">
-              <div className="flex flex-row">
-                <div className="flex flex-col w-full">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><strong>{h.hack}</strong></h3>
-                  <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{h.date}</time>
-                </div>
-                <a href={h.repo} className="hover:text-link hover:scale-110 transition-transform">
-                  <img src="../github.svg" className="h-10 w-10 ml-auto" />
-                </a>
-              </div>
-              {/* <img src={h.imagePath} className="w-full" /> */}
-              <div className="flex flex-col h-full">
-                <a href={h.eventLink} className="flex mb-3 hover:text-link space-x-1 transition-colors items-center">
-                  <img src="../bluelink.svg" className="h-5 w-5" />
-                  <p className="text-md font-semibold text-gray-900 dark:text-white">{h.event}</p>
-                </a>
-                <p className="text-body font-normal mb-3 text-gray-500 dark:text-gray-400 break-words">{h.desc}</p>
-                <div className="flex space-x-3 mt-auto">
-                  {h.tags.map((t, i) => (
-                    <div key={i}
-                      className="text-body cursor-default items-center justify-center flex bg-[#565b68] transition-colors hover:bg-[#777d8e] rounded-lg p-2">{t}</div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))
-        }
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key="grid"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          transition={{ duration: 0.3 }}
+          className="container mx-auto p-4"
+        >
+          <div className="w-full mb-6 justify-center items-center flex flex-col gap-3">
+            <h1 className="text-3xl font-bold">hackathons</h1>
+            <Badge className="font-gluten py-2 px-3">
+              Count: {PROJECTS.length}
+            </Badge>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3">
+            {PROJECTS.map((project, i) => (
+              <motion.div
+                key={project.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <Card key={project.name} className="h-full flex flex-col">
+                  <div className="relative w-full pt-[56.25%]">
+                    <img
+                      src={
+                        project?.images[0] ||
+                        "https://via.placeholder.com/400x300"
+                      }
+                      className="absolute inset-0 w-full h-full object-cover rounded-t-lg"
+                    />
+                    <div className="bg-[white] border-x border-b shadow-inset shadow-xl py-2 z-50 absolute top-0 left-1/2 transform -translate-x-1/2 px-3 rounded-b-lg">
+                      <div className="flex ml-auto gap-3 items-center">
+                        {project.tags.map((tag) => (
+                          <React.Fragment key={tag.toString()}>
+                            {tag}
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <CardHeader className="px-3 mt-3">
+                    <a
+                      href={project.repo}
+                      className="flex items-center gap-1 hover:text-link transition-colors duration-150"
+                    >
+                      <CardTitle className="flex w-full gap-1 items-center">
+                        <Link size={15} />
+                        <p>
+                          <strong>{project.fullName}</strong> - {project.name}
+                        </p>
+                      </CardTitle>
+                    </a>
+                    {project.hackathonDetails && (
+                      <CardDescription>
+                        <div className="flex ml-auto">
+                          {project.hackathonDetails?.date}
+                        </div>
+                      </CardDescription>
+                    )}
+                  </CardHeader>
+                  <CardContent className="flex-grow p-3">
+                    <p className="text-sm text-muted-foreground">
+                      {project.description}
+                    </p>
+                  </CardContent>
+                  <CardFooter className="flex gap-2 flex-row lg:flex-col px-3 pb-3">
+                    <div className="flex gap-1 justify-start md:justify-center">
+                      <Badge
+                        variant="secondary"
+                        className="ml-auto hover:text-link"
+                      >
+                        <a
+                          href={project.hackathonDetails?.eventLink}
+                          className="flex items-center gap-1"
+                        >
+                          <ExternalLink size={15} />
+                          {project.hackathonDetails?.event}
+                        </a>
+                      </Badge>
+                    </div>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </AnimatePresence>
     </div>
-  )
-}
+  );
+};
+
+export default Hackathons;

@@ -1,12 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const allPosts = (await Astro.glob("../pages/posts/*.mdx")).sort((a, b) => {
-  const aFileName = parseInt(a.url.split('/')[2].split('-')[0]);
-  const bFileName = parseInt(b.url.split('/')[2].split('-')[0]);
-  return (
-    aFileName - bFileName
-  )
-}).reverse();
+const allPosts = (await Astro.glob("../pages/posts/*.mdx"))
+  .sort((a, b) => {
+    const aFileName = parseInt(a.url.split("/")[2].split("-")[0]);
+    const bFileName = parseInt(b.url.split("/")[2].split("-")[0]);
+    return aFileName - bFileName;
+  })
+  .reverse();
 const pageTitle = "";
 import Tags from "../components/Blog/Tags";
 ---
@@ -14,15 +14,17 @@ import Tags from "../components/Blog/Tags";
 <Layout title={pageTitle}>
   <div class="flex flex-col lg:h-screen">
     <header class="flex flex-col text-center py-10 space-y-3">
-      <strong class="text-4xl text-primary"><code>sh1ggy log</code></strong>
-      <button onclick="location.href='/'" class="btn btn-ghost mr-auto ml-auto">Back to Home</button>
+      <button onclick="location.href='/'" class="btn btn-link mr-auto ml-auto"
+        >home</button
+      >
+      <strong class="text-4xl text-[white]"><code>sh1ggy log</code></strong>
     </header>
     <div class="flex flex-col space-y-6 mx-11">
       {
         allPosts.map((post) => (
           <div
             onclick={`window.location='${post.url}'`}
-            class="card md:card-side h-min bg-container hover:scale-95 hover:cursor-pointer rounded-lg transition-all duration-500"
+            class="card md:card-side h-min bg-[#141925] hover:scale-105 hover:cursor-pointer rounded-xl transition-all duration-500"
           >
             <figure>
               <img
@@ -31,10 +33,12 @@ import Tags from "../components/Blog/Tags";
               />
             </figure>
             <div class="card-body" onclick={`location.href='${post.url}'`}>
-              <h2 class="card-title">{post.frontmatter.title}</h2>
-              <Tags tags={post.frontmatter.tags}/>
-              <h3>{post.frontmatter.description}</h3>
-              <code>{post.frontmatter.eventDate}</code>
+              <h2 class="card-title text-[white]">{post.frontmatter.title}</h2>
+              <h3 class="text-[white]">{post.frontmatter.description}</h3>
+              <code class="text-[white]">{post.frontmatter.eventDate}</code>
+              <div class="flex gap-3 mt-auto">
+                <Tags tags={post.frontmatter.tags} />
+              </div>
             </div>
           </div>
         ))

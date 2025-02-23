@@ -1,5 +1,5 @@
+import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { useEffect, useState } from "react";
-import { useScrollDirection } from "../hooks/useScrollDirection"
 
 export default function Header() {
   const scrollDirection = useScrollDirection();

@@ -1,7 +1,4 @@
 ---
-const { frontmatter, headings } = Astro.props;
-import TOC from "../components/Blog/TOC.astro";
-import Tags from "../components/Blog/Tags";
 const currentPath = Astro.url.pathname;
 const allPosts = await Astro.glob("../pages/posts/*.mdx");
 let prevPost, nextPost;

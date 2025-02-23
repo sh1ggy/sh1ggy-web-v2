@@ -1,62 +1,117 @@
-import { useState } from "react"
-// import * from "three";
+import { Button } from "@/components/ui/button";
+import FontRotator from "@/components/ui/font-rotator";
+import ImageRotator from "@/components/ui/image-rotator";
+import { PROJECTS } from "@/constants/info";
+import { useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function About() {
   const [showBio, setShowBio] = useState(false);
-  return (
-    <div className="flex flex-col items-center lg:h-screen h-[calc(100dvh)] flex-grow justify-center">
-      {/* TITLE */}
-      {!showBio &&
-        <div className="flex flex-col space-y-6 rounded-2xl p-10 justify-center select-none">
-          <div className="flex flex-row space-x-6 bg-page">
-            <h1 className="font-bold drop-shadow-lg text-primary text-3xl lg:text-8xl">sh</h1>
-            <img className="lg:h-24 h-12 drop-shadow-lg" src="../placeholder.svg" />
-            <h1 className="drop-shadow-lg font-bold text-primary text-3xl lg:text-8xl">ggy</h1>
-          </div>
-          <h2 className="text-[#AAC6BA] text-2xl drop-shadow-md ">Tyrone Nolasco</h2>
-          <h3 className="text-[#D9EAD8] text-sm tracking-wider drop-shadow-md">programming / documentation / design</h3>
-          <div className="flex flex-row space-x-5">
-            <button
-              onClick={() => setShowBio(!showBio)}
-              className="w-2/3 bg-accent text-card text-xs rounded-3xl px-3 py-2 hover:scale-110 transition-transform duration-500"
-            >about me</button>
-            <button
-              className="w-1/3 bg-card text-link text-xs rounded-3xl px-3 py-2 hover:scale-110 transition-transform duration-500"
-              onClick={() => window.open('../resume.pdf')}
-            >resume.pdf</button>
-          </div>
-          <a
-            href="/blog"
-            className="w-full text-center bg-card text-body text-xs rounded-3xl px-3 py-2 hover:scale-110 transition-transform duration-500"
-          >blog</a>
-        </div>
-      }
 
-      {/* BIO */}
-      {showBio &&
-        <div className="bg-card flex flex-col space-y-6 rounded-2xl p-10 transition-all justify-center shadow-xl lg:mx-24">
-          <div className="flex flex-row w-full">
-            <div className="flex-0 justify-start items-start">
-              <p className="text-sm text-primary">Hi! My name is...</p>
-              <h1 className="text-primary text-5xl">Tyrone Nolasco</h1><br />
-            </div>
-            <a href="/toolkit" className="ml-auto hover:scale-110 transition-transform duration-500">
-              <img className="h-20" src="../gato.png" />
-            </a>
-          </div>
-          <div className="flex flex-col justify-center items-center">
-            <p className="text-body">I started my journey in high school, having graduated recently last January with a Bachelors in Computer Science from QUT. Currently, I am an aspiring web developer working in <strong>IT Support @ Sonic IT</strong> trying to balance my upskilling in programming with full time work. I have a particular keenness for documentation, front-end design and diagramming.
-            </p><br />
-            <p className="text-body text-right">The best way I've found to fast-track my improvement as a programmer is participating in hackathons when I can and challenging myself to learn a new skill or technology with every event that I am a part of. Apart from hackathons, I like to spend my spare time playing rhythm games.
-            </p><br />
-            <p className="text-accent text-center">I am open to new opportunities at the moment.</p>
-          </div>
-          <button
-            onClick={() => setShowBio(!showBio)}
-            className="bg-page text-body text-xs rounded-3xl px-3 py-2 hover:bg-[#565b68] duration-500 ease-in-out transition-colors">back
-          </button>
+  return (
+    <>
+      <div className="mt-6 absolute top-0 right-1/2 left-1/2 gap-3">
+        <div className="flex flex-row gap-3 w-full items-center justify-center">
+          <a
+            href="https://www.github.com/sh1ggy"
+            className="hover:scale-90 hover:text-link duration-150 transition-all focus:outline-none drop-shadow-xl"
+          >
+            <FaLinkedin size={20} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/tyrone-nolasco/"
+            className="hover:scale-90 hover:text-link duration-150 transition-all focus:outline-none drop-shadow-xl"
+          >
+            <FaGithub size={20} />
+          </a>
         </div>
-      }
-    </div>
-  )
+      </div>
+      <div className="flex flex-col select-none items-center lg:h-screen h-[calc(100dvh)] flex-grow justify-center">
+        {!showBio && (
+          <>
+            <div className="absolute top-20 flex flex-col gap-12 right-1/2 left-1/2">
+              <div className="flex w-full justify-center gap-3">
+                <Button onClick={() => setShowBio(!showBio)} variant="link">
+                  about me
+                </Button>
+                <Button variant="link" onClick={() => window.open("/blog")}>
+                  blog
+                </Button>
+                <Button
+                  onClick={() => window.open("../resume.pdf")}
+                  variant="link"
+                  className="text-link"
+                >
+                  resume.pdf
+                </Button>
+              </div>
+            </div>
+            <div className="flex flex-col space-y-6 rounded-2xl p-10 justify-center">
+              <div className="flex flex-row space-x-2 items-center">
+                <h1 className="font-bold drop-shadow-lg text-primary text-6xl lg:text-8xl">
+                  sh
+                </h1>
+                <ImageRotator />
+                <h1 className="font-bold drop-shadow-lg text-primary text-6xl lg:text-8xl">
+                  ggy
+                </h1>
+              </div>
+            </div>
+
+            <div className="flex-col items-center gap-4 hidden lg:flex">
+              <h1 className="xl:text-lg text-center tracking-wider drop-shadow-md">
+                programming / documentation / design
+              </h1>
+            </div>
+          </>
+        )}
+        {/* BIO */}
+        {showBio && (
+          <>
+            <div className="absolute top-20 flex flex-col gap-12 right-1/2 left-1/2">
+              <div className="flex w-full justify-center gap-3">
+                <Button onClick={() => setShowBio(!showBio)} variant="link">
+                  back
+                </Button>
+              </div>
+            </div>
+
+            <div className="w-full max-w-3xl px-12">
+              <div className="mt-36 lg:mt-0">
+                <FontRotator text={"Tyrone Nolasco"} />
+                <br />
+              </div>
+              <div className="text-md flex flex-col justify-center items-center gap-3">
+                <p className="text-body text-center">
+                  <span className="bg-[#d4e6ff] rounded-sm p-1 mx-1">
+                    full-time developer
+                  </span>
+                  with 3 years of IT industry experience and a Bachelor's degree
+                  in <strong>Computer Science @ QUT</strong>
+                </p>
+                <br />
+                <p className="text-left">
+                  lover of{" "}
+                  <span className="bg-[#d4e6ff] rounded-sm p-1">
+                    documentation and front-end design
+                  </span>{" "}
+                  with a keen eye for detail and a passion for creating.
+                </p>
+                <br />
+                <p className="text-body text-right">
+                  Hackathons are my source of inspiration and challenge,
+                  participating in
+                  <span className="bg-[#d4e6ff] rounded-sm p-1">
+                    {PROJECTS.length} hackathons since 2019
+                  </span>{" "}
+                  and being the proud winner of <strong>Code Network's 2023 Hackathon</strong>
+                </p>
+                <br />
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    </>
+  );
 }
