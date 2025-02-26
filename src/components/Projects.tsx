@@ -1,3 +1,5 @@
+"use client"
+
 import FolderStructure from "./ui/folder-structure";
 
 export default function Projects() {

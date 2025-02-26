@@ -1,3 +1,5 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -39,16 +41,16 @@ export default function Experience() {
               >
                 <CarouselItem className="lg:basis-1/3">
                   <div className="group perspective">
-                    <Card className="h-[420px] [transform-style:preserve-3d] transition-all duration-500 group-hover:[transform:rotateY(180deg)]">
+                    <Card className="h-[420px] lg:w-auto w-[275px] [transform-style:preserve-3d] transition-all duration-500 group-hover:[transform:rotateY(180deg)]">
                       <CardContent
                         style={{ backgroundColor: job.bgColour }}
-                        className="absolute inset-0 [backface-visibility:hidden] [transform:rotateX(0deg)] bg-gradient-to-br from-blue-300 to-blue-100 p-2 rounded-xl flex items-center justify-center"
+                        className="absolute inset-0 [backface-visibility:hidden] [transform:rotateX(0deg)] p-2 rounded-xl flex items-center justify-center"
                       >
                         <p className="flex flex-col justify-center items-center text-xl font-bold text-center text-blue-800">
                           <img src={job.imagePath} />
                         </p>
                       </CardContent>
-                      <CardContent className="flex flex-col [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-yellow-300 to-yellow-100 p-6">
+                      <CardContent className="flex flex-col [backface-visibility:hidden] [transform:rotateY(180deg)] p-6">
                         <CardHeader>
                           <CardTitle
                             style={{ color: job.colour }}
